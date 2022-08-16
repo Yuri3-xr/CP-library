@@ -1,77 +1,5 @@
-#include <bits/stdc++.h>
-using namespace std;
-using i64 = long long;
-using pii = pair<int, int>;
-using VI = vector<int>;
+#pragma once
 
-constexpr int mod = 998244353;
-template <int mod>
-struct ModInt {
-    int x;
-
-    ModInt() : x(0) {}
-
-    ModInt(int64_t y) : x(y >= 0 ? y % mod : (mod - (-y) % mod) % mod) {}
-
-    ModInt &operator+=(const ModInt &p) {
-        if ((x += p.x) >= mod) x -= mod;
-        return *this;
-    }
-
-    ModInt &operator-=(const ModInt &p) {
-        if ((x += mod - p.x) >= mod) x -= mod;
-        return *this;
-    }
-
-    ModInt &operator*=(const ModInt &p) {
-        x = (int)(1LL * x * p.x % mod);
-        return *this;
-    }
-
-    ModInt &operator/=(const ModInt &p) {
-        *this *= p.inverse();
-        return *this;
-    }
-
-    ModInt operator-() const { return ModInt(-x); }
-
-    ModInt operator+(const ModInt &p) const { return ModInt(*this) += p; }
-
-    ModInt operator-(const ModInt &p) const { return ModInt(*this) -= p; }
-
-    ModInt operator*(const ModInt &p) const { return ModInt(*this) *= p; }
-
-    ModInt operator/(const ModInt &p) const { return ModInt(*this) /= p; }
-
-    bool operator==(const ModInt &p) const { return x == p.x; }
-
-    bool operator!=(const ModInt &p) const { return x != p.x; }
-
-    ModInt inverse() const {
-        int a = x, b = mod, u = 1, v = 0, t;
-        while (b > 0) {
-            t = a / b;
-            swap(a -= t * b, b);
-            swap(u -= t * v, v);
-        }
-        return ModInt(u);
-    }
-    friend ostream &operator<<(ostream &os, const ModInt &p) {
-        return os << p.x;
-    }
-
-    friend istream &operator>>(istream &is, ModInt &a) {
-        int64_t t;
-        is >> t;
-        a = ModInt<mod>(t);
-        return (is);
-    }
-
-    int get() const { return x; }
-};
-
-using Z = ModInt<mod>;
-namespace P_space {
 template <class T>
 T power(T a, int b) {
     T res = 1;
@@ -345,19 +273,3 @@ struct Poly {
         return P[1];
     }
 };
-}  // namespace P_space
-using namespace P_space;
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    int n, m;
-    cin >> n >> m;
-
-    vector<Z> a(n + 1), x(m);
-    for (auto &it : a) cin >> it;
-    for (auto &it : x) cin >> it;
-    Poly g(a);
-    auto ans = g.eval(x);
-    for (auto p : ans) cout << p << '\n';
-}
