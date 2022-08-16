@@ -1,30 +1,51 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Magic/Poly.hpp
     title: Magic/Poly.hpp
-  - icon: ':x:'
-    path: ModInt/Modint32.hpp
-    title: ModInt/Modint32.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/convolution_mod
     links:
     - https://judge.yosupo.jp/problem/convolution_mod
   bundledCode: "#line 1 \"Verify/convolution.test.cpp\"\n#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod\"\
-    \n\n#line 2 \"Magic/Poly.hpp\"\n\ntemplate <class T>\nT power(T a, int b) {\n\
-    \    T res = 1;\n    for (; b; b /= 2, a *= a) {\n        if (b % 2) {\n     \
-    \       res *= a;\n        }\n    }\n    return res;\n}\nvector<int> rev;\nvector<Z>\
-    \ roots{0, 1};\nvoid dft(vector<Z> &a) {\n    int n = a.size();\n\n    if (int(rev.size())\
+    \n\n#line 2 \"Magic/Poly.hpp\"\n\n#line 2 \"Template/Template.hpp\"\n\nusing namespace\
+    \ std;\n\n#include <bits/stdc++.h>\n\nusing i64 = long long;\nusing VI = vector<int>;\n\
+    using pii = pair<int, int>;\n#line 4 \"Magic/Poly.hpp\"\n\ntemplate <int mod>\n\
+    struct ModInt {\n    int x;\n\n    ModInt() : x(0) {}\n\n    ModInt(int64_t y)\
+    \ : x(y >= 0 ? y % mod : (mod - (-y) % mod) % mod) {}\n\n    ModInt &operator+=(const\
+    \ ModInt &p) {\n        if ((x += p.x) >= mod) x -= mod;\n        return *this;\n\
+    \    }\n\n    ModInt &operator-=(const ModInt &p) {\n        if ((x += mod - p.x)\
+    \ >= mod) x -= mod;\n        return *this;\n    }\n\n    ModInt &operator*=(const\
+    \ ModInt &p) {\n        x = (int)(1LL * x * p.x % mod);\n        return *this;\n\
+    \    }\n\n    ModInt &operator/=(const ModInt &p) {\n        *this *= p.inverse();\n\
+    \        return *this;\n    }\n\n    ModInt operator-() const { return ModInt(-x);\
+    \ }\n\n    ModInt operator+(const ModInt &p) const { return ModInt(*this) += p;\
+    \ }\n\n    ModInt operator-(const ModInt &p) const { return ModInt(*this) -= p;\
+    \ }\n\n    ModInt operator*(const ModInt &p) const { return ModInt(*this) *= p;\
+    \ }\n\n    ModInt operator/(const ModInt &p) const { return ModInt(*this) /= p;\
+    \ }\n\n    bool operator==(const ModInt &p) const { return x == p.x; }\n\n   \
+    \ bool operator!=(const ModInt &p) const { return x != p.x; }\n\n    ModInt inverse()\
+    \ const {\n        int a = x, b = mod, u = 1, v = 0, t;\n        while (b > 0)\
+    \ {\n            t = a / b;\n            swap(a -= t * b, b);\n            swap(u\
+    \ -= t * v, v);\n        }\n        return ModInt(u);\n    }\n    friend ostream\
+    \ &operator<<(ostream &os, const ModInt &p) {\n        return os << p.x;\n   \
+    \ }\n\n    friend istream &operator>>(istream &is, ModInt &a) {\n        int64_t\
+    \ t;\n        is >> t;\n        a = ModInt<mod>(t);\n        return (is);\n  \
+    \  }\n\n    int get() const { return x; }\n};\nconstexpr int mod = 998244353;\n\
+    using Z = ModInt<mod>;\ntemplate <class T>\nT power(T a, int b) {\n    T res =\
+    \ 1;\n    for (; b; b /= 2, a *= a) {\n        if (b % 2) {\n            res *=\
+    \ a;\n        }\n    }\n    return res;\n}\nvector<int> rev;\nvector<Z> roots{0,\
+    \ 1};\nvoid dft(vector<Z> &a) {\n    int n = a.size();\n\n    if (int(rev.size())\
     \ != n) {\n        int k = __builtin_ctz(n) - 1;\n        rev.resize(n);\n   \
     \     for (int i = 0; i < n; i++) {\n            rev[i] = rev[i >> 1] >> 1 | (i\
     \ & 1) << k;\n        }\n    }\n\n    for (int i = 0; i < n; i++) {\n        if\
@@ -40,7 +61,7 @@ data:
     \ + j] = u + v;\n                a[i + j + k] = u - v;\n            }\n      \
     \  }\n    }\n}\nvoid idft(vector<Z> &a) {\n    int n = a.size();\n    reverse(a.begin()\
     \ + 1, a.end());\n    dft(a);\n    Z inv = (1 - mod) / n;\n    for (int i = 0;\
-    \ i < n; i++) {\n        a[i] *= inv;\n    }\n}\nstruct Poly {\n    vector<Z>\
+    \ i < n; i++) {\n        a[i] *= inv;\n    }\n}\n\nstruct Poly {\n    vector<Z>\
     \ a;\n    Poly() {}\n    Poly(const vector<Z> &a) : a(a) {}\n    Poly(const initializer_list<Z>\
     \ &a) : a(a) {}\n    int size() const { return a.size(); }\n    void resize(int\
     \ n) { a.resize(n); }\n    Z operator[](int idx) const {\n        if (idx < size())\
@@ -125,51 +146,27 @@ data:
     \ - l + 1);\n            Poly A = P[p * 2] * Q[p * 2 + 1];\n            Poly B\
     \ = P[p * 2 + 1] * Q[p * 2];\n            for (int i = 0; i <= r - l; i++) P[p][i]\
     \ = (A[i] + B[i]);\n        };\n        dfs2(1, 0, x.size() - 1);\n        return\
-    \ P[1];\n    }\n};\n#line 2 \"ModInt/Modint32.hpp\"\n\ntemplate <int mod>\nstruct\
-    \ ModInt {\n    int x;\n\n    ModInt() : x(0) {}\n\n    ModInt(int64_t y) : x(y\
-    \ >= 0 ? y % mod : (mod - (-y) % mod) % mod) {}\n\n    ModInt &operator+=(const\
-    \ ModInt &p) {\n        if ((x += p.x) >= mod) x -= mod;\n        return *this;\n\
-    \    }\n\n    ModInt &operator-=(const ModInt &p) {\n        if ((x += mod - p.x)\
-    \ >= mod) x -= mod;\n        return *this;\n    }\n\n    ModInt &operator*=(const\
-    \ ModInt &p) {\n        x = (int)(1LL * x * p.x % mod);\n        return *this;\n\
-    \    }\n\n    ModInt &operator/=(const ModInt &p) {\n        *this *= p.inverse();\n\
-    \        return *this;\n    }\n\n    ModInt operator-() const { return ModInt(-x);\
-    \ }\n\n    ModInt operator+(const ModInt &p) const { return ModInt(*this) += p;\
-    \ }\n\n    ModInt operator-(const ModInt &p) const { return ModInt(*this) -= p;\
-    \ }\n\n    ModInt operator*(const ModInt &p) const { return ModInt(*this) *= p;\
-    \ }\n\n    ModInt operator/(const ModInt &p) const { return ModInt(*this) /= p;\
-    \ }\n\n    bool operator==(const ModInt &p) const { return x == p.x; }\n\n   \
-    \ bool operator!=(const ModInt &p) const { return x != p.x; }\n\n    ModInt inverse()\
-    \ const {\n        int a = x, b = mod, u = 1, v = 0, t;\n        while (b > 0)\
-    \ {\n            t = a / b;\n            swap(a -= t * b, b);\n            swap(u\
-    \ -= t * v, v);\n        }\n        return ModInt(u);\n    }\n    friend ostream\
-    \ &operator<<(ostream &os, const ModInt &p) {\n        return os << p.x;\n   \
-    \ }\n\n    friend istream &operator>>(istream &is, ModInt &a) {\n        int64_t\
-    \ t;\n        is >> t;\n        a = ModInt<mod>(t);\n        return (is);\n  \
-    \  }\n\n    int get() const { return x; }\n};\n#line 2 \"Template/Template.hpp\"\
-    \n\nusing namespace std;\n\n#include <bits/stdc++.h>\n\nusing i64 = long long;\n\
-    using VI = vector<int>;\nusing pii = pair<int, int>;\n#line 6 \"Verify/convolution.test.cpp\"\
-    \n\nconstexpr int mod = 998244353;\n\nusing Z = ModInt<mod>;\nint main() {\n \
-    \   int n, m;\n    cin >> n >> m;\n\n    vector<Z> a(n), b(m);\n\n    for (int\
-    \ i = 0; i < n; i++) cin >> a[i];\n    for (int i = 0; i < m; i++) cin >> b[i];\n\
-    \n    auto ans = Poly(a) * Poly(b);\n\n    for (int i = 0; i < (int)(ans.size());\
-    \ i++)\n        cout << ans[i] << \" \\n\"[i == (int)ans.size() - 1];\n}\n"
+    \ P[1];\n    }\n};\n#line 5 \"Verify/convolution.test.cpp\"\n\nusing Z = ModInt<mod>;\n\
+    int main() {\n    int n, m;\n    cin >> n >> m;\n\n    vector<Z> a(n), b(m);\n\
+    \n    for (int i = 0; i < n; i++) cin >> a[i];\n    for (int i = 0; i < m; i++)\
+    \ cin >> b[i];\n\n    auto ans = Poly(a) * Poly(b);\n\n    for (int i = 0; i <\
+    \ (int)(ans.size()); i++)\n        cout << ans[i] << \" \\n\"[i == (int)ans.size()\
+    \ - 1];\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod\"\n\n#include\
-    \ \"../Magic/Poly.hpp\"\n#include \"../ModInt/Modint32.hpp\"\n#include \"../Template/Template.hpp\"\
-    \n\nconstexpr int mod = 998244353;\n\nusing Z = ModInt<mod>;\nint main() {\n \
-    \   int n, m;\n    cin >> n >> m;\n\n    vector<Z> a(n), b(m);\n\n    for (int\
-    \ i = 0; i < n; i++) cin >> a[i];\n    for (int i = 0; i < m; i++) cin >> b[i];\n\
-    \n    auto ans = Poly(a) * Poly(b);\n\n    for (int i = 0; i < (int)(ans.size());\
-    \ i++)\n        cout << ans[i] << \" \\n\"[i == (int)ans.size() - 1];\n}"
+    \ \"../Magic/Poly.hpp\"\n#include \"../Template/Template.hpp\"\n\nusing Z = ModInt<mod>;\n\
+    int main() {\n    int n, m;\n    cin >> n >> m;\n\n    vector<Z> a(n), b(m);\n\
+    \n    for (int i = 0; i < n; i++) cin >> a[i];\n    for (int i = 0; i < m; i++)\
+    \ cin >> b[i];\n\n    auto ans = Poly(a) * Poly(b);\n\n    for (int i = 0; i <\
+    \ (int)(ans.size()); i++)\n        cout << ans[i] << \" \\n\"[i == (int)ans.size()\
+    \ - 1];\n}"
   dependsOn:
   - Magic/Poly.hpp
-  - ModInt/Modint32.hpp
   - Template/Template.hpp
   isVerificationFile: true
   path: Verify/convolution.test.cpp
   requiredBy: []
-  timestamp: '2022-08-16 22:05:54+08:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-08-16 22:19:53+08:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/convolution.test.cpp
 layout: document

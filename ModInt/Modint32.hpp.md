@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: Verify/convolution.test.cpp
-    title: Verify/convolution.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"ModInt/Modint32.hpp\"\n\ntemplate <int mod>\nstruct ModInt\
@@ -59,9 +56,8 @@ data:
   path: ModInt/Modint32.hpp
   requiredBy: []
   timestamp: '2022-08-16 22:05:54+08:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - Verify/convolution.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: ModInt/Modint32.hpp
 layout: document
 redirect_from:
