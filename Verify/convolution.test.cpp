@@ -1,10 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
 
 #include "../Magic/Poly.hpp"
-#include "../ModInt/Modint32.hpp"
 #include "../Template/Template.hpp"
-
-constexpr int mod = 998244353;
 
 using Z = ModInt<mod>;
 int main() {
