@@ -1,137 +1,12 @@
 #pragma once
 
-#include "../Template/Template.hpp"
+#include "Ntt.hpp"
 
-template <int mod>
-struct ModInt {
-    int x;
-
-    ModInt() : x(0) {}
-
-    ModInt(int64_t y) : x(y >= 0 ? y % mod : (mod - (-y) % mod) % mod) {}
-
-    ModInt &operator+=(const ModInt &p) {
-        if ((x += p.x) >= mod) x -= mod;
-        return *this;
-    }
-
-    ModInt &operator-=(const ModInt &p) {
-        if ((x += mod - p.x) >= mod) x -= mod;
-        return *this;
-    }
-
-    ModInt &operator*=(const ModInt &p) {
-        x = (int)(1LL * x * p.x % mod);
-        return *this;
-    }
-
-    ModInt &operator/=(const ModInt &p) {
-        *this *= p.inverse();
-        return *this;
-    }
-
-    ModInt operator-() const { return ModInt(-x); }
-
-    ModInt operator+(const ModInt &p) const { return ModInt(*this) += p; }
-
-    ModInt operator-(const ModInt &p) const { return ModInt(*this) -= p; }
-
-    ModInt operator*(const ModInt &p) const { return ModInt(*this) *= p; }
-
-    ModInt operator/(const ModInt &p) const { return ModInt(*this) /= p; }
-
-    bool operator==(const ModInt &p) const { return x == p.x; }
-
-    bool operator!=(const ModInt &p) const { return x != p.x; }
-
-    ModInt inverse() const {
-        int a = x, b = mod, u = 1, v = 0, t;
-        while (b > 0) {
-            t = a / b;
-            swap(a -= t * b, b);
-            swap(u -= t * v, v);
-        }
-        return ModInt(u);
-    }
-    friend ostream &operator<<(ostream &os, const ModInt &p) {
-        return os << p.x;
-    }
-
-    friend istream &operator>>(istream &is, ModInt &a) {
-        int64_t t;
-        is >> t;
-        a = ModInt<mod>(t);
-        return (is);
-    }
-
-    int get() const { return x; }
-};
-constexpr int mod = 998244353;
-using Z = ModInt<mod>;
-template <class T>
-T power(T a, int b) {
-    T res = 1;
-    for (; b; b /= 2, a *= a) {
-        if (b % 2) {
-            res *= a;
-        }
-    }
-    return res;
-}
-vector<int> rev;
-vector<Z> roots{0, 1};
-void dft(vector<Z> &a) {
-    int n = a.size();
-
-    if (int(rev.size()) != n) {
-        int k = __builtin_ctz(n) - 1;
-        rev.resize(n);
-        for (int i = 0; i < n; i++) {
-            rev[i] = rev[i >> 1] >> 1 | (i & 1) << k;
-        }
-    }
-
-    for (int i = 0; i < n; i++) {
-        if (rev[i] < i) {
-            swap(a[i], a[rev[i]]);
-        }
-    }
-    if (int(roots.size()) < n) {
-        int k = __builtin_ctz(roots.size());
-        roots.resize(n);
-        while ((1 << k) < n) {
-            Z e = power(Z(3), (mod - 1) >> (k + 1));
-            for (int i = 1 << (k - 1); i < (1 << k); i++) {
-                roots[2 * i] = roots[i];
-                roots[2 * i + 1] = roots[i] * e;
-            }
-            k++;
-        }
-    }
-    for (int k = 1; k < n; k *= 2) {
-        for (int i = 0; i < n; i += 2 * k) {
-            for (int j = 0; j < k; j++) {
-                Z u = a[i + j];
-                Z v = a[i + j + k] * roots[k + j];
-                a[i + j] = u + v;
-                a[i + j + k] = u - v;
-            }
-        }
-    }
-}
-void idft(vector<Z> &a) {
-    int n = a.size();
-    reverse(a.begin() + 1, a.end());
-    dft(a);
-    Z inv = (1 - mod) / n;
-    for (int i = 0; i < n; i++) {
-        a[i] *= inv;
-    }
-}
-
+template <class Z, int rt>
 struct Poly {
     vector<Z> a;
     Poly() {}
+    Poly(int sz, Z val) { a.assign(sz, val); }
     Poly(const vector<Z> &a) : a(a) {}
     Poly(const initializer_list<Z> &a) : a(a) {}
     int size() const { return a.size(); }
@@ -173,24 +48,13 @@ struct Poly {
         }
         return Poly(res);
     }
+
     friend Poly operator*(Poly a, Poly b) {
         if (a.size() == 0 || b.size() == 0) {
             return Poly();
         }
-        int sz = 1, tot = a.size() + b.size() - 1;
-        while (sz < tot) {
-            sz *= 2;
-        }
-        a.a.resize(sz);
-        b.a.resize(sz);
-        dft(a.a);
-        dft(b.a);
-        for (int i = 0; i < sz; ++i) {
-            a.a[i] = a[i] * b[i];
-        }
-        idft(a.a);
-        a.resize(tot);
-        return a;
+        static NTT<Z, rt> ntt;
+        return ntt.multiply(a.a, b.a);
     }
     friend Poly operator*(Z a, Poly b) {
         for (int i = 0; i < int(b.size()); i++) {
@@ -260,7 +124,7 @@ struct Poly {
         int k = 1;
         while (k < m) {
             k *= 2;
-            x = (x + (modxk(k) * x.inv(k)).modxk(k)) * ((mod + 1) / 2);
+            x = (x + (modxk(k) * x.inv(k)).modxk(k)) * ((Z::get_mod() + 1) / 2);
         }
         return x.modxk(m);
     }
@@ -295,8 +159,8 @@ struct Poly {
             [&](int p, int l, int r, const Poly &num) {
                 if (r - l == 1) {
                     if (l < int(ans.size())) {
-                        ans[l] = num[0];
                     }
+                    ans[l] = num[0];
                 } else {
                     int m = (l + r) / 2;
                     work(2 * p, l, m, num.mulT(q[2 * p + 1]).modxk(m - l));
@@ -306,39 +170,92 @@ struct Poly {
         work(1, 0, n, mulT(q[1].inv(n)));
         return ans;
     }
-    Poly inter(const Poly &x, const Poly &y) {
-        vector<Poly> Q(x.size() << 2), P(x.size() << 2);
-        function<void(int, int, int)> dfs1 = [&](int p, int l, int r) {
+    Poly inter(const Poly &y) const {
+        vector<Poly> Q(a.size() * 4), P(a.size() << 2);
+        function<void(int, int, int)> build = [&](int p, int l, int r) {
             int m = (l + r) >> 1;
             if (l == r) {
-                Q[p].a.push_back(-x[m]);
-                Q[p].a.push_back(Z(1));
-                return;
+                Q[p] = Poly{-a[m], Z(1)};
+            } else {
+                build(p * 2, l, m);
+                build(p * 2 + 1, m + 1, r);
+                Q[p] = Q[p * 2] * Q[p * 2 + 1];
             }
-            dfs1(p * 2, l, m);
-            dfs1(p * 2 + 1, m + 1, r);
-            Q[p] = Q[p * 2] * Q[p * 2 + 1];
         };
-        dfs1(1, 0, x.size() - 1);
+        build(1, 0, a.size() - 1);
         Poly f;
         f.a.resize((int)(Q[1].size()) - 1);
         for (int i = 0; i + 1 < Q[1].size(); i += 1)
             f[i] = (Q[1][i + 1] * (i + 1));
-        Poly g = f.eval(x.a);
-        function<void(int, int, int)> dfs2 = [&](int p, int l, int r) {
+        Poly g = f.eval(a);
+        function<void(int, int, int)> work = [&](int p, int l, int r) {
             int m = (l + r) >> 1;
             if (l == r) {
-                P[p].a.push_back(y[m] * power(g[m], mod - 2));
+                P[p].a.push_back(y[m] * power(g[m], Z::get_mod() - 2));
                 return;
             }
-            dfs2(p * 2, l, m);
-            dfs2(p * 2 + 1, m + 1, r);
+            work(p * 2, l, m);
+            work(p * 2 + 1, m + 1, r);
             P[p].a.resize(r - l + 1);
             Poly A = P[p * 2] * Q[p * 2 + 1];
             Poly B = P[p * 2 + 1] * Q[p * 2];
             for (int i = 0; i <= r - l; i++) P[p][i] = (A[i] + B[i]);
         };
-        dfs2(1, 0, x.size() - 1);
+        work(1, 0, a.size() - 1);
         return P[1];
+    }
+    Poly shift(Z t, int m = -1) {
+        /*
+            input: y(0) , y(1) , ... , y(n-1)
+            output: y(t) , t(t+1) , ... ,y (t+m-1)
+            ## m = -1 => m = n
+        */
+        if (m == -1) m = this->size();
+        i64 T = t.get();
+        int k = (int)(this->size()) - 1;
+        T %= Z::get_mod();
+
+        if (T <= k) {
+            Poly ret(m, 0);
+            int ptr = 0;
+            for (i64 i = T; i <= k && ptr < m; i++) ret[ptr++] = a[i];
+            if (k + 1 < T + m) {
+                auto suf = shift(k + 1, m - ptr);
+                for (int i = k + 1; i < T + m; i++)
+                    ret[ptr++] = suf[i - (k + 1)];
+            }
+            return ret;
+        }
+        if (T + m > Z::get_mod()) {
+            auto pref = shift(T, Z::get_mod() - T);
+            auto suf = shift(0, m - pref.size());
+            copy(begin(suf.a), end(suf.a), back_inserter(pref.a));
+            return pref;
+        }
+
+        Poly finv(k + 1, 1), d(k + 1, 0);
+        for (int i = 2; i <= k; i++) finv[k] *= i;
+        finv[k] = Z(1) / finv[k];
+        for (int i = k; i >= 1; i--) finv[i - 1] = finv[i] * i;
+        for (int i = 0; i <= k; i++) {
+            d[i] = finv[i] * finv[k - i] * a[i];
+            if ((k - i) & 1) d[i] = -d[i];
+        }
+
+        Poly h(m + k, 0);
+        for (int i = 0; i < m + k; i++) {
+            h[i] = Z(1) / (T - k + i);
+        }
+
+        auto dh = d * h;
+        Poly ret(m, 0);
+        Z cur = T;
+        for (int i = 1; i <= k; i++) cur *= T - i;
+        for (int i = 0; i < m; i++) {
+            ret[i] = cur * dh[k + i];
+            cur *= T + i + 1;
+            cur *= h[i];
+        }
+        return ret;
     }
 };
