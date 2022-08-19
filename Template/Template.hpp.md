@@ -2,9 +2,21 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Matrix/Adjugate_matrix.hpp
+    title: Matrix/Adjugate_matrix.hpp
+  - icon: ':warning:'
+    path: Matrix/LinearEquation.hpp
+    title: Matrix/LinearEquation.hpp
   - icon: ':heavy_check_mark:'
-    path: Magic/Poly.hpp
-    title: Magic/Poly.hpp
+    path: ModInt/Modint32.hpp
+    title: ModInt/Modint32.hpp
+  - icon: ':heavy_check_mark:'
+    path: Polynomial/Ntt.hpp
+    title: Polynomial/Ntt.hpp
+  - icon: ':heavy_check_mark:'
+    path: Polynomial/Poly.hpp
+    title: Polynomial/Poly.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
@@ -50,7 +62,11 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy:
-  - Magic/Poly.hpp
+  - ModInt/Modint32.hpp
+  - Matrix/LinearEquation.hpp
+  - Matrix/Adjugate_matrix.hpp
+  - Polynomial/Poly.hpp
+  - Polynomial/Ntt.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
