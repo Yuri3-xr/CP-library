@@ -3,6 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
+    path: Matrix/Adjugate_matrix.hpp
+    title: Matrix/Adjugate_matrix.hpp
+  - icon: ':warning:'
+    path: Matrix/GaussElimination.hpp
+    title: Matrix/GaussElimination.hpp
+  - icon: ':warning:'
     path: Matrix/LinearEquation.hpp
     title: Matrix/LinearEquation.hpp
   - icon: ':heavy_check_mark:'
@@ -75,7 +81,9 @@ data:
   path: Template/Template.hpp
   requiredBy:
   - ModInt/Modint32.hpp
+  - Matrix/GaussElimination.hpp
   - Matrix/LinearEquation.hpp
+  - Matrix/Adjugate_matrix.hpp
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
   - Polynomial/Poly.hpp
