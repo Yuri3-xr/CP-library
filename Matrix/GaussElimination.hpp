@@ -1,6 +1,6 @@
 #pragma once
 
-#include <../Template/Template.hpp>
+#include "../ Template / Template.hpp "
 
 template <typename T>
 std::pair<int, T> GaussElimination(vector<vector<T>> &a, int pivot_end = -1,

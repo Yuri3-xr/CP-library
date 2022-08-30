@@ -159,8 +159,8 @@ struct Poly {
             [&](int p, int l, int r, const Poly &num) {
                 if (r - l == 1) {
                     if (l < int(ans.size())) {
+                        ans[l] = num[0];
                     }
-                    ans[l] = num[0];
                 } else {
                     int m = (l + r) / 2;
                     work(2 * p, l, m, num.mulT(q[2 * p + 1]).modxk(m - l));
@@ -171,7 +171,7 @@ struct Poly {
         return ans;
     }
     Poly inter(const Poly &y) const {
-        vector<Poly> Q(a.size() * 4), P(a.size() << 2);
+        vector<Poly> Q(a.size() * 4), P(a.size() * 4);
         function<void(int, int, int)> build = [&](int p, int l, int r) {
             int m = (l + r) >> 1;
             if (l == r) {
