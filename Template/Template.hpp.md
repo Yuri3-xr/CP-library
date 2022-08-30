@@ -3,6 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
+    path: Geometry/Minkowski_Sum.hpp
+    title: Geometry/Minkowski_Sum.hpp
+  - icon: ':warning:'
     path: Matrix/Adjugate_matrix.hpp
     title: Matrix/Adjugate_matrix.hpp
   - icon: ':warning:'
@@ -80,6 +83,7 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy:
+  - Geometry/Minkowski_Sum.hpp
   - ModInt/Modint32.hpp
   - Matrix/GaussElimination.hpp
   - Matrix/LinearEquation.hpp
