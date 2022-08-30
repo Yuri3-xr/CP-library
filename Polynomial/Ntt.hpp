@@ -68,7 +68,6 @@ struct NTT {
 
         idft(a);
         a.resize(tot);
-
         return a;
     }
 };
