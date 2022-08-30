@@ -2,12 +2,21 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Polynomial/Factorial.hpp
+    title: Polynomial/Factorial.hpp
   - icon: ':heavy_check_mark:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
   - icon: ':heavy_check_mark:'
     path: Polynomial/Poly.hpp
     title: Polynomial/Poly.hpp
+  - icon: ':warning:'
+    path: Polynomial/PrefixSumBinomial.hpp
+    title: Polynomial/PrefixSumBinomial.hpp
+  - icon: ':warning:'
+    path: Polynomial/PrefixSumH.hpp
+    title: Polynomial/PrefixSumH.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
@@ -27,8 +36,11 @@ data:
   isVerificationFile: false
   path: Template/Power.hpp
   requiredBy:
+  - Polynomial/PrefixSumBinomial.hpp
+  - Polynomial/PrefixSumH.hpp
   - Polynomial/Poly.hpp
   - Polynomial/Ntt.hpp
+  - Polynomial/Factorial.hpp
   timestamp: '2022-08-20 01:45:54+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

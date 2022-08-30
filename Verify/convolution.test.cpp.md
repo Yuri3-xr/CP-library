@@ -140,13 +140,13 @@ data:
     \           }\n        };\n        build(1, 0, n);\n        function<void(int,\
     \ int, int, const Poly &)> work =\n            [&](int p, int l, int r, const\
     \ Poly &num) {\n                if (r - l == 1) {\n                    if (l <\
-    \ int(ans.size())) {\n                    }\n                    ans[l] = num[0];\n\
-    \                } else {\n                    int m = (l + r) / 2;\n        \
-    \            work(2 * p, l, m, num.mulT(q[2 * p + 1]).modxk(m - l));\n       \
-    \             work(2 * p + 1, m, r, num.mulT(q[2 * p]).modxk(r - m));\n      \
-    \          }\n            };\n        work(1, 0, n, mulT(q[1].inv(n)));\n    \
-    \    return ans;\n    }\n    Poly inter(const Poly &y) const {\n        vector<Poly>\
-    \ Q(a.size() * 4), P(a.size() << 2);\n        function<void(int, int, int)> build\
+    \ int(ans.size())) {\n                        ans[l] = num[0];\n             \
+    \       }\n                } else {\n                    int m = (l + r) / 2;\n\
+    \                    work(2 * p, l, m, num.mulT(q[2 * p + 1]).modxk(m - l));\n\
+    \                    work(2 * p + 1, m, r, num.mulT(q[2 * p]).modxk(r - m));\n\
+    \                }\n            };\n        work(1, 0, n, mulT(q[1].inv(n)));\n\
+    \        return ans;\n    }\n    Poly inter(const Poly &y) const {\n        vector<Poly>\
+    \ Q(a.size() * 4), P(a.size() * 4);\n        function<void(int, int, int)> build\
     \ = [&](int p, int l, int r) {\n            int m = (l + r) >> 1;\n          \
     \  if (l == r) {\n                Q[p] = Poly{-a[m], Z(1)};\n            } else\
     \ {\n                build(p * 2, l, m);\n                build(p * 2 + 1, m +\
@@ -207,7 +207,7 @@ data:
   isVerificationFile: true
   path: Verify/convolution.test.cpp
   requiredBy: []
-  timestamp: '2022-08-20 01:45:54+08:00'
+  timestamp: '2022-08-31 00:36:18+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/convolution.test.cpp

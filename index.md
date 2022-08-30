@@ -4,8 +4,8 @@ data:
   - name: Geometry
     pages:
     - icon: ':warning:'
-      path: Geometry/Minkowski_Sum.cpp
-      title: Geometry/Minkowski_Sum.cpp
+      path: Geometry/Minkowski_Sum.hpp
+      title: Geometry/Minkowski_Sum.hpp
   - name: Matrix
     pages:
     - icon: ':warning:'
@@ -24,12 +24,21 @@ data:
       title: ModInt/Modint32.hpp
   - name: Polynomial
     pages:
+    - icon: ':warning:'
+      path: Polynomial/Factorial.hpp
+      title: Polynomial/Factorial.hpp
     - icon: ':heavy_check_mark:'
       path: Polynomial/Ntt.hpp
       title: Polynomial/Ntt.hpp
     - icon: ':heavy_check_mark:'
       path: Polynomial/Poly.hpp
       title: Polynomial/Poly.hpp
+    - icon: ':warning:'
+      path: Polynomial/PrefixSumBinomial.hpp
+      title: Polynomial/PrefixSumBinomial.hpp
+    - icon: ':warning:'
+      path: Polynomial/PrefixSumH.hpp
+      title: Polynomial/PrefixSumH.hpp
   - name: Template
     pages:
     - icon: ':heavy_check_mark:'

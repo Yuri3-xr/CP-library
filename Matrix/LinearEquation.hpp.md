@@ -4,10 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Matrix/Adjugate_matrix.hpp
-    title: Matrix/Adjugate_matrix.hpp
+  _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -44,8 +41,7 @@ data:
   - Template/Template.hpp
   isVerificationFile: false
   path: Matrix/LinearEquation.hpp
-  requiredBy:
-  - Matrix/Adjugate_matrix.hpp
+  requiredBy: []
   timestamp: '2022-08-20 01:45:54+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

@@ -4,11 +4,11 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"Geometry/Minkowski_Sum.cpp\"\nauto Minkowski_Sum = [&](const\
+  bundledCode: "#line 1 \"Geometry/Minkowski_Sum.hpp\"\nauto Minkowski_Sum = [&](const\
     \ vector<P>& a, const vector<P>& b) {\n    vector<P> res;\n    auto sgnp = [&](P\
     \ a) -> int {\n        return (a.y > 0 || (a.y == 0 && a.x > 0) ? 1 : -1);\n \
     \   };\n    auto argcmp = [&](P a, P b) {\n        return sgnp(a) != sgnp(b) ?\
@@ -47,15 +47,15 @@ data:
     \ (res.size() > 1 && check(res, res[0])) res.pop_back();\n    return res;\n};"
   dependsOn: []
   isVerificationFile: false
-  path: Geometry/Minkowski_Sum.cpp
+  path: Geometry/Minkowski_Sum.hpp
   requiredBy: []
-  timestamp: '2022-08-20 01:45:54+08:00'
+  timestamp: '2022-08-31 00:36:18+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Geometry/Minkowski_Sum.cpp
+documentation_of: Geometry/Minkowski_Sum.hpp
 layout: document
 redirect_from:
-- /library/Geometry/Minkowski_Sum.cpp
-- /library/Geometry/Minkowski_Sum.cpp.html
-title: Geometry/Minkowski_Sum.cpp
+- /library/Geometry/Minkowski_Sum.hpp
+- /library/Geometry/Minkowski_Sum.hpp.html
+title: Geometry/Minkowski_Sum.hpp
 ---
