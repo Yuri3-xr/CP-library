@@ -1,3 +1,5 @@
+#include "../Template/Template.hpp"
+
 auto Minkowski_Sum = [&](const vector<P>& a, const vector<P>& b) {
     vector<P> res;
     auto sgnp = [&](P a) -> int {
