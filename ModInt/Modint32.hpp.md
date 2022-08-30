@@ -7,6 +7,12 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: Verify/Multipoint_Evaluation.test.cpp
+    title: Verify/Multipoint_Evaluation.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/Polynomial_Interpolation.test.cpp
+    title: Verify/Polynomial_Interpolation.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
   _isVerificationFailed: false
@@ -69,6 +75,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/convolution.test.cpp
+  - Verify/Multipoint_Evaluation.test.cpp
+  - Verify/Polynomial_Interpolation.test.cpp
 documentation_of: ModInt/Modint32.hpp
 layout: document
 redirect_from:

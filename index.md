@@ -51,6 +51,12 @@ data:
   - name: Verify
     pages:
     - icon: ':heavy_check_mark:'
+      path: Verify/Multipoint_Evaluation.test.cpp
+      title: Verify/Multipoint_Evaluation.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/Polynomial_Interpolation.test.cpp
+      title: Verify/Polynomial_Interpolation.test.cpp
+    - icon: ':heavy_check_mark:'
       path: Verify/convolution.test.cpp
       title: Verify/convolution.test.cpp
 layout: toppage
