@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../Template/Power.hpp"
 #include "../Template/Template.hpp"
 template <class Z, int rt>
