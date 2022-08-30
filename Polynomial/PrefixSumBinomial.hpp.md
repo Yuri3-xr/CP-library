@@ -51,7 +51,7 @@ data:
     \    while (sz < tot) {\n            sz *= 2;\n        }\n\n        a.resize(sz),\
     \ b.resize(sz);\n        dft(a), dft(b);\n\n        for (int i = 0; i < sz; ++i)\
     \ {\n            a[i] = a[i] * b[i];\n        }\n\n        idft(a);\n        a.resize(tot);\n\
-    \n        return a;\n    }\n};\n#line 4 \"Polynomial/Poly.hpp\"\n\ntemplate <class\
+    \        return a;\n    }\n};\n#line 4 \"Polynomial/Poly.hpp\"\n\ntemplate <class\
     \ Z, int rt>\nstruct Poly {\n    vector<Z> a;\n    Poly() {}\n    Poly(int sz,\
     \ Z val) { a.assign(sz, val); }\n    Poly(const vector<Z> &a) : a(a) {}\n    Poly(const\
     \ initializer_list<Z> &a) : a(a) {}\n    int size() const { return a.size(); }\n\
@@ -213,7 +213,7 @@ data:
   isVerificationFile: false
   path: Polynomial/PrefixSumBinomial.hpp
   requiredBy: []
-  timestamp: '2022-08-31 00:36:18+08:00'
+  timestamp: '2022-08-31 03:39:08+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Polynomial/PrefixSumBinomial.hpp

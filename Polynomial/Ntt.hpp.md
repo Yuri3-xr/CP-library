@@ -65,7 +65,7 @@ data:
     \    while (sz < tot) {\n            sz *= 2;\n        }\n\n        a.resize(sz),\
     \ b.resize(sz);\n        dft(a), dft(b);\n\n        for (int i = 0; i < sz; ++i)\
     \ {\n            a[i] = a[i] * b[i];\n        }\n\n        idft(a);\n        a.resize(tot);\n\
-    \n        return a;\n    }\n};\n"
+    \        return a;\n    }\n};\n"
   code: "#pragma once\n#include \"../Template/Power.hpp\"\n#include \"../Template/Template.hpp\"\
     \ntemplate <class Z, int rt>\nstruct NTT {\n    vector<int> rev;\n    vector<Z>\
     \ roots{0, 1};\n    void dft(vector<Z> &a) {\n        int n = a.size();\n\n  \
@@ -92,7 +92,7 @@ data:
     \    while (sz < tot) {\n            sz *= 2;\n        }\n\n        a.resize(sz),\
     \ b.resize(sz);\n        dft(a), dft(b);\n\n        for (int i = 0; i < sz; ++i)\
     \ {\n            a[i] = a[i] * b[i];\n        }\n\n        idft(a);\n        a.resize(tot);\n\
-    \n        return a;\n    }\n};\n"
+    \        return a;\n    }\n};\n"
   dependsOn:
   - Template/Power.hpp
   - Template/Template.hpp
@@ -103,7 +103,7 @@ data:
   - Polynomial/PrefixSumH.hpp
   - Polynomial/Poly.hpp
   - Polynomial/Factorial.hpp
-  timestamp: '2022-08-20 01:45:54+08:00'
+  timestamp: '2022-08-31 03:39:08+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/convolution.test.cpp
