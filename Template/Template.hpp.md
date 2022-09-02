@@ -17,6 +17,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: ModInt/Modint32.hpp
     title: ModInt/Modint32.hpp
+  - icon: ':heavy_check_mark:'
+    path: Number_Theory/Factorization.hpp
+    title: Number_Theory/Factorization.hpp
   - icon: ':warning:'
     path: Polynomial/Factorial.hpp
     title: Polynomial/Factorial.hpp
@@ -33,6 +36,9 @@ data:
     path: Polynomial/PrefixSumH.hpp
     title: Polynomial/PrefixSumH.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: Verify/Factorize.test.cpp
+    title: Verify/Factorize.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/Multipoint_Evaluation.test.cpp
     title: Verify/Multipoint_Evaluation.test.cpp
@@ -88,6 +94,7 @@ data:
   - Matrix/GaussElimination.hpp
   - Matrix/LinearEquation.hpp
   - Matrix/Adjugate_matrix.hpp
+  - Number_Theory/Factorization.hpp
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
   - Polynomial/Poly.hpp
@@ -99,6 +106,7 @@ data:
   - Verify/convolution.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
+  - Verify/Factorize.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
 redirect_from:

@@ -22,6 +22,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: ModInt/Modint32.hpp
       title: ModInt/Modint32.hpp
+  - name: Number_Theory
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: Number_Theory/Binary-Gcd.hpp
+      title: Number_Theory/Binary-Gcd.hpp
+    - icon: ':heavy_check_mark:'
+      path: Number_Theory/Factorization.hpp
+      title: Number_Theory/Factorization.hpp
   - name: Polynomial
     pages:
     - icon: ':warning:'
@@ -50,6 +58,9 @@ data:
   verificationCategories:
   - name: Verify
     pages:
+    - icon: ':heavy_check_mark:'
+      path: Verify/Factorize.test.cpp
+      title: Verify/Factorize.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/Multipoint_Evaluation.test.cpp
       title: Verify/Multipoint_Evaluation.test.cpp
