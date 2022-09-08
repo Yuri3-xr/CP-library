@@ -1,3 +1,5 @@
+#define PROBLEM "https://judge.yosupo.jp/problem/sum_of_totient_function"
+
 #include "../ModInt/Modint32.hpp"
 #include "../Number_Theory/Mf_Sieve.hpp"
 #include "../Template/Template.hpp"
