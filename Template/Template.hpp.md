@@ -14,12 +14,18 @@ data:
   - icon: ':warning:'
     path: Matrix/LinearEquation.hpp
     title: Matrix/LinearEquation.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: ModInt/Modint32.hpp
     title: ModInt/Modint32.hpp
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Factorization.hpp
     title: Number_Theory/Factorization.hpp
+  - icon: ':x:'
+    path: Number_Theory/Mf_Sieve.hpp
+    title: Number_Theory/Mf_Sieve.hpp
+  - icon: ':x:'
+    path: Number_Theory/Prime_Sieve.hpp
+    title: Number_Theory/Prime_Sieve.hpp
   - icon: ':warning:'
     path: Polynomial/Factorial.hpp
     title: Polynomial/Factorial.hpp
@@ -45,12 +51,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/Polynomial_Interpolation.test.cpp
     title: Verify/Polynomial_Interpolation.test.cpp
+  - icon: ':x:'
+    path: Verify/Sum_of_Totient_Function.test.cpp
+    title: Verify/Sum_of_Totient_Function.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 2 "Template/Template.hpp"
@@ -94,6 +103,8 @@ data:
   - Matrix/GaussElimination.hpp
   - Matrix/LinearEquation.hpp
   - Matrix/Adjugate_matrix.hpp
+  - Number_Theory/Prime_Sieve.hpp
+  - Number_Theory/Mf_Sieve.hpp
   - Number_Theory/Factorization.hpp
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
@@ -101,9 +112,10 @@ data:
   - Polynomial/Ntt.hpp
   - Polynomial/Factorial.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/convolution.test.cpp
+  - Verify/Sum_of_Totient_Function.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/Factorize.test.cpp
