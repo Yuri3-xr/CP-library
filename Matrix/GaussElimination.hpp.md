@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy:
   - icon: ':warning:'
-    path: Matrix/Adjugate_matrix.hpp
-    title: Matrix/Adjugate_matrix.hpp
+    path: Matrix/AdjugateMatrix.hpp
+    title: Matrix/AdjugateMatrix.hpp
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -55,7 +55,7 @@ data:
   isVerificationFile: false
   path: Matrix/GaussElimination.hpp
   requiredBy:
-  - Matrix/Adjugate_matrix.hpp
+  - Matrix/AdjugateMatrix.hpp
   timestamp: '2022-08-31 00:57:57+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []

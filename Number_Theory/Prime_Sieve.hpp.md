@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Number_Theory/Mf_Sieve.hpp
     title: Number_Theory/Mf_Sieve.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/Sum_of_Totient_Function.test.cpp
     title: Verify/Sum_of_Totient_Function.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Number_Theory/Prime_Sieve.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
@@ -44,7 +44,7 @@ data:
   requiredBy:
   - Number_Theory/Mf_Sieve.hpp
   timestamp: '2022-09-08 18:33:50+08:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/Sum_of_Totient_Function.test.cpp
 documentation_of: Number_Theory/Prime_Sieve.hpp

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Binary-Gcd.hpp
     title: Number_Theory/Binary-Gcd.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []

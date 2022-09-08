@@ -7,7 +7,7 @@ data:
   - icon: ':warning:'
     path: Matrix/LinearEquation.hpp
     title: Matrix/LinearEquation.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
@@ -47,7 +47,7 @@ data:
     \         vector<T> x(W);\n            x[j] = 1;\n            for (int k = 0;\
     \ k < j; ++k) {\n                if (pivot[k] != -1) x[k] = -a[pivot[k]][j];\n\
     \            }\n            res.push_back(x);\n        }\n    }\n    return res;\n\
-    }\n#line 4 \"Matrix/Adjugate_matrix.hpp\"\n\ntemplate <class T>\nvector<vector<T>>\
+    }\n#line 4 \"Matrix/AdjugateMatrix.hpp\"\n\ntemplate <class T>\nvector<vector<T>>\
     \ Adjugate_Matrix(vector<vector<T>> x) {\n    int N = x.size();\n    assert(N\
     \ > 0);\n    assert(N == (int)x[0].size());\n\n    vector<vector<T>> m(N, vector<T>(2\
     \ * N));\n    for (int i = 0; i < N; i++) {\n        copy(begin(x[i]), end(x[i]),\
@@ -112,15 +112,15 @@ data:
   - Template/Template.hpp
   - Matrix/LinearEquation.hpp
   isVerificationFile: false
-  path: Matrix/Adjugate_matrix.hpp
+  path: Matrix/AdjugateMatrix.hpp
   requiredBy: []
-  timestamp: '2022-08-31 00:57:57+08:00'
+  timestamp: '2022-09-08 18:36:04+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Matrix/Adjugate_matrix.hpp
+documentation_of: Matrix/AdjugateMatrix.hpp
 layout: document
 redirect_from:
-- /library/Matrix/Adjugate_matrix.hpp
-- /library/Matrix/Adjugate_matrix.hpp.html
-title: Matrix/Adjugate_matrix.hpp
+- /library/Matrix/AdjugateMatrix.hpp
+- /library/Matrix/AdjugateMatrix.hpp.html
+title: Matrix/AdjugateMatrix.hpp
 ---

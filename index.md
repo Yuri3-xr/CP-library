@@ -9,8 +9,8 @@ data:
   - name: Matrix
     pages:
     - icon: ':warning:'
-      path: Matrix/Adjugate_matrix.hpp
-      title: Matrix/Adjugate_matrix.hpp
+      path: Matrix/AdjugateMatrix.hpp
+      title: Matrix/AdjugateMatrix.hpp
     - icon: ':warning:'
       path: Matrix/GaussElimination.hpp
       title: Matrix/GaussElimination.hpp
@@ -19,7 +19,7 @@ data:
       title: Matrix/LinearEquation.hpp
   - name: ModInt
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: ModInt/Modint32.hpp
       title: ModInt/Modint32.hpp
   - name: Number_Theory
@@ -30,10 +30,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: Number_Theory/Factorization.hpp
       title: Number_Theory/Factorization.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Number_Theory/Mf_Sieve.hpp
       title: Number_Theory/Mf_Sieve.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Number_Theory/Prime_Sieve.hpp
       title: Number_Theory/Prime_Sieve.hpp
   - name: Polynomial
@@ -58,7 +58,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template/Power.hpp
       title: Template/Power.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   verificationCategories:
@@ -73,7 +73,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/Polynomial_Interpolation.test.cpp
       title: Verify/Polynomial_Interpolation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/Sum_of_Totient_Function.test.cpp
       title: Verify/Sum_of_Totient_Function.test.cpp
     - icon: ':heavy_check_mark:'

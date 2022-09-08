@@ -6,24 +6,24 @@ data:
     path: Geometry/Minkowski_Sum.hpp
     title: Geometry/Minkowski_Sum.hpp
   - icon: ':warning:'
-    path: Matrix/Adjugate_matrix.hpp
-    title: Matrix/Adjugate_matrix.hpp
+    path: Matrix/AdjugateMatrix.hpp
+    title: Matrix/AdjugateMatrix.hpp
   - icon: ':warning:'
     path: Matrix/GaussElimination.hpp
     title: Matrix/GaussElimination.hpp
   - icon: ':warning:'
     path: Matrix/LinearEquation.hpp
     title: Matrix/LinearEquation.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: ModInt/Modint32.hpp
     title: ModInt/Modint32.hpp
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Factorization.hpp
     title: Number_Theory/Factorization.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Number_Theory/Mf_Sieve.hpp
     title: Number_Theory/Mf_Sieve.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Number_Theory/Prime_Sieve.hpp
     title: Number_Theory/Prime_Sieve.hpp
   - icon: ':warning:'
@@ -51,15 +51,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/Polynomial_Interpolation.test.cpp
     title: Verify/Polynomial_Interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/Sum_of_Totient_Function.test.cpp
     title: Verify/Sum_of_Totient_Function.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "Template/Template.hpp"
@@ -101,8 +101,8 @@ data:
   - Geometry/Minkowski_Sum.hpp
   - ModInt/Modint32.hpp
   - Matrix/GaussElimination.hpp
+  - Matrix/AdjugateMatrix.hpp
   - Matrix/LinearEquation.hpp
-  - Matrix/Adjugate_matrix.hpp
   - Number_Theory/Prime_Sieve.hpp
   - Number_Theory/Mf_Sieve.hpp
   - Number_Theory/Factorization.hpp
@@ -112,7 +112,7 @@ data:
   - Polynomial/Ntt.hpp
   - Polynomial/Factorial.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/convolution.test.cpp
   - Verify/Sum_of_Totient_Function.test.cpp
