@@ -20,6 +20,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Factorization.hpp
     title: Number_Theory/Factorization.hpp
+  - icon: ':warning:'
+    path: Number_Theory/Gauss-Integer.hpp
+    title: Number_Theory/Gauss-Integer.hpp
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Mf_Sieve.hpp
     title: Number_Theory/Mf_Sieve.hpp
@@ -103,6 +106,7 @@ data:
   - Matrix/GaussElimination.hpp
   - Matrix/AdjugateMatrix.hpp
   - Matrix/LinearEquation.hpp
+  - Number_Theory/Gauss-Integer.hpp
   - Number_Theory/Prime_Sieve.hpp
   - Number_Theory/Mf_Sieve.hpp
   - Number_Theory/Factorization.hpp

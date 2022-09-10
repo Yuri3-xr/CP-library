@@ -3,6 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
+    path: Number_Theory/Gauss-Integer.hpp
+    title: Number_Theory/Gauss-Integer.hpp
+  - icon: ':warning:'
     path: Polynomial/Factorial.hpp
     title: Polynomial/Factorial.hpp
   - icon: ':heavy_check_mark:'
@@ -42,6 +45,7 @@ data:
   isVerificationFile: false
   path: Template/Power.hpp
   requiredBy:
+  - Number_Theory/Gauss-Integer.hpp
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
   - Polynomial/Poly.hpp
