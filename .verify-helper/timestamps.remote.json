@@ -1,5 +1,7 @@
 {
+"Verify/Factorize.test.cpp": "2022-09-03 03:40:06 +0800",
 "Verify/Multipoint_Evaluation.test.cpp": "2022-08-31 04:05:31 +0800",
 "Verify/Polynomial_Interpolation.test.cpp": "2022-08-31 04:05:31 +0800",
+"Verify/Sum_of_Totient_Function.test.cpp": "2022-09-08 18:36:04 +0800",
 "Verify/convolution.test.cpp": "2022-08-31 04:05:31 +0800"
 }
