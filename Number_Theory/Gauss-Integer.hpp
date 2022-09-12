@@ -2,82 +2,8 @@
 
 #include "../Template/Power.hpp"
 #include "../Template/Template.hpp"
-// ##Tode : Make Template
-namespace Factorization {
-using i128 = __int128;
-static mt19937_64 rng(114514);
-inline i128 mul(i128 a, i128 b, i128 c) {
-    i128 s = a * b - c * i128((long double)a / c * b + 0.5);
-    return s < 0 ? s + c : s;
-}
+#include "Factorization.hpp"
 
-i128 mPow(i128 a, i128 k, i128 mod) {
-    i128 res = 1;
-    for (; k; k >>= 1, a = mul(a, a, mod))
-        if (k & 1) res = mul(res, a, mod);
-    return res;
-}
-
-bool test(i128 n, int a) {
-    if (n == a) return 1;
-    if (n % 2 == 0) return 0;
-
-    i128 d = (n - 1) >> __builtin_ctzll(n - 1);
-    i128 r = mPow(a, d, n);
-
-    while (d < n - 1 && r != 1 && r != n - 1) d <<= 1, r = mul(r, r, n);
-    return r == n - 1 || d & 1;
-}
-bool miller(i128 n) {
-    if (n == 2) return 1;
-    for (auto p : VI{2, 3, 5, 7, 11, 13})
-        if (test(n, p) == 0) return 0;
-    return 1;
-}
-long long myrand(i128 a, i128 b) {
-    return uniform_int_distribution<long long>(a, b)(rng);
-}
-i128 pollard(i128 n) {
-    auto f = [&](i128 x) { return ((__int128)x * x + 1) % n; };
-    auto babs = [&](i128 x) {
-        if (x > 0)
-            return x;
-        else
-            return -x;
-    };
-    i128 x = 0, y = 0, t = 30, prd = 2;
-    while (t++ % 40 || __gcd(prd, n) == 1) {
-        // speedup: don't take __gcd in each iteration.
-        if (x == y) x = myrand(2, n - 1), y = f(x);
-        i128 tmp = mul(prd, babs(x - y), n);
-        if (tmp) prd = tmp;
-        x = f(x), y = f(f(y));
-    }
-    return __gcd(prd, n);
-}
-vector<pair<i128, i64>> work(i128 n) {
-    vector<i128> res;
-
-    function<void(i128)> solve = [&](i128 x) {
-        if (x == 1) return;
-        if (miller(x))
-            res.push_back(x);
-        else {
-            i128 d = pollard(x);
-            solve(d);
-            solve(x / d);
-        }
-    };
-    solve(n);
-    sort(res.begin(), res.end());
-    vector<pair<i128, i64>> gao;
-    for (int i = 0, j = 0; i < res.size(); i = j) {
-        while (res[j] == res[i] && j < res.size()) j++;
-        gao.emplace_back(res[i], j - i);
-    }
-    return gao;
-}
-}  // namespace Factorization
 namespace Format_Fact {
 using i128 = __int128;
 struct G {
@@ -106,7 +32,9 @@ struct G {
         return {div(2 * c.a + len, 2 * len), div(2 * c.b + len, 2 * len)};
     }
 };
+
 static G one = G(1, 0);
+
 G solveprime(i128 p) {
     if (p == 2) return {1, 1};
     i128 t = 1;
@@ -136,11 +64,17 @@ G solveprime(i128 p) {
     return g;
 }
 vector<G> solvecomposite(i128 n) {
-    // cerr << (i64)n << endl;
-    auto prm = Factorization::work(n);
+    auto fact = factorization<i64>(n);
+    sort(begin(fact), end(fact));
+
+    vector<pair<i128, i64>> prm;
+    for (int i = 0, j = 0; i < int(fact.size()); i = j) {
+        while (fact[j] == fact[i] && j < int(fact.size())) j++;
+        prm.emplace_back(fact[i], j - i);
+    }
+
     vector<G> v{{1, 0}};
     for (auto [p, tmp] : prm) {
-        // cerr << (i64)p << " " << tmp << endl;
         if (p % 4 == 1) {
             G A = solveprime(p);
             G B = {A.a, -A.b};
