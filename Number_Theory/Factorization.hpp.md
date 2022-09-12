@@ -7,7 +7,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Number_Theory/Gauss-Integer.hpp
+    title: Number_Theory/Gauss-Integer.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/Factorize.test.cpp
@@ -85,7 +88,8 @@ data:
   - Number_Theory/Binary-Gcd.hpp
   isVerificationFile: false
   path: Number_Theory/Factorization.hpp
-  requiredBy: []
+  requiredBy:
+  - Number_Theory/Gauss-Integer.hpp
   timestamp: '2022-09-03 03:40:06+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

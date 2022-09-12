@@ -5,6 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Factorization.hpp
     title: Number_Theory/Factorization.hpp
+  - icon: ':warning:'
+    path: Number_Theory/Gauss-Integer.hpp
+    title: Number_Theory/Gauss-Integer.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/Factorize.test.cpp
@@ -32,6 +35,7 @@ data:
   isVerificationFile: false
   path: Number_Theory/Binary-Gcd.hpp
   requiredBy:
+  - Number_Theory/Gauss-Integer.hpp
   - Number_Theory/Factorization.hpp
   timestamp: '2022-09-03 03:40:06+08:00'
   verificationStatus: LIBRARY_ALL_AC
