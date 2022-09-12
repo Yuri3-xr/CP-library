@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../Template/Power.hpp"
 #include "../Template/Template.hpp"
 #include "Factorization.hpp"
 
@@ -34,7 +33,16 @@ struct G {
 };
 
 static G one = G(1, 0);
-
+template <class T>
+T _power(T x, i128 b) {
+    T res = one;
+    while (b) {
+        if (b & 1) res = res * x;
+        x = x * x;
+        b = b / 2;
+    }
+    return res;
+}
 G solveprime(i128 p) {
     if (p == 2) return {1, 1};
     i128 t = 1;
@@ -78,7 +86,7 @@ vector<G> solvecomposite(i128 n) {
         if (p % 4 == 1) {
             G A = solveprime(p);
             G B = {A.a, -A.b};
-            auto now = power<G>(A, 2 * tmp);
+            auto now = _power<G>(A, 2 * tmp);
 
             vector<G> res;
             for (i64 i = 0; i <= 2 * tmp; i++) {
@@ -88,7 +96,7 @@ vector<G> solvecomposite(i128 n) {
             swap(v, res);
         } else {
             G now(p, 0);
-            now = power<G>(now, tmp);
+            now = _power<G>(now, tmp);
             for (auto &&it : v) it = it * now;
         }
     }
