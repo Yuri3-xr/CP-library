@@ -19,6 +19,9 @@ data:
     title: Polynomial/PrefixSumH.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: Verify/InvofFormalPowerSeries.test.cpp
+    title: Verify/InvofFormalPowerSeries.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/Multipoint_Evaluation.test.cpp
     title: Verify/Multipoint_Evaluation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -53,6 +56,7 @@ data:
   - Verify/convolution.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
+  - Verify/InvofFormalPowerSeries.test.cpp
 documentation_of: Template/Power.hpp
 layout: document
 redirect_from:

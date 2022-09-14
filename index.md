@@ -27,6 +27,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: ModInt/Modint32.hpp
       title: ModInt/Modint32.hpp
+    - icon: ':heavy_check_mark:'
+      path: ModInt/Modint32_change.hpp
+      title: ModInt/Modint32_change.hpp
   - name: Number_Theory
     pages:
     - icon: ':heavy_check_mark:'
@@ -75,6 +78,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/Factorize.test.cpp
       title: Verify/Factorize.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/InvofFormalPowerSeries.test.cpp
+      title: Verify/InvofFormalPowerSeries.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/Multipoint_Evaluation.test.cpp
       title: Verify/Multipoint_Evaluation.test.cpp

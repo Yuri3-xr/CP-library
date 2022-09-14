@@ -21,6 +21,9 @@ data:
     path: ModInt/Modint32.hpp
     title: ModInt/Modint32.hpp
   - icon: ':heavy_check_mark:'
+    path: ModInt/Modint32_change.hpp
+    title: ModInt/Modint32_change.hpp
+  - icon: ':heavy_check_mark:'
     path: Number_Theory/Factorization.hpp
     title: Number_Theory/Factorization.hpp
   - icon: ':warning:'
@@ -51,6 +54,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/Factorize.test.cpp
     title: Verify/Factorize.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/InvofFormalPowerSeries.test.cpp
+    title: Verify/InvofFormalPowerSeries.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/Multipoint_Evaluation.test.cpp
     title: Verify/Multipoint_Evaluation.test.cpp
@@ -110,6 +116,7 @@ data:
   - DataStructure/LazySegmentTree.hpp
   - Geometry/Minkowski_Sum.hpp
   - ModInt/Modint32.hpp
+  - ModInt/Modint32_change.hpp
   - Matrix/GaussElimination.hpp
   - Matrix/AdjugateMatrix.hpp
   - Matrix/LinearEquation.hpp
@@ -130,6 +137,7 @@ data:
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/Factorize.test.cpp
+  - Verify/InvofFormalPowerSeries.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
