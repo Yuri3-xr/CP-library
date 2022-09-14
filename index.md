@@ -1,6 +1,11 @@
 ---
 data:
   libraryCategories:
+  - name: DataStructure
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: DataStructure/LazySegmentTree.hpp
+      title: DataStructure/LazySegmentTree.hpp
   - name: Geometry
     pages:
     - icon: ':warning:'
@@ -76,6 +81,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/Polynomial_Interpolation.test.cpp
       title: Verify/Polynomial_Interpolation.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/RangeAffineRangeSum.test.cpp
+      title: Verify/RangeAffineRangeSum.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/Sum_of_Totient_Function.test.cpp
       title: Verify/Sum_of_Totient_Function.test.cpp

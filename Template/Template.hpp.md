@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: DataStructure/LazySegmentTree.hpp
+    title: DataStructure/LazySegmentTree.hpp
   - icon: ':warning:'
     path: Geometry/Minkowski_Sum.hpp
     title: Geometry/Minkowski_Sum.hpp
@@ -55,6 +58,9 @@ data:
     path: Verify/Polynomial_Interpolation.test.cpp
     title: Verify/Polynomial_Interpolation.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/RangeAffineRangeSum.test.cpp
+    title: Verify/RangeAffineRangeSum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/Sum_of_Totient_Function.test.cpp
     title: Verify/Sum_of_Totient_Function.test.cpp
   - icon: ':heavy_check_mark:'
@@ -101,6 +107,7 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy:
+  - DataStructure/LazySegmentTree.hpp
   - Geometry/Minkowski_Sum.hpp
   - ModInt/Modint32.hpp
   - Matrix/GaussElimination.hpp
@@ -123,6 +130,7 @@ data:
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/Factorize.test.cpp
+  - Verify/RangeAffineRangeSum.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
 redirect_from:

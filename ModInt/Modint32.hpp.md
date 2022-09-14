@@ -13,6 +13,9 @@ data:
     path: Verify/Polynomial_Interpolation.test.cpp
     title: Verify/Polynomial_Interpolation.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/RangeAffineRangeSum.test.cpp
+    title: Verify/RangeAffineRangeSum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/Sum_of_Totient_Function.test.cpp
     title: Verify/Sum_of_Totient_Function.test.cpp
   - icon: ':heavy_check_mark:'
@@ -81,6 +84,7 @@ data:
   - Verify/Sum_of_Totient_Function.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
+  - Verify/RangeAffineRangeSum.test.cpp
 documentation_of: ModInt/Modint32.hpp
 layout: document
 redirect_from:
