@@ -81,10 +81,10 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/convolution.test.cpp
-  - Verify/Sum_of_Totient_Function.test.cpp
-  - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp
+  - Verify/Multipoint_Evaluation.test.cpp
+  - Verify/Sum_of_Totient_Function.test.cpp
 documentation_of: ModInt/Modint32.hpp
 layout: document
 redirect_from:

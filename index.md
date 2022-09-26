@@ -6,6 +6,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/LazySegmentTree.hpp
       title: DataStructure/LazySegmentTree.hpp
+    - icon: ':heavy_check_mark:'
+      path: DataStructure/SegmentTree.hpp
+      title: DataStructure/SegmentTree.hpp
   - name: Geometry
     pages:
     - icon: ':warning:'
@@ -84,6 +87,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/Multipoint_Evaluation.test.cpp
       title: Verify/Multipoint_Evaluation.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/PointAddRangeSum.test.cpp
+      title: Verify/PointAddRangeSum.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/Polynomial_Interpolation.test.cpp
       title: Verify/Polynomial_Interpolation.test.cpp

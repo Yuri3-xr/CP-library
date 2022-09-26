@@ -5,6 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/LazySegmentTree.hpp
     title: DataStructure/LazySegmentTree.hpp
+  - icon: ':heavy_check_mark:'
+    path: DataStructure/SegmentTree.hpp
+    title: DataStructure/SegmentTree.hpp
   - icon: ':warning:'
     path: Geometry/Minkowski_Sum.hpp
     title: Geometry/Minkowski_Sum.hpp
@@ -61,6 +64,9 @@ data:
     path: Verify/Multipoint_Evaluation.test.cpp
     title: Verify/Multipoint_Evaluation.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/PointAddRangeSum.test.cpp
+    title: Verify/PointAddRangeSum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/Polynomial_Interpolation.test.cpp
     title: Verify/Polynomial_Interpolation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -113,32 +119,34 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy:
-  - DataStructure/LazySegmentTree.hpp
   - Geometry/Minkowski_Sum.hpp
   - ModInt/Modint32.hpp
   - ModInt/Modint32_change.hpp
-  - Matrix/GaussElimination.hpp
-  - Matrix/AdjugateMatrix.hpp
-  - Matrix/LinearEquation.hpp
-  - Number_Theory/Gauss-Integer.hpp
-  - Number_Theory/Prime_Sieve.hpp
-  - Number_Theory/Mf_Sieve.hpp
-  - Number_Theory/Factorization.hpp
+  - Polynomial/Factorial.hpp
+  - Polynomial/Ntt.hpp
+  - Polynomial/Poly.hpp
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
-  - Polynomial/Poly.hpp
-  - Polynomial/Ntt.hpp
-  - Polynomial/Factorial.hpp
+  - DataStructure/LazySegmentTree.hpp
+  - DataStructure/SegmentTree.hpp
+  - Number_Theory/Factorization.hpp
+  - Number_Theory/Mf_Sieve.hpp
+  - Number_Theory/Gauss-Integer.hpp
+  - Number_Theory/Prime_Sieve.hpp
+  - Matrix/LinearEquation.hpp
+  - Matrix/AdjugateMatrix.hpp
+  - Matrix/GaussElimination.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/convolution.test.cpp
-  - Verify/Sum_of_Totient_Function.test.cpp
-  - Verify/Multipoint_Evaluation.test.cpp
-  - Verify/Polynomial_Interpolation.test.cpp
   - Verify/Factorize.test.cpp
-  - Verify/InvofFormalPowerSeries.test.cpp
+  - Verify/convolution.test.cpp
+  - Verify/Polynomial_Interpolation.test.cpp
+  - Verify/PointAddRangeSum.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp
+  - Verify/InvofFormalPowerSeries.test.cpp
+  - Verify/Multipoint_Evaluation.test.cpp
+  - Verify/Sum_of_Totient_Function.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
 redirect_from:

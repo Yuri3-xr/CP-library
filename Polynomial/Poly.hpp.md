@@ -286,16 +286,16 @@ data:
   isVerificationFile: false
   path: Polynomial/Poly.hpp
   requiredBy:
+  - Polynomial/Factorial.hpp
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
-  - Polynomial/Factorial.hpp
   timestamp: '2022-08-31 04:05:31+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/convolution.test.cpp
-  - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp
+  - Verify/Multipoint_Evaluation.test.cpp
 documentation_of: Polynomial/Poly.hpp
 layout: document
 redirect_from:
