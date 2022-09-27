@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/LazySegmentTree.hpp
       title: DataStructure/LazySegmentTree.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: DataStructure/RMQ.hpp
       title: DataStructure/RMQ.hpp
     - icon: ':heavy_check_mark:'
@@ -72,7 +72,7 @@ data:
       title: Polynomial/PrefixSumH.hpp
   - name: String
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: String/SuffixArray.hpp
       title: String/SuffixArray.hpp
   - name: Template
@@ -80,7 +80,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template/Power.hpp
       title: Template/Power.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   verificationCategories:
@@ -95,7 +95,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/Multipoint_Evaluation.test.cpp
       title: Verify/Multipoint_Evaluation.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/NumberofSubstrings.test.cpp
       title: Verify/NumberofSubstrings.test.cpp
     - icon: ':heavy_check_mark:'

@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/RMQ.hpp
     title: DataStructure/RMQ.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/NumberofSubstrings.test.cpp
     title: Verify/NumberofSubstrings.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/SuffixArray.test.cpp
     title: Verify/SuffixArray.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Template/Template.hpp\"\n\nusing namespace std;\n\n#include\
@@ -96,7 +96,7 @@ data:
   path: String/SuffixArray.hpp
   requiredBy: []
   timestamp: '2022-09-27 10:55:07+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/NumberofSubstrings.test.cpp
   - Verify/SuffixArray.test.cpp

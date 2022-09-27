@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/RMQ.hpp
     title: DataStructure/RMQ.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: String/SuffixArray.hpp
     title: String/SuffixArray.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/number_of_substrings
@@ -62,15 +62,15 @@ data:
     \ rk[x];\n        y = rk[y];\n        if (x > y) {\n            swap(x, y);\n\
     \        }\n        return rmq->rangeMin(x, y);\n    }\n};\n#line 5 \"Verify/NumberofSubstrings.test.cpp\"\
     \n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n\
-    \    string s;\n    cin >> s;\n    SuffixArray SA(s);\n\n    i64 ans = (SA.n +\
-    \ 1) * (SA.n) / 2;\n    for (int i = 0; i < SA.n - 1; i++) {\n        ans -= SA.lc[i];\n\
-    \    }\n\n    cout << ans << '\\n';\n\n    return 0;\n}\n"
+    \    string s;\n    cin >> s;\n    SuffixArray SA(s);\n\n    i64 ans = 1ll * (SA.n\
+    \ + 1) * (SA.n) / 2;\n    for (int i = 0; i < SA.n - 1; i++) {\n        ans -=\
+    \ SA.lc[i];\n    }\n\n    cout << ans << '\\n';\n\n    return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/number_of_substrings\"\n\
     \n#include \"../String/SuffixArray.hpp\"\n#include \"../Template/Template.hpp\"\
     \n\nint main() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n\
-    \    string s;\n    cin >> s;\n    SuffixArray SA(s);\n\n    i64 ans = (SA.n +\
-    \ 1) * (SA.n) / 2;\n    for (int i = 0; i < SA.n - 1; i++) {\n        ans -= SA.lc[i];\n\
-    \    }\n\n    cout << ans << '\\n';\n\n    return 0;\n}"
+    \    string s;\n    cin >> s;\n    SuffixArray SA(s);\n\n    i64 ans = 1ll * (SA.n\
+    \ + 1) * (SA.n) / 2;\n    for (int i = 0; i < SA.n - 1; i++) {\n        ans -=\
+    \ SA.lc[i];\n    }\n\n    cout << ans << '\\n';\n\n    return 0;\n}"
   dependsOn:
   - String/SuffixArray.hpp
   - DataStructure/RMQ.hpp
@@ -78,8 +78,8 @@ data:
   isVerificationFile: true
   path: Verify/NumberofSubstrings.test.cpp
   requiredBy: []
-  timestamp: '2022-09-27 10:55:07+08:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-09-27 10:59:11+08:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/NumberofSubstrings.test.cpp
 layout: document

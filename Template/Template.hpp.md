@@ -5,7 +5,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/LazySegmentTree.hpp
     title: DataStructure/LazySegmentTree.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: DataStructure/RMQ.hpp
     title: DataStructure/RMQ.hpp
   - icon: ':heavy_check_mark:'
@@ -56,7 +56,7 @@ data:
   - icon: ':warning:'
     path: Polynomial/PrefixSumH.hpp
     title: Polynomial/PrefixSumH.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: String/SuffixArray.hpp
     title: String/SuffixArray.hpp
   _extendedVerifiedWith:
@@ -69,7 +69,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/Multipoint_Evaluation.test.cpp
     title: Verify/Multipoint_Evaluation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/NumberofSubstrings.test.cpp
     title: Verify/NumberofSubstrings.test.cpp
   - icon: ':heavy_check_mark:'
@@ -93,9 +93,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "Template/Template.hpp"
@@ -154,7 +154,7 @@ data:
   - Matrix/AdjugateMatrix.hpp
   - Matrix/GaussElimination.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/NumberofSubstrings.test.cpp
   - Verify/Factorize.test.cpp
