@@ -5,6 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/LazySegmentTree.hpp
     title: DataStructure/LazySegmentTree.hpp
+  - icon: ':question:'
+    path: DataStructure/RMQ.hpp
+    title: DataStructure/RMQ.hpp
   - icon: ':heavy_check_mark:'
     path: DataStructure/SegmentTree.hpp
     title: DataStructure/SegmentTree.hpp
@@ -53,6 +56,9 @@ data:
   - icon: ':warning:'
     path: Polynomial/PrefixSumH.hpp
     title: Polynomial/PrefixSumH.hpp
+  - icon: ':question:'
+    path: String/SuffixArray.hpp
+    title: String/SuffixArray.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/Factorize.test.cpp
@@ -63,6 +69,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/Multipoint_Evaluation.test.cpp
     title: Verify/Multipoint_Evaluation.test.cpp
+  - icon: ':x:'
+    path: Verify/NumberofSubstrings.test.cpp
+    title: Verify/NumberofSubstrings.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/PointAddRangeSum.test.cpp
     title: Verify/PointAddRangeSum.test.cpp
@@ -73,14 +82,20 @@ data:
     path: Verify/RangeAffineRangeSum.test.cpp
     title: Verify/RangeAffineRangeSum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/StaticRMQ.test.cpp
+    title: Verify/StaticRMQ.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/SuffixArray.test.cpp
+    title: Verify/SuffixArray.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/Sum_of_Totient_Function.test.cpp
     title: Verify/Sum_of_Totient_Function.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 2 "Template/Template.hpp"
@@ -127,7 +142,9 @@ data:
   - Polynomial/Poly.hpp
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
+  - String/SuffixArray.hpp
   - DataStructure/LazySegmentTree.hpp
+  - DataStructure/RMQ.hpp
   - DataStructure/SegmentTree.hpp
   - Number_Theory/Factorization.hpp
   - Number_Theory/Mf_Sieve.hpp
@@ -137,13 +154,16 @@ data:
   - Matrix/AdjugateMatrix.hpp
   - Matrix/GaussElimination.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - Verify/NumberofSubstrings.test.cpp
   - Verify/Factorize.test.cpp
   - Verify/convolution.test.cpp
+  - Verify/SuffixArray.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/PointAddRangeSum.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp
+  - Verify/StaticRMQ.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Sum_of_Totient_Function.test.cpp

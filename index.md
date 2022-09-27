@@ -6,6 +6,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: DataStructure/LazySegmentTree.hpp
       title: DataStructure/LazySegmentTree.hpp
+    - icon: ':question:'
+      path: DataStructure/RMQ.hpp
+      title: DataStructure/RMQ.hpp
     - icon: ':heavy_check_mark:'
       path: DataStructure/SegmentTree.hpp
       title: DataStructure/SegmentTree.hpp
@@ -67,12 +70,17 @@ data:
     - icon: ':warning:'
       path: Polynomial/PrefixSumH.hpp
       title: Polynomial/PrefixSumH.hpp
+  - name: String
+    pages:
+    - icon: ':question:'
+      path: String/SuffixArray.hpp
+      title: String/SuffixArray.hpp
   - name: Template
     pages:
     - icon: ':heavy_check_mark:'
       path: Template/Power.hpp
       title: Template/Power.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   verificationCategories:
@@ -87,6 +95,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/Multipoint_Evaluation.test.cpp
       title: Verify/Multipoint_Evaluation.test.cpp
+    - icon: ':x:'
+      path: Verify/NumberofSubstrings.test.cpp
+      title: Verify/NumberofSubstrings.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/PointAddRangeSum.test.cpp
       title: Verify/PointAddRangeSum.test.cpp
@@ -96,6 +107,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/RangeAffineRangeSum.test.cpp
       title: Verify/RangeAffineRangeSum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/StaticRMQ.test.cpp
+      title: Verify/StaticRMQ.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/SuffixArray.test.cpp
+      title: Verify/SuffixArray.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/Sum_of_Totient_Function.test.cpp
       title: Verify/Sum_of_Totient_Function.test.cpp
