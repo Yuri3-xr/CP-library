@@ -3,6 +3,7 @@
 #include "../Template/Template.hpp"
 
 struct SuffixArray {
+    // lc[i] ->lcp(sa[i],sa[i+1])
     int n;
     vector<int> sa, rk, lc;
     RMQ<int> *rmq;
