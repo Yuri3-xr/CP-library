@@ -8,6 +8,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/SuffixArray.hpp
     title: String/SuffixArray.hpp
+  - icon: ':heavy_check_mark:'
+    path: String/SuffixArrayFast.hpp
+    title: String/SuffixArrayFast.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/NumberofSubstrings.test.cpp
@@ -51,6 +54,7 @@ data:
   path: DataStructure/RMQ.hpp
   requiredBy:
   - String/SuffixArray.hpp
+  - String/SuffixArrayFast.hpp
   timestamp: '2022-09-27 10:55:07+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

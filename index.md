@@ -75,6 +75,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: String/SuffixArray.hpp
       title: String/SuffixArray.hpp
+    - icon: ':heavy_check_mark:'
+      path: String/SuffixArrayFast.hpp
+      title: String/SuffixArrayFast.hpp
   - name: Template
     pages:
     - icon: ':heavy_check_mark:'

@@ -10,9 +10,6 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: Verify/NumberofSubstrings.test.cpp
-    title: Verify/NumberofSubstrings.test.cpp
-  - icon: ':heavy_check_mark:'
     path: Verify/SuffixArray.test.cpp
     title: Verify/SuffixArray.test.cpp
   _isVerificationFailed: false
@@ -98,7 +95,6 @@ data:
   timestamp: '2022-09-27 10:55:07+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/NumberofSubstrings.test.cpp
   - Verify/SuffixArray.test.cpp
 documentation_of: String/SuffixArray.hpp
 layout: document
