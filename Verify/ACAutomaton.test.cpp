@@ -19,6 +19,7 @@ int main() {
     string s;
     int m;
     cin >> s >> m;
+
     ACAutomaton<TrieNode> ac;
     vector<int> pos(m + 1);
     for (int i = 1; i <= m; i++) {
