@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: String/ACAutomaton.hpp
     title: String/ACAutomaton.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/ACAutomaton.test.cpp
     title: Verify/ACAutomaton.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Template/Template.hpp\"\n\nusing namespace std;\n\n#include\
@@ -48,7 +48,7 @@ data:
   requiredBy:
   - String/ACAutomaton.hpp
   timestamp: '2022-10-12 22:33:33+08:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/ACAutomaton.test.cpp
 documentation_of: String/Trie.hpp

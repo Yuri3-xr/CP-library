@@ -72,7 +72,7 @@ data:
       title: Polynomial/PrefixSumH.hpp
   - name: String
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/ACAutomaton.hpp
       title: String/ACAutomaton.hpp
     - icon: ':heavy_check_mark:'
@@ -81,7 +81,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: String/SuffixArrayFast.hpp
       title: String/SuffixArrayFast.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: String/Trie.hpp
       title: String/Trie.hpp
   - name: Template
@@ -89,13 +89,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template/Power.hpp
       title: Template/Power.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   verificationCategories:
   - name: Verify
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/ACAutomaton.test.cpp
       title: Verify/ACAutomaton.test.cpp
     - icon: ':heavy_check_mark:'

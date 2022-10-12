@@ -56,7 +56,7 @@ data:
   - icon: ':warning:'
     path: Polynomial/PrefixSumH.hpp
     title: Polynomial/PrefixSumH.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: String/ACAutomaton.hpp
     title: String/ACAutomaton.hpp
   - icon: ':heavy_check_mark:'
@@ -65,11 +65,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/SuffixArrayFast.hpp
     title: String/SuffixArrayFast.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: String/Trie.hpp
     title: String/Trie.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/ACAutomaton.test.cpp
     title: Verify/ACAutomaton.test.cpp
   - icon: ':heavy_check_mark:'
@@ -105,9 +105,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "Template/Template.hpp"
@@ -169,7 +169,7 @@ data:
   - Matrix/AdjugateMatrix.hpp
   - Matrix/GaussElimination.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/NumberofSubstrings.test.cpp
   - Verify/Factorize.test.cpp

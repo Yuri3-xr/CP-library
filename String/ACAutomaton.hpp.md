@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: String/Trie.hpp
     title: String/Trie.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/ACAutomaton.test.cpp
     title: Verify/ACAutomaton.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"String/ACAutomaton.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
@@ -57,7 +57,7 @@ data:
   path: String/ACAutomaton.hpp
   requiredBy: []
   timestamp: '2022-10-12 22:33:33+08:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/ACAutomaton.test.cpp
 documentation_of: String/ACAutomaton.hpp
