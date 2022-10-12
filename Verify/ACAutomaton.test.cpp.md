@@ -48,10 +48,10 @@ data:
     \ };\n    TrieNode(int _id, int _dep) : id(_id), dep(_dep) {}\n    int id;\n \
     \   int dep;\n    array<int, 26> nxt = {};\n    int &operator[](const int x) {\
     \ return this->nxt[x]; }\n};\nint main() {\n    ios::sync_with_stdio(false);\n\
-    \    cin.tie(nullptr);\n\n    string s;\n    int m;\n    cin >> s >> m;\n    ACAutomaton<TrieNode>\
-    \ ac;\n    vector<int> pos(m + 1);\n    for (int i = 1; i <= m; i++) {\n     \
-    \   string res;\n        cin >> res;\n        pos[i] = ac.add(res);\n    }\n \
-    \   ac.BuildAC();\n\n    vector<int> val(ac.size());\n    vector<vector<int>>\
+    \    cin.tie(nullptr);\n\n    string s;\n    int m;\n    cin >> s >> m;\n\n  \
+    \  ACAutomaton<TrieNode> ac;\n    vector<int> pos(m + 1);\n    for (int i = 1;\
+    \ i <= m; i++) {\n        string res;\n        cin >> res;\n        pos[i] = ac.add(res);\n\
+    \    }\n    ac.BuildAC();\n\n    vector<int> val(ac.size());\n    vector<vector<int>>\
     \ adj(ac.size());\n    for (int i = 0; i < ac.size(); i++) {\n        if (i !=\
     \ ac.fail[i]) adj[ac.fail[i]].push_back(i);\n    }\n\n    int p = 0;\n    for\
     \ (auto it : s) {\n        p = ac.tr[p][it - 'A'];\n        val[p]++;\n    }\n\
@@ -65,7 +65,7 @@ data:
     \ : id(_id), dep(_dep) {}\n    int id;\n    int dep;\n    array<int, 26> nxt =\
     \ {};\n    int &operator[](const int x) { return this->nxt[x]; }\n};\nint main()\
     \ {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n\n    string s;\n\
-    \    int m;\n    cin >> s >> m;\n    ACAutomaton<TrieNode> ac;\n    vector<int>\
+    \    int m;\n    cin >> s >> m;\n\n    ACAutomaton<TrieNode> ac;\n    vector<int>\
     \ pos(m + 1);\n    for (int i = 1; i <= m; i++) {\n        string res;\n     \
     \   cin >> res;\n        pos[i] = ac.add(res);\n    }\n    ac.BuildAC();\n\n \
     \   vector<int> val(ac.size());\n    vector<vector<int>> adj(ac.size());\n   \
@@ -82,7 +82,7 @@ data:
   isVerificationFile: true
   path: Verify/ACAutomaton.test.cpp
   requiredBy: []
-  timestamp: '2022-10-12 22:33:33+08:00'
+  timestamp: '2022-10-12 22:38:36+08:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/ACAutomaton.test.cpp
