@@ -56,13 +56,22 @@ data:
   - icon: ':warning:'
     path: Polynomial/PrefixSumH.hpp
     title: Polynomial/PrefixSumH.hpp
+  - icon: ':x:'
+    path: String/ACAutomaton.hpp
+    title: String/ACAutomaton.hpp
   - icon: ':heavy_check_mark:'
     path: String/SuffixArray.hpp
     title: String/SuffixArray.hpp
   - icon: ':heavy_check_mark:'
     path: String/SuffixArrayFast.hpp
     title: String/SuffixArrayFast.hpp
+  - icon: ':x:'
+    path: String/Trie.hpp
+    title: String/Trie.hpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: Verify/ACAutomaton.test.cpp
+    title: Verify/ACAutomaton.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/Factorize.test.cpp
     title: Verify/Factorize.test.cpp
@@ -96,9 +105,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 2 "Template/Template.hpp"
@@ -146,6 +155,8 @@ data:
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
   - String/SuffixArray.hpp
+  - String/Trie.hpp
+  - String/ACAutomaton.hpp
   - String/SuffixArrayFast.hpp
   - DataStructure/LazySegmentTree.hpp
   - DataStructure/RMQ.hpp
@@ -158,7 +169,7 @@ data:
   - Matrix/AdjugateMatrix.hpp
   - Matrix/GaussElimination.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/NumberofSubstrings.test.cpp
   - Verify/Factorize.test.cpp
@@ -168,6 +179,7 @@ data:
   - Verify/PointAddRangeSum.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp
   - Verify/StaticRMQ.test.cpp
+  - Verify/ACAutomaton.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Sum_of_Totient_Function.test.cpp

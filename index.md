@@ -72,23 +72,32 @@ data:
       title: Polynomial/PrefixSumH.hpp
   - name: String
     pages:
+    - icon: ':x:'
+      path: String/ACAutomaton.hpp
+      title: String/ACAutomaton.hpp
     - icon: ':heavy_check_mark:'
       path: String/SuffixArray.hpp
       title: String/SuffixArray.hpp
     - icon: ':heavy_check_mark:'
       path: String/SuffixArrayFast.hpp
       title: String/SuffixArrayFast.hpp
+    - icon: ':x:'
+      path: String/Trie.hpp
+      title: String/Trie.hpp
   - name: Template
     pages:
     - icon: ':heavy_check_mark:'
       path: Template/Power.hpp
       title: Template/Power.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   verificationCategories:
   - name: Verify
     pages:
+    - icon: ':x:'
+      path: Verify/ACAutomaton.test.cpp
+      title: Verify/ACAutomaton.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/Factorize.test.cpp
       title: Verify/Factorize.test.cpp
