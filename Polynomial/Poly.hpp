@@ -71,6 +71,21 @@ struct Poly {
     Poly &operator+=(Poly b) { return (*this) = (*this) + b; }
     Poly &operator-=(Poly b) { return (*this) = (*this) - b; }
     Poly &operator*=(Poly b) { return (*this) = (*this) * b; }
+    Poly operator/(const Poly &r) const { return Poly(this->a) /= r; }
+    Poly rev(int deg = -1) const {
+        Poly ret(this->a);
+        if (deg != -1) ret.a.resize(deg, Z(0));
+        reverse(begin(ret.a), end(ret.a));
+        return ret;
+    }
+    Poly &operator/=(const Poly &r) {
+        if (this->size() < r.size()) {
+            this->a.clear();
+            return *this;
+        }
+        int n = this->size() - r.size() + 1;
+        return *this = (rev().modxk(n) * r.rev().inv(n)).modxk(n).rev(n);
+    }
     Poly deriv() const {
         if (a.empty()) {
             return Poly();
