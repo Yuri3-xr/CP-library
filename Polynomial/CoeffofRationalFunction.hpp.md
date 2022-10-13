@@ -13,14 +13,20 @@ data:
   - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
-  _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: Polynomial/LinearlyRecurrent.hpp
+    title: Polynomial/LinearlyRecurrent.hpp
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+    title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"Polynomial/PrefixSumBinomial.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
+  bundledCode: "#line 2 \"Polynomial/CoeffofRationalFunction.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
     \n\nusing namespace std;\n\n#include <bits/stdc++.h>\n\nusing i64 = long long;\n\
     using VI = vector<int>;\nusing pii = pair<int, int>;\n#line 2 \"Polynomial/Poly.hpp\"\
     \n\n#line 2 \"Polynomial/Ntt.hpp\"\n\n#line 1 \"Template/Power.hpp\"\ntemplate\
@@ -163,71 +169,47 @@ data:
     \        Z cur = T;\n        for (int i = 1; i <= k; i++) cur *= T - i;\n    \
     \    for (int i = 0; i < m; i++) {\n            ret[i] = cur * dh[k + i];\n  \
     \          cur *= T + i + 1;\n            cur *= h[i];\n        }\n        return\
-    \ ret;\n    }\n};\n#line 5 \"Polynomial/PrefixSumBinomial.hpp\"\ntemplate <class\
-    \ T>\nT PrefixSumBinomial(i64 m, i64 n) {\n    /*\n        \\sum_{i=0}^m C(n,i)\n\
-    \        Time Complexity: O(\\sqrt(m)\\log m)\n    */\n    if (m == 0) return\
-    \ 1;\n    if (m == 1) return n + 1;\n    using poly = Poly<T, 3>;\n    m += 1;\n\
-    \    i64 v = 1;\n    while (v * v < m) v *= 2;\n    T iv = T(v).inverse();\n \
-    \   array<poly, 3> G = {poly({n, n - v}), poly({1, v + 1}), poly({1, v + 1})};\n\
-    \    for (i64 d = 1; d != v; d <<= 1ll) {\n        array<poly, 3> G1, G2, G3;\n\
-    \        for (int i = 0; i < 3; i++) {\n            G1[i] = G[i].shift(T(d) *\
-    \ iv);\n            G2[i] = G[i].shift(T(d * v + v) * iv);\n            G3[i]\
-    \ = G[i].shift(T(d * v + d + v) * iv);\n        }\n\n        for (int t = 0; t\
-    \ <= d; t++) {\n            G[1][t] = G1[1][t] * G[0][t] + G[1][t] * G1[2][t];\n\
-    \            G2[1][t] = G2[1][t] * G3[2][t] + G3[1][t] * G2[0][t];\n         \
-    \   G[0][t] *= G1[0][t];\n            G[2][t] *= G1[2][t];\n            G2[0][t]\
-    \ *= G3[0][t];\n            G2[2][t] *= G3[2][t];\n        }\n        for (int\
-    \ i = 0; i < 3; i++) {\n            copy(begin(G2[i].a), end(G2[i].a) - 1, back_inserter(G[i].a));\n\
-    \        }\n    }\n    using M = array<array<T, 2>, 2>;\n\n    M res = {array<T,\
-    \ 2>({1, 0}), array<T, 2>({0, 1})};\n    auto M_multiply = [&](const M &a, const\
-    \ M &b) -> M {\n        M res;\n        for (int i = 0; i < 2; i++)\n        \
-    \    for (int j = 0; j < 2; j++)\n                for (int k = 0; k < 2; k++)\
-    \ res[i][j] += a[i][k] * b[k][j];\n        return res;\n    };\n    i64 i = 0;\n\
-    \    while (i + v <= m) {\n        M now = {array<T, 2>({G[0][i / v], 0}),\n \
-    \                array<T, 2>({G[1][i / v], G[2][i / v]})};\n        res = M_multiply(now,\
-    \ res);\n        i += v;\n    }\n    while (i < m) {\n        M now = {array<T,\
-    \ 2>({n - i, 0}), array<T, 2>({i + 1, i + 1})};\n        i++;\n        res = M_multiply(now,\
-    \ res);\n    }\n    return res[1][0] / res[1][1];\n}\n"
+    \ ret;\n    }\n};\n#line 5 \"Polynomial/CoeffofRationalFunction.hpp\"\n\ntemplate\
+    \ <class Z, int rt>\nZ CoeffofRationalFunction(Poly<Z, rt> P, Poly<Z, rt> Q, i64\
+    \ k) {\n    Z ret = 0;\n    if (P.size() >= Q.size()) {\n        auto R = P /\
+    \ Q;\n        P -= R * Q;\n        while (P.size() && P.a.back() == Z(0)) P.a.pop_back();\n\
+    \        if (k < int(R.size())) ret += R[k];\n    }\n    if (P.a.empty()) return\
+    \ ret;\n    P.a.resize(int(Q.size()) - 1);\n\n    while (k > 0) {\n        Poly<Z,\
+    \ rt> Q2(Q.a);\n        for (int i = 1; i < int(Q2.size()); i += 2) Q2[i] = -Q2[i];\n\
+    \        auto sub = [&](const Poly<Z, rt> &as, bool odd) {\n            Poly<Z,\
+    \ rt> bs((as.size() + !odd) / 2, 0);\n            for (int i = odd; i < (int)as.size();\
+    \ i += 2) bs[i >> 1] = as[i];\n            return bs;\n        };\n        P =\
+    \ sub(P * Q2, k & 1);\n        Q = sub(Q * Q2, 0);\n        k /= 2;\n    }\n\n\
+    \    return ret + P[0];\n}\n"
   code: "#pragma once\n\n#include \"../Template/Template.hpp\"\n#include \"Poly.hpp\"\
-    \ntemplate <class T>\nT PrefixSumBinomial(i64 m, i64 n) {\n    /*\n        \\\
-    sum_{i=0}^m C(n,i)\n        Time Complexity: O(\\sqrt(m)\\log m)\n    */\n   \
-    \ if (m == 0) return 1;\n    if (m == 1) return n + 1;\n    using poly = Poly<T,\
-    \ 3>;\n    m += 1;\n    i64 v = 1;\n    while (v * v < m) v *= 2;\n    T iv =\
-    \ T(v).inverse();\n    array<poly, 3> G = {poly({n, n - v}), poly({1, v + 1}),\
-    \ poly({1, v + 1})};\n    for (i64 d = 1; d != v; d <<= 1ll) {\n        array<poly,\
-    \ 3> G1, G2, G3;\n        for (int i = 0; i < 3; i++) {\n            G1[i] = G[i].shift(T(d)\
-    \ * iv);\n            G2[i] = G[i].shift(T(d * v + v) * iv);\n            G3[i]\
-    \ = G[i].shift(T(d * v + d + v) * iv);\n        }\n\n        for (int t = 0; t\
-    \ <= d; t++) {\n            G[1][t] = G1[1][t] * G[0][t] + G[1][t] * G1[2][t];\n\
-    \            G2[1][t] = G2[1][t] * G3[2][t] + G3[1][t] * G2[0][t];\n         \
-    \   G[0][t] *= G1[0][t];\n            G[2][t] *= G1[2][t];\n            G2[0][t]\
-    \ *= G3[0][t];\n            G2[2][t] *= G3[2][t];\n        }\n        for (int\
-    \ i = 0; i < 3; i++) {\n            copy(begin(G2[i].a), end(G2[i].a) - 1, back_inserter(G[i].a));\n\
-    \        }\n    }\n    using M = array<array<T, 2>, 2>;\n\n    M res = {array<T,\
-    \ 2>({1, 0}), array<T, 2>({0, 1})};\n    auto M_multiply = [&](const M &a, const\
-    \ M &b) -> M {\n        M res;\n        for (int i = 0; i < 2; i++)\n        \
-    \    for (int j = 0; j < 2; j++)\n                for (int k = 0; k < 2; k++)\
-    \ res[i][j] += a[i][k] * b[k][j];\n        return res;\n    };\n    i64 i = 0;\n\
-    \    while (i + v <= m) {\n        M now = {array<T, 2>({G[0][i / v], 0}),\n \
-    \                array<T, 2>({G[1][i / v], G[2][i / v]})};\n        res = M_multiply(now,\
-    \ res);\n        i += v;\n    }\n    while (i < m) {\n        M now = {array<T,\
-    \ 2>({n - i, 0}), array<T, 2>({i + 1, i + 1})};\n        i++;\n        res = M_multiply(now,\
-    \ res);\n    }\n    return res[1][0] / res[1][1];\n}\n"
+    \n\ntemplate <class Z, int rt>\nZ CoeffofRationalFunction(Poly<Z, rt> P, Poly<Z,\
+    \ rt> Q, i64 k) {\n    Z ret = 0;\n    if (P.size() >= Q.size()) {\n        auto\
+    \ R = P / Q;\n        P -= R * Q;\n        while (P.size() && P.a.back() == Z(0))\
+    \ P.a.pop_back();\n        if (k < int(R.size())) ret += R[k];\n    }\n    if\
+    \ (P.a.empty()) return ret;\n    P.a.resize(int(Q.size()) - 1);\n\n    while (k\
+    \ > 0) {\n        Poly<Z, rt> Q2(Q.a);\n        for (int i = 1; i < int(Q2.size());\
+    \ i += 2) Q2[i] = -Q2[i];\n        auto sub = [&](const Poly<Z, rt> &as, bool\
+    \ odd) {\n            Poly<Z, rt> bs((as.size() + !odd) / 2, 0);\n           \
+    \ for (int i = odd; i < (int)as.size(); i += 2) bs[i >> 1] = as[i];\n        \
+    \    return bs;\n        };\n        P = sub(P * Q2, k & 1);\n        Q = sub(Q\
+    \ * Q2, 0);\n        k /= 2;\n    }\n\n    return ret + P[0];\n}\n"
   dependsOn:
   - Template/Template.hpp
   - Polynomial/Poly.hpp
   - Polynomial/Ntt.hpp
   - Template/Power.hpp
   isVerificationFile: false
-  path: Polynomial/PrefixSumBinomial.hpp
-  requiredBy: []
+  path: Polynomial/CoeffofRationalFunction.hpp
+  requiredBy:
+  - Polynomial/LinearlyRecurrent.hpp
   timestamp: '2022-10-13 21:24:14+08:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
-documentation_of: Polynomial/PrefixSumBinomial.hpp
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+documentation_of: Polynomial/CoeffofRationalFunction.hpp
 layout: document
 redirect_from:
-- /library/Polynomial/PrefixSumBinomial.hpp
-- /library/Polynomial/PrefixSumBinomial.hpp.html
-title: Polynomial/PrefixSumBinomial.hpp
+- /library/Polynomial/CoeffofRationalFunction.hpp
+- /library/Polynomial/CoeffofRationalFunction.hpp.html
+title: Polynomial/CoeffofRationalFunction.hpp
 ---

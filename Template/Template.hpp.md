@@ -41,9 +41,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Prime_Sieve.hpp
     title: Number_Theory/Prime_Sieve.hpp
+  - icon: ':heavy_check_mark:'
+    path: Polynomial/CoeffofRationalFunction.hpp
+    title: Polynomial/CoeffofRationalFunction.hpp
   - icon: ':warning:'
     path: Polynomial/Factorial.hpp
     title: Polynomial/Factorial.hpp
+  - icon: ':heavy_check_mark:'
+    path: Polynomial/LinearlyRecurrent.hpp
+    title: Polynomial/LinearlyRecurrent.hpp
   - icon: ':heavy_check_mark:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
@@ -78,6 +84,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/InvofFormalPowerSeries.test.cpp
     title: Verify/InvofFormalPowerSeries.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+    title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/Multipoint_Evaluation.test.cpp
     title: Verify/Multipoint_Evaluation.test.cpp
@@ -149,11 +158,13 @@ data:
   - Geometry/Minkowski_Sum.hpp
   - ModInt/Modint32.hpp
   - ModInt/Modint32_change.hpp
+  - Polynomial/CoeffofRationalFunction.hpp
   - Polynomial/Factorial.hpp
   - Polynomial/Ntt.hpp
   - Polynomial/Poly.hpp
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
+  - Polynomial/LinearlyRecurrent.hpp
   - String/SuffixArray.hpp
   - String/Trie.hpp
   - String/ACAutomaton.hpp
@@ -174,6 +185,7 @@ data:
   - Verify/NumberofSubstrings.test.cpp
   - Verify/Factorize.test.cpp
   - Verify/convolution.test.cpp
+  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - Verify/SuffixArray.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/PointAddRangeSum.test.cpp

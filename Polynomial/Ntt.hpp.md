@@ -8,9 +8,15 @@ data:
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: Polynomial/CoeffofRationalFunction.hpp
+    title: Polynomial/CoeffofRationalFunction.hpp
   - icon: ':warning:'
     path: Polynomial/Factorial.hpp
     title: Polynomial/Factorial.hpp
+  - icon: ':heavy_check_mark:'
+    path: Polynomial/LinearlyRecurrent.hpp
+    title: Polynomial/LinearlyRecurrent.hpp
   - icon: ':heavy_check_mark:'
     path: Polynomial/Poly.hpp
     title: Polynomial/Poly.hpp
@@ -24,6 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/InvofFormalPowerSeries.test.cpp
     title: Verify/InvofFormalPowerSeries.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+    title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/Multipoint_Evaluation.test.cpp
     title: Verify/Multipoint_Evaluation.test.cpp
@@ -103,14 +112,17 @@ data:
   isVerificationFile: false
   path: Polynomial/Ntt.hpp
   requiredBy:
+  - Polynomial/CoeffofRationalFunction.hpp
   - Polynomial/Factorial.hpp
   - Polynomial/Poly.hpp
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
+  - Polynomial/LinearlyRecurrent.hpp
   timestamp: '2022-08-31 04:05:31+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/convolution.test.cpp
+  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp

@@ -55,9 +55,15 @@ data:
       title: Number_Theory/Prime_Sieve.hpp
   - name: Polynomial
     pages:
+    - icon: ':heavy_check_mark:'
+      path: Polynomial/CoeffofRationalFunction.hpp
+      title: Polynomial/CoeffofRationalFunction.hpp
     - icon: ':warning:'
       path: Polynomial/Factorial.hpp
       title: Polynomial/Factorial.hpp
+    - icon: ':heavy_check_mark:'
+      path: Polynomial/LinearlyRecurrent.hpp
+      title: Polynomial/LinearlyRecurrent.hpp
     - icon: ':heavy_check_mark:'
       path: Polynomial/Ntt.hpp
       title: Polynomial/Ntt.hpp
@@ -104,6 +110,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/InvofFormalPowerSeries.test.cpp
       title: Verify/InvofFormalPowerSeries.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+      title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/Multipoint_Evaluation.test.cpp
       title: Verify/Multipoint_Evaluation.test.cpp

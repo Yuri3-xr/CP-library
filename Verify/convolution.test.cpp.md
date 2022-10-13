@@ -106,26 +106,33 @@ data:
     \ i < int(a.size()); i++) {\n            a[i] *= b;\n        }\n        return\
     \ a;\n    }\n    Poly &operator+=(Poly b) { return (*this) = (*this) + b; }\n\
     \    Poly &operator-=(Poly b) { return (*this) = (*this) - b; }\n    Poly &operator*=(Poly\
-    \ b) { return (*this) = (*this) * b; }\n    Poly deriv() const {\n        if (a.empty())\
-    \ {\n            return Poly();\n        }\n        vector<Z> res(size() - 1);\n\
-    \        for (int i = 0; i < size() - 1; ++i) {\n            res[i] = Z(i + 1)\
-    \ * a[i + 1];\n        }\n        return Poly(res);\n    }\n    Poly integr()\
-    \ const {\n        vector<Z> res(size() + 1);\n        for (int i = 0; i < size();\
-    \ ++i) {\n            res[i + 1] = a[i] / (i + 1);\n        }\n        return\
-    \ Poly(res);\n    }\n    Poly inv(int m) const {\n        Poly x{a[0].inverse()};\n\
-    \        int k = 1;\n        while (k < m) {\n            k *= 2;\n          \
-    \  x = (x * (Poly{2} - modxk(k) * x)).modxk(k);\n        }\n        return x.modxk(m);\n\
-    \    }\n    Poly log(int m) const { return (deriv() * inv(m)).integr().modxk(m);\
-    \ }\n    Poly exp(int m) const {\n        Poly x{1};\n        int k = 1;\n   \
-    \     while (k < m) {\n            k *= 2;\n            x = (x * (Poly{1} - x.log(k)\
-    \ + modxk(k))).modxk(k);\n        }\n        return x.modxk(m);\n    }\n    Poly\
-    \ pow(int k, int m) const {\n        int i = 0;\n        while (i < size() &&\
-    \ a[i].get() == 0) {\n            i++;\n        }\n        if (i == size() ||\
-    \ 1LL * i * k >= m) {\n            return Poly(vector<Z>(m));\n        }\n   \
-    \     Z v = a[i];\n        auto f = divxk(i) * v.inverse();\n        return (f.log(m\
-    \ - i * k) * k).exp(m - i * k).mulxk(i * k) * power(v, k);\n    }\n    Poly sqrt(int\
+    \ b) { return (*this) = (*this) * b; }\n    Poly operator/(const Poly &r) const\
+    \ { return Poly(this->a) /= r; }\n    Poly rev(int deg = -1) const {\n       \
+    \ Poly ret(this->a);\n        if (deg != -1) ret.a.resize(deg, Z(0));\n      \
+    \  reverse(begin(ret.a), end(ret.a));\n        return ret;\n    }\n    Poly &operator/=(const\
+    \ Poly &r) {\n        if (this->size() < r.size()) {\n            this->a.clear();\n\
+    \            return *this;\n        }\n        int n = this->size() - r.size()\
+    \ + 1;\n        return *this = (rev().modxk(n) * r.rev().inv(n)).modxk(n).rev(n);\n\
+    \    }\n    Poly deriv() const {\n        if (a.empty()) {\n            return\
+    \ Poly();\n        }\n        vector<Z> res(size() - 1);\n        for (int i =\
+    \ 0; i < size() - 1; ++i) {\n            res[i] = Z(i + 1) * a[i + 1];\n     \
+    \   }\n        return Poly(res);\n    }\n    Poly integr() const {\n        vector<Z>\
+    \ res(size() + 1);\n        for (int i = 0; i < size(); ++i) {\n            res[i\
+    \ + 1] = a[i] / (i + 1);\n        }\n        return Poly(res);\n    }\n    Poly\
+    \ inv(int m) const {\n        Poly x{a[0].inverse()};\n        int k = 1;\n  \
+    \      while (k < m) {\n            k *= 2;\n            x = (x * (Poly{2} - modxk(k)\
+    \ * x)).modxk(k);\n        }\n        return x.modxk(m);\n    }\n    Poly log(int\
+    \ m) const { return (deriv() * inv(m)).integr().modxk(m); }\n    Poly exp(int\
     \ m) const {\n        Poly x{1};\n        int k = 1;\n        while (k < m) {\n\
-    \            k *= 2;\n            x = (x + (modxk(k) * x.inv(k)).modxk(k)) * ((Z::get_mod()\
+    \            k *= 2;\n            x = (x * (Poly{1} - x.log(k) + modxk(k))).modxk(k);\n\
+    \        }\n        return x.modxk(m);\n    }\n    Poly pow(int k, int m) const\
+    \ {\n        int i = 0;\n        while (i < size() && a[i].get() == 0) {\n   \
+    \         i++;\n        }\n        if (i == size() || 1LL * i * k >= m) {\n  \
+    \          return Poly(vector<Z>(m));\n        }\n        Z v = a[i];\n      \
+    \  auto f = divxk(i) * v.inverse();\n        return (f.log(m - i * k) * k).exp(m\
+    \ - i * k).mulxk(i * k) * power(v, k);\n    }\n    Poly sqrt(int m) const {\n\
+    \        Poly x{1};\n        int k = 1;\n        while (k < m) {\n           \
+    \ k *= 2;\n            x = (x + (modxk(k) * x.inv(k)).modxk(k)) * ((Z::get_mod()\
     \ + 1) / 2);\n        }\n        return x.modxk(m);\n    }\n    Poly mulT(Poly\
     \ b) const {\n        if (b.size() == 0) {\n            return Poly();\n     \
     \   }\n        int n = b.size();\n        reverse(b.a.begin(), b.a.end());\n \
@@ -207,7 +214,7 @@ data:
   isVerificationFile: true
   path: Verify/convolution.test.cpp
   requiredBy: []
-  timestamp: '2022-08-31 04:05:31+08:00'
+  timestamp: '2022-10-13 21:24:14+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/convolution.test.cpp

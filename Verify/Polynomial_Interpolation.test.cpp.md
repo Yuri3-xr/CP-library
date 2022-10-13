@@ -107,14 +107,21 @@ data:
     \ *= b;\n        }\n        return a;\n    }\n    Poly &operator+=(Poly b) { return\
     \ (*this) = (*this) + b; }\n    Poly &operator-=(Poly b) { return (*this) = (*this)\
     \ - b; }\n    Poly &operator*=(Poly b) { return (*this) = (*this) * b; }\n   \
-    \ Poly deriv() const {\n        if (a.empty()) {\n            return Poly();\n\
-    \        }\n        vector<Z> res(size() - 1);\n        for (int i = 0; i < size()\
-    \ - 1; ++i) {\n            res[i] = Z(i + 1) * a[i + 1];\n        }\n        return\
-    \ Poly(res);\n    }\n    Poly integr() const {\n        vector<Z> res(size() +\
-    \ 1);\n        for (int i = 0; i < size(); ++i) {\n            res[i + 1] = a[i]\
-    \ / (i + 1);\n        }\n        return Poly(res);\n    }\n    Poly inv(int m)\
-    \ const {\n        Poly x{a[0].inverse()};\n        int k = 1;\n        while\
-    \ (k < m) {\n            k *= 2;\n            x = (x * (Poly{2} - modxk(k) * x)).modxk(k);\n\
+    \ Poly operator/(const Poly &r) const { return Poly(this->a) /= r; }\n    Poly\
+    \ rev(int deg = -1) const {\n        Poly ret(this->a);\n        if (deg != -1)\
+    \ ret.a.resize(deg, Z(0));\n        reverse(begin(ret.a), end(ret.a));\n     \
+    \   return ret;\n    }\n    Poly &operator/=(const Poly &r) {\n        if (this->size()\
+    \ < r.size()) {\n            this->a.clear();\n            return *this;\n   \
+    \     }\n        int n = this->size() - r.size() + 1;\n        return *this =\
+    \ (rev().modxk(n) * r.rev().inv(n)).modxk(n).rev(n);\n    }\n    Poly deriv()\
+    \ const {\n        if (a.empty()) {\n            return Poly();\n        }\n \
+    \       vector<Z> res(size() - 1);\n        for (int i = 0; i < size() - 1; ++i)\
+    \ {\n            res[i] = Z(i + 1) * a[i + 1];\n        }\n        return Poly(res);\n\
+    \    }\n    Poly integr() const {\n        vector<Z> res(size() + 1);\n      \
+    \  for (int i = 0; i < size(); ++i) {\n            res[i + 1] = a[i] / (i + 1);\n\
+    \        }\n        return Poly(res);\n    }\n    Poly inv(int m) const {\n  \
+    \      Poly x{a[0].inverse()};\n        int k = 1;\n        while (k < m) {\n\
+    \            k *= 2;\n            x = (x * (Poly{2} - modxk(k) * x)).modxk(k);\n\
     \        }\n        return x.modxk(m);\n    }\n    Poly log(int m) const { return\
     \ (deriv() * inv(m)).integr().modxk(m); }\n    Poly exp(int m) const {\n     \
     \   Poly x{1};\n        int k = 1;\n        while (k < m) {\n            k *=\
@@ -208,7 +215,7 @@ data:
   isVerificationFile: true
   path: Verify/Polynomial_Interpolation.test.cpp
   requiredBy: []
-  timestamp: '2022-08-31 04:05:31+08:00'
+  timestamp: '2022-10-13 21:24:14+08:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Verify/Polynomial_Interpolation.test.cpp

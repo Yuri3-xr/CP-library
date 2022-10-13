@@ -7,6 +7,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+    title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/Multipoint_Evaluation.test.cpp
     title: Verify/Multipoint_Evaluation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -81,6 +84,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/convolution.test.cpp
+  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
