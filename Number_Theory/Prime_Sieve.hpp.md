@@ -8,6 +8,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Mf_Sieve.hpp
     title: Number_Theory/Mf_Sieve.hpp
+  - icon: ':warning:'
+    path: Number_Theory/OsakDivisors.hpp
+    title: Number_Theory/OsakDivisors.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/Sum_of_Totient_Function.test.cpp
@@ -42,6 +45,7 @@ data:
   isVerificationFile: false
   path: Number_Theory/Prime_Sieve.hpp
   requiredBy:
+  - Number_Theory/OsakDivisors.hpp
   - Number_Theory/Mf_Sieve.hpp
   timestamp: '2022-09-08 18:33:50+08:00'
   verificationStatus: LIBRARY_ALL_AC

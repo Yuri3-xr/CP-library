@@ -51,6 +51,9 @@ data:
       path: Number_Theory/Mf_Sieve.hpp
       title: Number_Theory/Mf_Sieve.hpp
     - icon: ':warning:'
+      path: Number_Theory/OsakDivisors.hpp
+      title: Number_Theory/OsakDivisors.hpp
+    - icon: ':warning:'
       path: Number_Theory/OsakDivisorsFast.hpp
       title: Number_Theory/OsakDivisorsFast.hpp
     - icon: ':heavy_check_mark:'
