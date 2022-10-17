@@ -3,6 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
+    path: Number_Theory/MultiplicativeFunctionPSumFast.hpp
+    title: Number_Theory/MultiplicativeFunctionPSumFast.hpp
+  - icon: ':heavy_check_mark:'
     path: Polynomial/CoeffofRationalFunction.hpp
     title: Polynomial/CoeffofRationalFunction.hpp
   - icon: ':warning:'
@@ -25,6 +28,9 @@ data:
     title: Polynomial/PrefixSumH.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: Verify/CountingPrimes.test.cpp
+    title: Verify/CountingPrimes.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/InvofFormalPowerSeries.test.cpp
     title: Verify/InvofFormalPowerSeries.test.cpp
   - icon: ':heavy_check_mark:'
@@ -36,6 +42,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/Polynomial_Interpolation.test.cpp
     title: Verify/Polynomial_Interpolation.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/SumofTotientFunction2.test.cpp
+    title: Verify/SumofTotientFunction2.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
@@ -61,14 +70,17 @@ data:
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
   - Polynomial/LinearlyRecurrent.hpp
+  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   timestamp: '2022-08-20 01:45:54+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/convolution.test.cpp
   - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+  - Verify/CountingPrimes.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
+  - Verify/SumofTotientFunction2.test.cpp
 documentation_of: Template/Power.hpp
 layout: document
 redirect_from:

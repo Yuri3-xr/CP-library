@@ -50,6 +50,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Number_Theory/Mf_Sieve.hpp
       title: Number_Theory/Mf_Sieve.hpp
+    - icon: ':heavy_check_mark:'
+      path: Number_Theory/MultiplicativeFunctionPSumFast.hpp
+      title: Number_Theory/MultiplicativeFunctionPSumFast.hpp
     - icon: ':warning:'
       path: Number_Theory/OsakDivisors.hpp
       title: Number_Theory/OsakDivisors.hpp
@@ -67,6 +70,9 @@ data:
     - icon: ':warning:'
       path: Polynomial/Factorial.hpp
       title: Polynomial/Factorial.hpp
+    - icon: ':heavy_check_mark:'
+      path: Polynomial/LagrangeInterpolation.hpp
+      title: Polynomial/LagrangeInterpolation.hpp
     - icon: ':heavy_check_mark:'
       path: Polynomial/LinearlyRecurrent.hpp
       title: Polynomial/LinearlyRecurrent.hpp
@@ -111,6 +117,9 @@ data:
       path: Verify/ACAutomaton.test.cpp
       title: Verify/ACAutomaton.test.cpp
     - icon: ':heavy_check_mark:'
+      path: Verify/CountingPrimes.test.cpp
+      title: Verify/CountingPrimes.test.cpp
+    - icon: ':heavy_check_mark:'
       path: Verify/Factorize.test.cpp
       title: Verify/Factorize.test.cpp
     - icon: ':heavy_check_mark:'
@@ -143,6 +152,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/Sum_of_Totient_Function.test.cpp
       title: Verify/Sum_of_Totient_Function.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/SumofTotientFunction2.test.cpp
+      title: Verify/SumofTotientFunction2.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/convolution.test.cpp
       title: Verify/convolution.test.cpp

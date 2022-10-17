@@ -8,13 +8,22 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Mf_Sieve.hpp
     title: Number_Theory/Mf_Sieve.hpp
+  - icon: ':heavy_check_mark:'
+    path: Number_Theory/MultiplicativeFunctionPSumFast.hpp
+    title: Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - icon: ':warning:'
     path: Number_Theory/OsakDivisors.hpp
     title: Number_Theory/OsakDivisors.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: Verify/CountingPrimes.test.cpp
+    title: Verify/CountingPrimes.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/Sum_of_Totient_Function.test.cpp
     title: Verify/Sum_of_Totient_Function.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/SumofTotientFunction2.test.cpp
+    title: Verify/SumofTotientFunction2.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -46,11 +55,14 @@ data:
   path: Number_Theory/Prime_Sieve.hpp
   requiredBy:
   - Number_Theory/OsakDivisors.hpp
+  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - Number_Theory/Mf_Sieve.hpp
   timestamp: '2022-09-08 18:33:50+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/CountingPrimes.test.cpp
   - Verify/Sum_of_Totient_Function.test.cpp
+  - Verify/SumofTotientFunction2.test.cpp
 documentation_of: Number_Theory/Prime_Sieve.hpp
 layout: document
 redirect_from:

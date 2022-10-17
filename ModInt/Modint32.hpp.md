@@ -22,6 +22,9 @@ data:
     path: Verify/Sum_of_Totient_Function.test.cpp
     title: Verify/Sum_of_Totient_Function.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/SumofTotientFunction2.test.cpp
+    title: Verify/SumofTotientFunction2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
   _isVerificationFailed: false
@@ -89,6 +92,7 @@ data:
   - Verify/RangeAffineRangeSum.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Sum_of_Totient_Function.test.cpp
+  - Verify/SumofTotientFunction2.test.cpp
 documentation_of: ModInt/Modint32.hpp
 layout: document
 redirect_from:

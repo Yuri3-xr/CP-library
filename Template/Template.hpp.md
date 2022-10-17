@@ -38,6 +38,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Mf_Sieve.hpp
     title: Number_Theory/Mf_Sieve.hpp
+  - icon: ':heavy_check_mark:'
+    path: Number_Theory/MultiplicativeFunctionPSumFast.hpp
+    title: Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - icon: ':warning:'
     path: Number_Theory/OsakDivisors.hpp
     title: Number_Theory/OsakDivisors.hpp
@@ -53,6 +56,9 @@ data:
   - icon: ':warning:'
     path: Polynomial/Factorial.hpp
     title: Polynomial/Factorial.hpp
+  - icon: ':heavy_check_mark:'
+    path: Polynomial/LagrangeInterpolation.hpp
+    title: Polynomial/LagrangeInterpolation.hpp
   - icon: ':heavy_check_mark:'
     path: Polynomial/LinearlyRecurrent.hpp
     title: Polynomial/LinearlyRecurrent.hpp
@@ -84,6 +90,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/ACAutomaton.test.cpp
     title: Verify/ACAutomaton.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/CountingPrimes.test.cpp
+    title: Verify/CountingPrimes.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/Factorize.test.cpp
     title: Verify/Factorize.test.cpp
@@ -117,6 +126,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/Sum_of_Totient_Function.test.cpp
     title: Verify/Sum_of_Totient_Function.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/SumofTotientFunction2.test.cpp
+    title: Verify/SumofTotientFunction2.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
@@ -167,6 +179,7 @@ data:
   - Polynomial/CoeffofRationalFunction.hpp
   - Polynomial/Factorial.hpp
   - Polynomial/Ntt.hpp
+  - Polynomial/LagrangeInterpolation.hpp
   - Polynomial/Poly.hpp
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/PrefixSumH.hpp
@@ -179,6 +192,7 @@ data:
   - DataStructure/RMQ.hpp
   - DataStructure/SegmentTree.hpp
   - Number_Theory/OsakDivisors.hpp
+  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - Number_Theory/OsakDivisorsFast.hpp
   - Number_Theory/Factorization.hpp
   - Number_Theory/Mf_Sieve.hpp
@@ -195,6 +209,7 @@ data:
   - Verify/convolution.test.cpp
   - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - Verify/SuffixArray.test.cpp
+  - Verify/CountingPrimes.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/PointAddRangeSum.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp
@@ -203,6 +218,7 @@ data:
   - Verify/InvofFormalPowerSeries.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/Sum_of_Totient_Function.test.cpp
+  - Verify/SumofTotientFunction2.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
 redirect_from:
