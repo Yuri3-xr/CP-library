@@ -8,6 +8,9 @@ data:
   - icon: ':warning:'
     path: Number_Theory/Gauss-Integer.hpp
     title: Number_Theory/Gauss-Integer.hpp
+  - icon: ':warning:'
+    path: Number_Theory/OsakDivisorsFast.hpp
+    title: Number_Theory/OsakDivisorsFast.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/Factorize.test.cpp
@@ -35,6 +38,7 @@ data:
   isVerificationFile: false
   path: Number_Theory/Binary-Gcd.hpp
   requiredBy:
+  - Number_Theory/OsakDivisorsFast.hpp
   - Number_Theory/Factorization.hpp
   - Number_Theory/Gauss-Integer.hpp
   timestamp: '2022-09-03 03:40:06+08:00'

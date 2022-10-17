@@ -38,6 +38,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Mf_Sieve.hpp
     title: Number_Theory/Mf_Sieve.hpp
+  - icon: ':warning:'
+    path: Number_Theory/OsakDivisorsFast.hpp
+    title: Number_Theory/OsakDivisorsFast.hpp
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Prime_Sieve.hpp
     title: Number_Theory/Prime_Sieve.hpp
@@ -172,6 +175,7 @@ data:
   - DataStructure/LazySegmentTree.hpp
   - DataStructure/RMQ.hpp
   - DataStructure/SegmentTree.hpp
+  - Number_Theory/OsakDivisorsFast.hpp
   - Number_Theory/Factorization.hpp
   - Number_Theory/Mf_Sieve.hpp
   - Number_Theory/Gauss-Integer.hpp
