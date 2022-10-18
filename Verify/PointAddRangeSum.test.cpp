@@ -16,7 +16,7 @@ int main() {
     cin >> n >> q;
     vector<Info> a(n);
     for (auto&& it : a) cin >> it.x;
-    SegmentTree<Info> St(a);
+    SegmentTree<Info> st(a);
 
     while (q--) {
         int op;
@@ -24,11 +24,13 @@ int main() {
         if (op == 0) {
             int p, x;
             cin >> p >> x;
-            St.modify(p, {St.rangeQuery(p, p + 1).x + x});
+            st.update(p, {st[p].x + x});
         } else {
             int l, r;
             cin >> l >> r;
-            cout << St.rangeQuery(l, r).x << '\n';
+            cout << st.query(l, r).x << '\n';
         }
     }
+
+    return 0;
 }

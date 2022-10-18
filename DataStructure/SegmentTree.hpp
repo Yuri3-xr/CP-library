@@ -1,53 +1,56 @@
 #pragma once
 #include "../Template/Template.hpp"
 
-template <class Info>
+template <typename Info>
 struct SegmentTree {
-    /*
-    Info: operator +
-    all operations obey [l,r)
-    */
-    const int n;
-    vector<Info> info;
-    SegmentTree(int n) : n(n), info(4 << __lg(n)) {}
-    SegmentTree(vector<Info> init) : SegmentTree(init.size()) {
-        function<void(int, int, int)> build = [&](int p, int l, int r) {
-            if (r - l == 1) {
-                info[p] = init[l];
-                return;
-            }
-            int m = (l + r) / 2;
-            build(2 * p, l, m);
-            build(2 * p + 1, m, r);
-            pull(p);
-        };
-        build(1, 0, n);
+    int N;
+    int size;
+    vector<Info> seg;
+
+    SegmentTree(int _N) { init(_N); }
+
+    //[0,v.size)
+    SegmentTree(const vector<Info> &v) {
+        init(v.size());
+        for (int i = 0; i < (int)v.size(); i++) {
+            seg[i + size] = v[i];
+        }
+        build();
     }
-    void pull(int p) { info[p] = info[2 * p] + info[2 * p + 1]; }
-    void modify(int p, int l, int r, int x, const Info &v) {
-        if (r - l == 1) {
-            info[p] = v;
-            return;
-        }
-        int m = (l + r) / 2;
-        if (x < m) {
-            modify(2 * p, l, m, x, v);
-        } else {
-            modify(2 * p + 1, m, r, x, v);
-        }
-        pull(p);
+    void init(int _N) {
+        N = _N;
+        size = 1;
+        while (size < N) size <<= 1;
+        seg.assign(2 * size, Info());
     }
-    void modify(int p, const Info &v) { modify(1, 0, n, p, v); }
-    Info rangeQuery(int p, int l, int r, int x, int y) {
-        if (l >= y || r <= x) {
-            return Info();
+    void set(int k, const Info &x) { seg[k + size] = x; }
+    void build() {
+        for (int k = size - 1; k > 0; k--) {
+            seg[k] = seg[2 * k] + seg[2 * k + 1];
         }
-        if (l >= x && r <= y) {
-            return info[p];
-        }
-        int m = (l + r) / 2;
-        return rangeQuery(2 * p, l, m, x, y) +
-               rangeQuery(2 * p + 1, m, r, x, y);
     }
-    Info rangeQuery(int l, int r) { return rangeQuery(1, 0, n, l, r); }
+    void update(int k, const Info &x) {
+        k += size;
+        seg[k] = x;
+        while (k >>= 1) {
+            seg[k] = seg[2 * k] + seg[2 * k + 1];
+        }
+    }
+    void add(int k, const Info &x) {
+        k += size;
+        seg[k] += x;
+        while (k >>= 1) {
+            seg[k] = seg[2 * k] + seg[2 * k + 1];
+        }
+    }
+    // query to [a, b)
+    Info query(int a, int b) {
+        Info L = Info(), R = Info();
+        for (a += size, b += size; a < b; a >>= 1, b >>= 1) {
+            if (a & 1) L = L + seg[a++];
+            if (b & 1) R = seg[--b] + R;
+        }
+        return L + R;
+    }
+    Info &operator[](const int &k) { return seg[k + size]; }
 };
