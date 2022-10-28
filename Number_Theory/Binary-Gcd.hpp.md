@@ -38,9 +38,9 @@ data:
   isVerificationFile: false
   path: Number_Theory/Binary-Gcd.hpp
   requiredBy:
-  - Number_Theory/OsakDivisorsFast.hpp
   - Number_Theory/Factorization.hpp
   - Number_Theory/Gauss-Integer.hpp
+  - Number_Theory/OsakDivisorsFast.hpp
   timestamp: '2022-09-03 03:40:06+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

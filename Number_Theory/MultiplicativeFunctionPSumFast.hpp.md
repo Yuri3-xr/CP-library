@@ -169,8 +169,8 @@ data:
   timestamp: '2022-10-17 18:12:23+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/CountingPrimes.test.cpp
   - Verify/SumofTotientFunction2.test.cpp
+  - Verify/CountingPrimes.test.cpp
 documentation_of: Number_Theory/MultiplicativeFunctionPSumFast.hpp
 layout: document
 redirect_from:

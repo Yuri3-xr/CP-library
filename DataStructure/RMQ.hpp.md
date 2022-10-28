@@ -58,9 +58,9 @@ data:
   timestamp: '2022-09-27 10:55:07+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/StaticRMQ.test.cpp
   - Verify/NumberofSubstrings.test.cpp
   - Verify/SuffixArray.test.cpp
-  - Verify/StaticRMQ.test.cpp
 documentation_of: DataStructure/RMQ.hpp
 layout: document
 redirect_from:

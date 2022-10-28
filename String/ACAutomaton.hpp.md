@@ -31,9 +31,9 @@ data:
     \ tr[p].dep + 1);\n            }\n            p = tr[p][c];\n        }\n     \
     \   return p;\n    }\n\n    int size() const { return tr.size(); }\n};\n#line\
     \ 4 \"String/ACAutomaton.hpp\"\ntemplate <class Node>\nstruct ACAutomaton : public\
-    \ trie<Node> {\n    vector<int> fail;\n    ACAutomaton() { this->tr.push_back(Node());\
-    \ };\n\n    void BuildAC() {\n        fail.resize(this->tr.size());\n        queue<int>\
-    \ Q;\n        for (int i = 0; i < 26; i++)\n            if (this->tr[0][i]) Q.push(this->tr[0][i]);\n\
+    \ trie<Node> {\n    vector<int> fail;\n    ACAutomaton(){};\n\n    void BuildAC()\
+    \ {\n        fail.resize(this->tr.size());\n        queue<int> Q;\n        for\
+    \ (int i = 0; i < 26; i++)\n            if (this->tr[0][i]) Q.push(this->tr[0][i]);\n\
     \        while (!Q.empty()) {\n            int u = Q.front();\n            Q.pop();\n\
     \            for (int i = 0; i < 26; i++) {\n                if (this->tr[u][i])\n\
     \                    fail[this->tr[u][i]] = this->tr[fail[u]][i],\n          \
@@ -41,9 +41,9 @@ data:
     \ this->tr[u][i] = this->tr[fail[u]][i];\n            }\n        }\n        return;\n\
     \    }\n};\n"
   code: "#pragma once\n\n#include \"Trie.hpp\"\ntemplate <class Node>\nstruct ACAutomaton\
-    \ : public trie<Node> {\n    vector<int> fail;\n    ACAutomaton() { this->tr.push_back(Node());\
-    \ };\n\n    void BuildAC() {\n        fail.resize(this->tr.size());\n        queue<int>\
-    \ Q;\n        for (int i = 0; i < 26; i++)\n            if (this->tr[0][i]) Q.push(this->tr[0][i]);\n\
+    \ : public trie<Node> {\n    vector<int> fail;\n    ACAutomaton(){};\n\n    void\
+    \ BuildAC() {\n        fail.resize(this->tr.size());\n        queue<int> Q;\n\
+    \        for (int i = 0; i < 26; i++)\n            if (this->tr[0][i]) Q.push(this->tr[0][i]);\n\
     \        while (!Q.empty()) {\n            int u = Q.front();\n            Q.pop();\n\
     \            for (int i = 0; i < 26; i++) {\n                if (this->tr[u][i])\n\
     \                    fail[this->tr[u][i]] = this->tr[fail[u]][i],\n          \
@@ -56,7 +56,7 @@ data:
   isVerificationFile: false
   path: String/ACAutomaton.hpp
   requiredBy: []
-  timestamp: '2022-10-12 22:33:33+08:00'
+  timestamp: '2022-10-28 17:39:21+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/ACAutomaton.test.cpp

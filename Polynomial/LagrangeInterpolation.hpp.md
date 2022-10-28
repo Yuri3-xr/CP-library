@@ -53,8 +53,8 @@ data:
   timestamp: '2022-10-17 18:11:29+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/CountingPrimes.test.cpp
   - Verify/SumofTotientFunction2.test.cpp
+  - Verify/CountingPrimes.test.cpp
 documentation_of: Polynomial/LagrangeInterpolation.hpp
 layout: document
 redirect_from:

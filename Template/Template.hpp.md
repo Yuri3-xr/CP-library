@@ -173,52 +173,52 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy:
-  - Geometry/Minkowski_Sum.hpp
-  - ModInt/Modint32.hpp
-  - ModInt/Modint32_change.hpp
+  - String/Trie.hpp
+  - String/SuffixArray.hpp
+  - String/SuffixArrayFast.hpp
+  - String/ACAutomaton.hpp
+  - Polynomial/LinearlyRecurrent.hpp
+  - Polynomial/PrefixSumH.hpp
   - Polynomial/CoeffofRationalFunction.hpp
+  - Polynomial/PrefixSumBinomial.hpp
+  - Polynomial/Poly.hpp
   - Polynomial/Factorial.hpp
   - Polynomial/Ntt.hpp
   - Polynomial/LagrangeInterpolation.hpp
-  - Polynomial/Poly.hpp
-  - Polynomial/PrefixSumBinomial.hpp
-  - Polynomial/PrefixSumH.hpp
-  - Polynomial/LinearlyRecurrent.hpp
-  - String/SuffixArray.hpp
-  - String/Trie.hpp
-  - String/ACAutomaton.hpp
-  - String/SuffixArrayFast.hpp
   - DataStructure/LazySegmentTree.hpp
-  - DataStructure/RMQ.hpp
   - DataStructure/SegmentTree.hpp
+  - DataStructure/RMQ.hpp
+  - ModInt/Modint32.hpp
+  - ModInt/Modint32_change.hpp
+  - Geometry/Minkowski_Sum.hpp
+  - Matrix/AdjugateMatrix.hpp
+  - Matrix/LinearEquation.hpp
+  - Matrix/GaussElimination.hpp
+  - Number_Theory/Mf_Sieve.hpp
+  - Number_Theory/Factorization.hpp
   - Number_Theory/OsakDivisors.hpp
+  - Number_Theory/Gauss-Integer.hpp
   - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - Number_Theory/OsakDivisorsFast.hpp
-  - Number_Theory/Factorization.hpp
-  - Number_Theory/Mf_Sieve.hpp
-  - Number_Theory/Gauss-Integer.hpp
   - Number_Theory/Prime_Sieve.hpp
-  - Matrix/LinearEquation.hpp
-  - Matrix/AdjugateMatrix.hpp
-  - Matrix/GaussElimination.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/NumberofSubstrings.test.cpp
-  - Verify/Factorize.test.cpp
-  - Verify/convolution.test.cpp
+  - Verify/ACAutomaton.test.cpp
+  - Verify/RangeAffineRangeSum.test.cpp
   - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
-  - Verify/SuffixArray.test.cpp
+  - Verify/SumofTotientFunction2.test.cpp
+  - Verify/PointAddRangeSum.test.cpp
+  - Verify/StaticRMQ.test.cpp
+  - Verify/Factorize.test.cpp
+  - Verify/NumberofSubstrings.test.cpp
   - Verify/CountingPrimes.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
-  - Verify/PointAddRangeSum.test.cpp
-  - Verify/RangeAffineRangeSum.test.cpp
-  - Verify/StaticRMQ.test.cpp
-  - Verify/ACAutomaton.test.cpp
-  - Verify/InvofFormalPowerSeries.test.cpp
+  - Verify/SuffixArray.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
+  - Verify/InvofFormalPowerSeries.test.cpp
+  - Verify/convolution.test.cpp
   - Verify/Sum_of_Totient_Function.test.cpp
-  - Verify/SumofTotientFunction2.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
 redirect_from:
