@@ -4,7 +4,7 @@
 template <class Node>
 struct ACAutomaton : public trie<Node> {
     vector<int> fail;
-    ACAutomaton() { this->tr.push_back(Node()); };
+    ACAutomaton(){};
 
     void BuildAC() {
         fail.resize(this->tr.size());
