@@ -29,29 +29,30 @@ data:
     \ T>\nvector<T> OsakDivisors(T x) {\n    auto primes = prime_sieve(sqrt(x) + 10);\n\
     \n    vector<pair<T, int>> lt;\n    for (auto p : primes) {\n        if (1LL *\
     \ p * p > x) break;\n        int cnt = 0;\n        while (x % p == 0) {\n    \
-    \        x /= p;\n            cnt++;\n        }\n        lt.emplace_back(p, cnt);\n\
-    \    }\n    if (x > 1) lt.emplace_back(x, 1);\n    vector<T> div;\n    auto dfs\
-    \ = [&](auto rec, int i, T c) {\n        if (i == int(lt.size())) {\n        \
-    \    div.push_back(c);\n            return;\n        }\n        for (int j = 0;\
-    \ j <= lt[i].second; j++) {\n            rec(rec, i + 1, c);\n            c *=\
-    \ lt[i].first;\n        }\n    };\n    dfs(dfs, 0, 1);\n    return div;\n}\n"
+    \        x /= p;\n            cnt++;\n        }\n        if (cnt >= 1) lt.emplace_back(p,\
+    \ cnt);\n    }\n    if (x > 1) lt.emplace_back(x, 1);\n    vector<T> div;\n  \
+    \  auto dfs = [&](auto rec, int i, T c) {\n        if (i == int(lt.size())) {\n\
+    \            div.push_back(c);\n            return;\n        }\n        for (int\
+    \ j = 0; j <= lt[i].second; j++) {\n            rec(rec, i + 1, c);\n        \
+    \    c *= lt[i].first;\n        }\n    };\n    dfs(dfs, 0, 1);\n    return div;\n\
+    }\n"
   code: "#pragma once\n\n#include \"Prime_Sieve.hpp\"\n\ntemplate <class T>\nvector<T>\
     \ OsakDivisors(T x) {\n    auto primes = prime_sieve(sqrt(x) + 10);\n\n    vector<pair<T,\
     \ int>> lt;\n    for (auto p : primes) {\n        if (1LL * p * p > x) break;\n\
     \        int cnt = 0;\n        while (x % p == 0) {\n            x /= p;\n   \
-    \         cnt++;\n        }\n        lt.emplace_back(p, cnt);\n    }\n    if (x\
-    \ > 1) lt.emplace_back(x, 1);\n    vector<T> div;\n    auto dfs = [&](auto rec,\
-    \ int i, T c) {\n        if (i == int(lt.size())) {\n            div.push_back(c);\n\
-    \            return;\n        }\n        for (int j = 0; j <= lt[i].second; j++)\
-    \ {\n            rec(rec, i + 1, c);\n            c *= lt[i].first;\n        }\n\
-    \    };\n    dfs(dfs, 0, 1);\n    return div;\n}"
+    \         cnt++;\n        }\n        if (cnt >= 1) lt.emplace_back(p, cnt);\n\
+    \    }\n    if (x > 1) lt.emplace_back(x, 1);\n    vector<T> div;\n    auto dfs\
+    \ = [&](auto rec, int i, T c) {\n        if (i == int(lt.size())) {\n        \
+    \    div.push_back(c);\n            return;\n        }\n        for (int j = 0;\
+    \ j <= lt[i].second; j++) {\n            rec(rec, i + 1, c);\n            c *=\
+    \ lt[i].first;\n        }\n    };\n    dfs(dfs, 0, 1);\n    return div;\n}"
   dependsOn:
   - Number_Theory/Prime_Sieve.hpp
   - Template/Template.hpp
   isVerificationFile: false
   path: Number_Theory/OsakDivisors.hpp
   requiredBy: []
-  timestamp: '2022-10-17 16:12:37+08:00'
+  timestamp: '2022-11-03 01:01:13+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Number_Theory/OsakDivisors.hpp
