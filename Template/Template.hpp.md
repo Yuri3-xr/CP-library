@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: DataStructure/AndOrSegmentTreeBeats.hpp
+    title: DataStructure/AndOrSegmentTreeBeats.hpp
   - icon: ':heavy_check_mark:'
     path: DataStructure/LazySegmentTree.hpp
     title: DataStructure/LazySegmentTree.hpp
@@ -198,6 +201,7 @@ data:
   - Polynomial/Ntt.hpp
   - Polynomial/LagrangeInterpolation.hpp
   - DataStructure/LazySegmentTree.hpp
+  - DataStructure/AndOrSegmentTreeBeats.hpp
   - DataStructure/SegmentTree.hpp
   - DataStructure/RMQ.hpp
   - ModInt/Modint32.hpp

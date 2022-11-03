@@ -3,6 +3,9 @@ data:
   libraryCategories:
   - name: DataStructure
     pages:
+    - icon: ':warning:'
+      path: DataStructure/AndOrSegmentTreeBeats.hpp
+      title: DataStructure/AndOrSegmentTreeBeats.hpp
     - icon: ':heavy_check_mark:'
       path: DataStructure/LazySegmentTree.hpp
       title: DataStructure/LazySegmentTree.hpp
