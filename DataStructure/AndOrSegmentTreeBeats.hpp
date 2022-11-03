@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Template/Template.hpp"
+
 template <class T>
 struct AndOrSegmentTreeBeats {
     /*
