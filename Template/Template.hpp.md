@@ -39,6 +39,9 @@ data:
     path: Number_Theory/Mf_Sieve.hpp
     title: Number_Theory/Mf_Sieve.hpp
   - icon: ':heavy_check_mark:'
+    path: Number_Theory/MinofMod.hpp
+    title: Number_Theory/MinofMod.hpp
+  - icon: ':heavy_check_mark:'
     path: Number_Theory/MultiplicativeFunctionPSumFast.hpp
     title: Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - icon: ':warning:'
@@ -102,6 +105,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
     title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/MinofModofLinear.test.cpp
+    title: Verify/MinofModofLinear.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/Multipoint_Evaluation.test.cpp
     title: Verify/Multipoint_Evaluation.test.cpp
@@ -198,6 +204,7 @@ data:
   - Number_Theory/Factorization.hpp
   - Number_Theory/OsakDivisors.hpp
   - Number_Theory/Gauss-Integer.hpp
+  - Number_Theory/MinofMod.hpp
   - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - Number_Theory/OsakDivisorsFast.hpp
   - Number_Theory/Prime_Sieve.hpp
@@ -216,6 +223,7 @@ data:
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/SuffixArray.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
+  - Verify/MinofModofLinear.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp
   - Verify/convolution.test.cpp
   - Verify/Sum_of_Totient_Function.test.cpp

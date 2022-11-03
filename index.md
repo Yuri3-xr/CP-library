@@ -51,6 +51,9 @@ data:
       path: Number_Theory/Mf_Sieve.hpp
       title: Number_Theory/Mf_Sieve.hpp
     - icon: ':heavy_check_mark:'
+      path: Number_Theory/MinofMod.hpp
+      title: Number_Theory/MinofMod.hpp
+    - icon: ':heavy_check_mark:'
       path: Number_Theory/MultiplicativeFunctionPSumFast.hpp
       title: Number_Theory/MultiplicativeFunctionPSumFast.hpp
     - icon: ':warning:'
@@ -128,6 +131,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
       title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/MinofModofLinear.test.cpp
+      title: Verify/MinofModofLinear.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/Multipoint_Evaluation.test.cpp
       title: Verify/Multipoint_Evaluation.test.cpp
