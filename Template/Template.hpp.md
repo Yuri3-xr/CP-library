@@ -54,6 +54,9 @@ data:
     path: Number_Theory/Prime_Sieve.hpp
     title: Number_Theory/Prime_Sieve.hpp
   - icon: ':heavy_check_mark:'
+    path: Number_Theory/SumofFloor.hpp
+    title: Number_Theory/SumofFloor.hpp
+  - icon: ':heavy_check_mark:'
     path: Polynomial/CoeffofRationalFunction.hpp
     title: Polynomial/CoeffofRationalFunction.hpp
   - icon: ':warning:'
@@ -133,6 +136,9 @@ data:
     path: Verify/Sum_of_Totient_Function.test.cpp
     title: Verify/Sum_of_Totient_Function.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/SumofFloorofLinear.test.cpp
+    title: Verify/SumofFloorofLinear.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/SumofTotientFunction2.test.cpp
     title: Verify/SumofTotientFunction2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -208,11 +214,13 @@ data:
   - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - Number_Theory/OsakDivisorsFast.hpp
   - Number_Theory/Prime_Sieve.hpp
+  - Number_Theory/SumofFloor.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/ACAutomaton.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp
+  - Verify/SumofFloorofLinear.test.cpp
   - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - Verify/SumofTotientFunction2.test.cpp
   - Verify/PointAddRangeSum.test.cpp

@@ -65,6 +65,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Number_Theory/Prime_Sieve.hpp
       title: Number_Theory/Prime_Sieve.hpp
+    - icon: ':heavy_check_mark:'
+      path: Number_Theory/SumofFloor.hpp
+      title: Number_Theory/SumofFloor.hpp
   - name: Polynomial
     pages:
     - icon: ':heavy_check_mark:'
@@ -158,6 +161,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/Sum_of_Totient_Function.test.cpp
       title: Verify/Sum_of_Totient_Function.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/SumofFloorofLinear.test.cpp
+      title: Verify/SumofFloorofLinear.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/SumofTotientFunction2.test.cpp
       title: Verify/SumofTotientFunction2.test.cpp
