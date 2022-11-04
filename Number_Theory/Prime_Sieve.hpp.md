@@ -14,6 +14,9 @@ data:
   - icon: ':warning:'
     path: Number_Theory/OsakDivisors.hpp
     title: Number_Theory/OsakDivisors.hpp
+  - icon: ':warning:'
+    path: Number_Theory/PNSieve.hpp
+    title: Number_Theory/PNSieve.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/CountingPrimes.test.cpp
@@ -55,6 +58,7 @@ data:
   path: Number_Theory/Prime_Sieve.hpp
   requiredBy:
   - Number_Theory/Mf_Sieve.hpp
+  - Number_Theory/PNSieve.hpp
   - Number_Theory/OsakDivisors.hpp
   - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   timestamp: '2022-09-08 18:33:50+08:00'

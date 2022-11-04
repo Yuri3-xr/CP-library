@@ -65,6 +65,9 @@ data:
     - icon: ':warning:'
       path: Number_Theory/OsakDivisorsFast.hpp
       title: Number_Theory/OsakDivisorsFast.hpp
+    - icon: ':warning:'
+      path: Number_Theory/PNSieve.hpp
+      title: Number_Theory/PNSieve.hpp
     - icon: ':heavy_check_mark:'
       path: Number_Theory/Prime_Sieve.hpp
       title: Number_Theory/Prime_Sieve.hpp

@@ -53,6 +53,9 @@ data:
   - icon: ':warning:'
     path: Number_Theory/OsakDivisorsFast.hpp
     title: Number_Theory/OsakDivisorsFast.hpp
+  - icon: ':warning:'
+    path: Number_Theory/PNSieve.hpp
+    title: Number_Theory/PNSieve.hpp
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Prime_Sieve.hpp
     title: Number_Theory/Prime_Sieve.hpp
@@ -212,6 +215,7 @@ data:
   - Matrix/GaussElimination.hpp
   - Number_Theory/Mf_Sieve.hpp
   - Number_Theory/Factorization.hpp
+  - Number_Theory/PNSieve.hpp
   - Number_Theory/OsakDivisors.hpp
   - Number_Theory/Gauss-Integer.hpp
   - Number_Theory/MinofMod.hpp
