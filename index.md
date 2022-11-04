@@ -6,6 +6,9 @@ data:
     - icon: ':warning:'
       path: DataStructure/AndOrSegmentTreeBeats.hpp
       title: DataStructure/AndOrSegmentTreeBeats.hpp
+    - icon: ':warning:'
+      path: DataStructure/DivSumSegmentTreeBeats.hpp
+      title: DataStructure/DivSumSegmentTreeBeats.hpp
     - icon: ':heavy_check_mark:'
       path: DataStructure/LazySegmentTree.hpp
       title: DataStructure/LazySegmentTree.hpp
