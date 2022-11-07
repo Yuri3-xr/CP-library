@@ -68,10 +68,19 @@ struct Poly {
         }
         return a;
     }
+    void shrink() {
+        while (this->size() && this->a.back() == Z(0)) this->a.pop_back();
+    }
     Poly &operator+=(Poly b) { return (*this) = (*this) + b; }
     Poly &operator-=(Poly b) { return (*this) = (*this) - b; }
     Poly &operator*=(Poly b) { return (*this) = (*this) * b; }
     Poly operator/(const Poly &r) const { return Poly(this->a) /= r; }
+    Poly operator%(const Poly &r) const { return Poly(*this) %= r; }
+    Poly &operator%=(const Poly &r) {
+        *this -= *this / r * r;
+        shrink();
+        return *this;
+    }
     Poly rev(int deg = -1) const {
         Poly ret(this->a);
         if (deg != -1) ret.a.resize(deg, Z(0));
@@ -151,73 +160,39 @@ struct Poly {
         reverse(b.a.begin(), b.a.end());
         return ((*this) * b).divxk(n - 1);
     }
-    vector<Z> eval(vector<Z> x) const {
-        if (size() == 0) {
-            return vector<Z>(x.size(), 0);
-        }
-        const int n = max(int(x.size()), size());
-        vector<Poly> q(4 * n);
-        vector<Z> ans(x.size());
-        x.resize(n);
-        function<void(int, int, int)> build = [&](int p, int l, int r) {
-            if (r - l == 1) {
-                q[p] = Poly{1, -x[l]};
-            } else {
-                int m = (l + r) / 2;
-                build(2 * p, l, m);
-                build(2 * p + 1, m, r);
-                q[p] = q[2 * p] * q[2 * p + 1];
-            }
-        };
-        build(1, 0, n);
-        function<void(int, int, int, const Poly &)> work =
-            [&](int p, int l, int r, const Poly &num) {
-                if (r - l == 1) {
-                    if (l < int(ans.size())) {
-                        ans[l] = num[0];
-                    }
-                } else {
-                    int m = (l + r) / 2;
-                    work(2 * p, l, m, num.mulT(q[2 * p + 1]).modxk(m - l));
-                    work(2 * p + 1, m, r, num.mulT(q[2 * p]).modxk(r - m));
-                }
-            };
-        work(1, 0, n, mulT(q[1].inv(n)));
-        return ans;
+    vector<Poly> subproduct_tree(const Poly &xs) const {
+        int n = (int)xs.size();
+        int k = 1;
+        while (k < n) k *= 2;
+        vector<Poly> g(2 * k, {1});
+        for (int i = 0; i < n; i++) g[k + i] = {-xs[i], Z(1)};
+        for (int i = k; i-- > 1;) g[i] = g[i * 2] * g[i * 2 + 1];
+        return g;
     }
-    Poly inter(const Poly &y) const {
-        vector<Poly> Q(a.size() * 4), P(a.size() * 4);
-        function<void(int, int, int)> build = [&](int p, int l, int r) {
-            int m = (l + r) >> 1;
-            if (l == r) {
-                Q[p] = Poly{-a[m], Z(1)};
-            } else {
-                build(p * 2, l, m);
-                build(p * 2 + 1, m + 1, r);
-                Q[p] = Q[p * 2] * Q[p * 2 + 1];
-            }
-        };
-        build(1, 0, a.size() - 1);
-        Poly f;
-        f.a.resize((int)(Q[1].size()) - 1);
-        for (int i = 0; i + 1 < Q[1].size(); i += 1)
-            f[i] = (Q[1][i + 1] * (i + 1));
-        Poly g = f.eval(a);
-        function<void(int, int, int)> work = [&](int p, int l, int r) {
-            int m = (l + r) >> 1;
-            if (l == r) {
-                P[p].a.push_back(y[m] * power(g[m], Z::get_mod() - 2));
-                return;
-            }
-            work(p * 2, l, m);
-            work(p * 2 + 1, m + 1, r);
-            P[p].a.resize(r - l + 1);
-            Poly A = P[p * 2] * Q[p * 2 + 1];
-            Poly B = P[p * 2 + 1] * Q[p * 2];
-            for (int i = 0; i <= r - l; i++) P[p][i] = (A[i] + B[i]);
-        };
-        work(1, 0, a.size() - 1);
-        return P[1];
+    Poly eval(const Poly &xs) const {
+        if (size() == 0) {
+            return Poly(xs.size(), Z(0));
+        }
+        vector<Poly> g = subproduct_tree(xs);
+        int m = (int)xs.size(), k = (int)g.size() / 2;
+        g[1] = *this % g[1];
+        for (int i = 2; i < k + m; i++) g[i] = g[i / 2] % g[i];
+        Poly ys(m, Z(0));
+        for (int i = 0; i < m; i++)
+            ys[i] = (g[k + i].a.empty() ? Z(0) : g[k + i][0]);
+        return ys;
+    }
+    Poly inter(const Poly &ys) const {
+        assert(size() == ys.size());
+        auto mul = subproduct_tree(*this);
+        int n = (int)(size()), k = (int)mul.size() / 2;
+        vector<Poly> g(2 * k);
+        g[1] = mul[1].deriv() % mul[1];
+        for (int i = 2; i < k + n; i++) g[i] = g[i / 2] % mul[i];
+        for (int i = 0; i < n; i++) g[k + i] = {ys[i] / g[k + i][0]};
+        for (int i = k; i-- > 1;)
+            g[i] = g[i * 2] * mul[i * 2 + 1] + g[i * 2 + 1] * mul[i * 2];
+        return g[1];
     }
     Poly shift(Z t, int m = -1) {
         /*
