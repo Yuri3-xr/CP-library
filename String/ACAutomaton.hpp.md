@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/Trie.hpp
     title: String/Trie.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []

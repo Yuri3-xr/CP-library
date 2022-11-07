@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: ModInt/Modint32.hpp
     title: ModInt/Modint32.hpp
   - icon: ':heavy_check_mark:'
@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Prime_Sieve.hpp
     title: Number_Theory/Prime_Sieve.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
