@@ -16,7 +16,7 @@ int main() {
     poly f(n, 0);
     for (int i = 0; i < n; i++) cin >> f[i];
 
-    poly g(m, 0);
+    vector<Z> g(m);
     for (int i = 0; i < m; i++) cin >> g[i];
 
     auto ans = f.eval(g);
