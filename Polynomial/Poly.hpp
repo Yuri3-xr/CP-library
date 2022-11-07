@@ -1,3 +1,7 @@
+#pragma once
+
+#include "Ntt.hpp"
+
 template <class Z, int rt>
 struct Poly {
     vector<Z> a;
