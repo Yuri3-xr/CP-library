@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/InvofFormalPowerSeries.test.cpp
     title: Verify/InvofFormalPowerSeries.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"ModInt/Modint32_change.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
@@ -70,7 +70,7 @@ data:
   path: ModInt/Modint32_change.hpp
   requiredBy: []
   timestamp: '2022-09-14 18:31:07+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/InvofFormalPowerSeries.test.cpp
 documentation_of: ModInt/Modint32_change.hpp

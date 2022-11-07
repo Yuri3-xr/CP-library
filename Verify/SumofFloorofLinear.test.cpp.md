@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/SumofFloor.hpp
     title: Number_Theory/SumofFloor.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []

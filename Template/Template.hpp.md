@@ -26,10 +26,10 @@ data:
   - icon: ':warning:'
     path: Matrix/LinearEquation.hpp
     title: Matrix/LinearEquation.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: ModInt/Modint32.hpp
     title: ModInt/Modint32.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: ModInt/Modint32_change.hpp
     title: ModInt/Modint32_change.hpp
   - icon: ':heavy_check_mark:'
@@ -62,7 +62,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/SumofFloor.hpp
     title: Number_Theory/SumofFloor.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Polynomial/CoeffofRationalFunction.hpp
     title: Polynomial/CoeffofRationalFunction.hpp
   - icon: ':warning:'
@@ -71,15 +71,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Polynomial/LagrangeInterpolation.hpp
     title: Polynomial/LagrangeInterpolation.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Polynomial/LinearlyRecurrent.hpp
     title: Polynomial/LinearlyRecurrent.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
-  - icon: ':heavy_check_mark:'
-    path: Polynomial/Poly.hpp
-    title: Polynomial/Poly.hpp
   - icon: ':warning:'
     path: Polynomial/PrefixSumBinomial.hpp
     title: Polynomial/PrefixSumBinomial.hpp
@@ -108,16 +105,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/Factorize.test.cpp
     title: Verify/Factorize.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/InvofFormalPowerSeries.test.cpp
     title: Verify/InvofFormalPowerSeries.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
     title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/MinofModofLinear.test.cpp
     title: Verify/MinofModofLinear.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/Multipoint_Evaluation.test.cpp
     title: Verify/Multipoint_Evaluation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -126,7 +123,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/PointAddRangeSum.test.cpp
     title: Verify/PointAddRangeSum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/Polynomial_Interpolation.test.cpp
     title: Verify/Polynomial_Interpolation.test.cpp
   - icon: ':heavy_check_mark:'
@@ -147,12 +144,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/SumofTotientFunction2.test.cpp
     title: Verify/SumofTotientFunction2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 2 "Template/Template.hpp"
@@ -199,7 +196,6 @@ data:
   - Polynomial/PrefixSumH.hpp
   - Polynomial/CoeffofRationalFunction.hpp
   - Polynomial/PrefixSumBinomial.hpp
-  - Polynomial/Poly.hpp
   - Polynomial/Factorial.hpp
   - Polynomial/Ntt.hpp
   - Polynomial/LagrangeInterpolation.hpp
@@ -224,7 +220,7 @@ data:
   - Number_Theory/Prime_Sieve.hpp
   - Number_Theory/SumofFloor.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/ACAutomaton.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp

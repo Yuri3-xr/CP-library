@@ -5,49 +5,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/MultiplicativeFunctionPSumFast.hpp
     title: Number_Theory/MultiplicativeFunctionPSumFast.hpp
-  - icon: ':heavy_check_mark:'
-    path: Polynomial/CoeffofRationalFunction.hpp
-    title: Polynomial/CoeffofRationalFunction.hpp
   - icon: ':warning:'
-    path: Polynomial/Factorial.hpp
-    title: Polynomial/Factorial.hpp
-  - icon: ':heavy_check_mark:'
-    path: Polynomial/LinearlyRecurrent.hpp
-    title: Polynomial/LinearlyRecurrent.hpp
-  - icon: ':heavy_check_mark:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
-  - icon: ':heavy_check_mark:'
-    path: Polynomial/Poly.hpp
-    title: Polynomial/Poly.hpp
-  - icon: ':warning:'
-    path: Polynomial/PrefixSumBinomial.hpp
-    title: Polynomial/PrefixSumBinomial.hpp
-  - icon: ':warning:'
-    path: Polynomial/PrefixSumH.hpp
-    title: Polynomial/PrefixSumH.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/CountingPrimes.test.cpp
     title: Verify/CountingPrimes.test.cpp
   - icon: ':heavy_check_mark:'
-    path: Verify/InvofFormalPowerSeries.test.cpp
-    title: Verify/InvofFormalPowerSeries.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
-    title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/Multipoint_Evaluation.test.cpp
-    title: Verify/Multipoint_Evaluation.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/Polynomial_Interpolation.test.cpp
-    title: Verify/Polynomial_Interpolation.test.cpp
-  - icon: ':heavy_check_mark:'
     path: Verify/SumofTotientFunction2.test.cpp
     title: Verify/SumofTotientFunction2.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: Verify/convolution.test.cpp
-    title: Verify/convolution.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -63,24 +30,13 @@ data:
   isVerificationFile: false
   path: Template/Power.hpp
   requiredBy:
-  - Polynomial/LinearlyRecurrent.hpp
-  - Polynomial/PrefixSumH.hpp
-  - Polynomial/CoeffofRationalFunction.hpp
-  - Polynomial/PrefixSumBinomial.hpp
-  - Polynomial/Poly.hpp
-  - Polynomial/Factorial.hpp
   - Polynomial/Ntt.hpp
   - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   timestamp: '2022-08-20 01:45:54+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - Verify/SumofTotientFunction2.test.cpp
   - Verify/CountingPrimes.test.cpp
-  - Verify/Polynomial_Interpolation.test.cpp
-  - Verify/Multipoint_Evaluation.test.cpp
-  - Verify/InvofFormalPowerSeries.test.cpp
-  - Verify/convolution.test.cpp
 documentation_of: Template/Power.hpp
 layout: document
 redirect_from:
