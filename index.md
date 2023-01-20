@@ -70,7 +70,7 @@ data:
       title: Number_Theory/OsakDivisorsFast.hpp
     - icon: ':warning:'
       path: Number_Theory/PNSieve.hpp
-      title: Number_Theory/PNSieve.hpp
+      title: PNSieve
     - icon: ':heavy_check_mark:'
       path: Number_Theory/Prime_Sieve.hpp
       title: Number_Theory/Prime_Sieve.hpp

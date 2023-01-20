@@ -16,7 +16,7 @@ data:
     title: Number_Theory/OsakDivisors.hpp
   - icon: ':warning:'
     path: Number_Theory/PNSieve.hpp
-    title: Number_Theory/PNSieve.hpp
+    title: PNSieve
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/CountingPrimes.test.cpp
