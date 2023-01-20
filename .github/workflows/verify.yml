@@ -30,6 +30,9 @@ jobs:
         default: true
         profile: minimal
 
+    - name: Docs
+      run: oj-verify docs
+      
     - name: Run tests
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

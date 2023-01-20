@@ -42,6 +42,7 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "typeindex": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "cmath": "cpp"
     }
 }
