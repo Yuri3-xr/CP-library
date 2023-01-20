@@ -53,8 +53,8 @@ data:
   isVerificationFile: false
   path: DataStructure/RMQ.hpp
   requiredBy:
-  - String/SuffixArray.hpp
   - String/SuffixArrayFast.hpp
+  - String/SuffixArray.hpp
   timestamp: '2022-09-27 10:55:07+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

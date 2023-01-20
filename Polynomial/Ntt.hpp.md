@@ -112,20 +112,20 @@ data:
   isVerificationFile: false
   path: Polynomial/Ntt.hpp
   requiredBy:
-  - Polynomial/LinearlyRecurrent.hpp
+  - Polynomial/Factorial.hpp
   - Polynomial/PrefixSumH.hpp
   - Polynomial/CoeffofRationalFunction.hpp
+  - Polynomial/LinearlyRecurrent.hpp
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/Poly.hpp
-  - Polynomial/Factorial.hpp
   timestamp: '2022-08-31 04:05:31+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
-  - Verify/Multipoint_Evaluation.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp
+  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - Verify/convolution.test.cpp
+  - Verify/Multipoint_Evaluation.test.cpp
 documentation_of: Polynomial/Ntt.hpp
 layout: document
 redirect_from:

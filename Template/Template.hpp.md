@@ -191,58 +191,58 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy:
-  - String/Trie.hpp
-  - String/SuffixArray.hpp
-  - String/SuffixArrayFast.hpp
-  - String/ACAutomaton.hpp
-  - Polynomial/LinearlyRecurrent.hpp
-  - Polynomial/PrefixSumH.hpp
-  - Polynomial/CoeffofRationalFunction.hpp
-  - Polynomial/PrefixSumBinomial.hpp
-  - Polynomial/Poly.hpp
-  - Polynomial/Factorial.hpp
-  - Polynomial/Ntt.hpp
-  - Polynomial/LagrangeInterpolation.hpp
-  - DataStructure/LazySegmentTree.hpp
-  - DataStructure/AndOrSegmentTreeBeats.hpp
+  - Geometry/Minkowski_Sum.hpp
   - DataStructure/SegmentTree.hpp
   - DataStructure/RMQ.hpp
+  - DataStructure/LazySegmentTree.hpp
+  - DataStructure/AndOrSegmentTreeBeats.hpp
+  - Polynomial/Ntt.hpp
+  - Polynomial/Factorial.hpp
+  - Polynomial/PrefixSumH.hpp
+  - Polynomial/CoeffofRationalFunction.hpp
+  - Polynomial/LinearlyRecurrent.hpp
+  - Polynomial/PrefixSumBinomial.hpp
+  - Polynomial/LagrangeInterpolation.hpp
+  - Polynomial/Poly.hpp
+  - Matrix/AdjugateMatrix.hpp
+  - Matrix/GaussElimination.hpp
+  - Matrix/LinearEquation.hpp
   - ModInt/Modint32.hpp
   - ModInt/Modint32_change.hpp
-  - Geometry/Minkowski_Sum.hpp
-  - Matrix/AdjugateMatrix.hpp
-  - Matrix/LinearEquation.hpp
-  - Matrix/GaussElimination.hpp
-  - Number_Theory/Mf_Sieve.hpp
-  - Number_Theory/Factorization.hpp
-  - Number_Theory/PNSieve.hpp
   - Number_Theory/OsakDivisors.hpp
-  - Number_Theory/Gauss-Integer.hpp
-  - Number_Theory/MinofMod.hpp
-  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
+  - Number_Theory/Factorization.hpp
+  - Number_Theory/Mf_Sieve.hpp
   - Number_Theory/OsakDivisorsFast.hpp
+  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - Number_Theory/Prime_Sieve.hpp
+  - Number_Theory/Gauss-Integer.hpp
+  - Number_Theory/PNSieve.hpp
   - Number_Theory/SumofFloor.hpp
+  - Number_Theory/MinofMod.hpp
+  - String/SuffixArrayFast.hpp
+  - String/SuffixArray.hpp
+  - String/Trie.hpp
+  - String/ACAutomaton.hpp
   timestamp: '2022-08-16 22:05:54+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/ACAutomaton.test.cpp
-  - Verify/RangeAffineRangeSum.test.cpp
   - Verify/SumofFloorofLinear.test.cpp
-  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - Verify/SumofTotientFunction2.test.cpp
-  - Verify/PointAddRangeSum.test.cpp
+  - Verify/CountingPrimes.test.cpp
   - Verify/StaticRMQ.test.cpp
+  - Verify/PointAddRangeSum.test.cpp
+  - Verify/ACAutomaton.test.cpp
   - Verify/Factorize.test.cpp
   - Verify/NumberofSubstrings.test.cpp
-  - Verify/CountingPrimes.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/SuffixArray.test.cpp
-  - Verify/Multipoint_Evaluation.test.cpp
   - Verify/MinofModofLinear.test.cpp
+  - Verify/RangeAffineRangeSum.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp
-  - Verify/convolution.test.cpp
   - Verify/Sum_of_Totient_Function.test.cpp
+  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+  - Verify/convolution.test.cpp
+  - Verify/Multipoint_Evaluation.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
 redirect_from:
