@@ -98,6 +98,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/Trie.hpp
     title: String/Trie.hpp
+  - icon: ':heavy_check_mark:'
+    path: Tree/HeavyLightDecomposition.hpp
+    title: Heavy Light Decomposition
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Verify/ACAutomaton.test.cpp
@@ -148,6 +151,9 @@ data:
     path: Verify/SumofTotientFunction2.test.cpp
     title: Verify/SumofTotientFunction2.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/VertexAddPathSum.test.cpp
+    title: Verify/VertexAddPathSum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
   _isVerificationFailed: false
@@ -192,6 +198,7 @@ data:
   path: Template/Template.hpp
   requiredBy:
   - Geometry/Minkowski_Sum.hpp
+  - Tree/HeavyLightDecomposition.hpp
   - DataStructure/SegmentTree.hpp
   - DataStructure/RMQ.hpp
   - DataStructure/LazySegmentTree.hpp
@@ -229,6 +236,7 @@ data:
   - Verify/SumofFloorofLinear.test.cpp
   - Verify/SumofTotientFunction2.test.cpp
   - Verify/CountingPrimes.test.cpp
+  - Verify/VertexAddPathSum.test.cpp
   - Verify/StaticRMQ.test.cpp
   - Verify/PointAddRangeSum.test.cpp
   - Verify/ACAutomaton.test.cpp

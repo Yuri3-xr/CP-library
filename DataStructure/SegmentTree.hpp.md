@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/PointAddRangeSum.test.cpp
     title: Verify/PointAddRangeSum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: Verify/VertexAddPathSum.test.cpp
+    title: Verify/VertexAddPathSum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -62,6 +65,7 @@ data:
   timestamp: '2022-10-18 12:15:37+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/VertexAddPathSum.test.cpp
   - Verify/PointAddRangeSum.test.cpp
 documentation_of: DataStructure/SegmentTree.hpp
 layout: document

@@ -125,6 +125,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
+  - name: Tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: Tree/HeavyLightDecomposition.hpp
+      title: Heavy Light Decomposition
   verificationCategories:
   - name: Verify
     pages:
@@ -176,6 +181,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/SumofTotientFunction2.test.cpp
       title: Verify/SumofTotientFunction2.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/VertexAddPathSum.test.cpp
+      title: Verify/VertexAddPathSum.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/convolution.test.cpp
       title: Verify/convolution.test.cpp
