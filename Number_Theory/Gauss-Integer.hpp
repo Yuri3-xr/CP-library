@@ -68,14 +68,14 @@ G solveprime(i128 p) {
 
     if (g.a < 0) g.a = -g.a;
     if (g.b < 0) g.b = -g.b;
-    if (g.a > g.b) swap(g.a, g.b);
+    if (g.a > g.b) std::swap(g.a, g.b);
     return g;
 }
 std::vector<G> solvecomposite(i128 n) {
-    auto fact = factorization<i64>(n);
+    auto fact = Factor::factor(n);
     std::sort(begin(fact), end(fact));
 
-    std::vector<pair<i128, i64>> prm;
+    std::vector<std::pair<i128, i64>> prm;
     for (int i = 0, j = 0; i < int(fact.size()); i = j) {
         while (fact[j] == fact[i] && j < int(fact.size())) j++;
         prm.emplace_back(fact[i], j - i);
@@ -105,7 +105,7 @@ std::vector<G> solvecomposite(i128 n) {
         if (b < 0) b = -b;
     }
     std::sort(v.begin(), v.end(), [&](const G &a, const G &b) {
-        return make_pair(a.a, a.b) < make_pair(b.a, b.b);
+        return std::make_pair(a.a, a.b) < std::make_pair(b.a, b.b);
     });
     v.resize(unique(v.begin(), v.end()) - v.begin());
 

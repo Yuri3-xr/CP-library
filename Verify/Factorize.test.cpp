@@ -12,7 +12,7 @@ int main() {
     while (_--) {
         i64 x;
         std::cin >> x;
-        auto ans = factorization<i64>(x);
+        auto ans = Factor::factor(x);
         std::sort(begin(ans), end(ans));
 
         std::cout << ans.size() << '\n';
