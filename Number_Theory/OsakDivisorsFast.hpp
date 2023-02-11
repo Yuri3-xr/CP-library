@@ -4,7 +4,7 @@
 
 template <class T>
 std::vector<T> OsakDivisorsFast(T x) {
-    auto fac = factorization<i64>(x);
+    auto fac = Factor::factor(x);
     std::sort(fac.begin(), fac.end());
     std::vector<std::pair<T, int>> lt;
     for (int i = 0, j; i < int(fac.size()); i = j) {
@@ -13,7 +13,7 @@ std::vector<T> OsakDivisorsFast(T x) {
         lt.emplace_back(fac[i], j - i);
     }
     std::vector<T> div;
-    auto dfs = [&](auto rec, int i, T c) {
+    auto dfs = [&](auto&& rec, int i, T c) {
         if (i == int(lt.size())) {
             div.push_back(c);
             return;
