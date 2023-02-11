@@ -29,12 +29,15 @@ data:
   - icon: ':warning:'
     path: Matrix/LinearEquation.hpp
     title: Matrix/LinearEquation.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: ModInt/Modint32.hpp
     title: ModInt/Modint32.hpp
   - icon: ':heavy_check_mark:'
     path: ModInt/Modint32_change.hpp
     title: ModInt/Modint32_change.hpp
+  - icon: ':x:'
+    path: Number_Theory/Binary-Gcd.hpp
+    title: Number_Theory/Binary-Gcd.hpp
   - icon: ':x:'
     path: Number_Theory/Factorization.hpp
     title: Number_Theory/Factorization.hpp
@@ -77,10 +80,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Polynomial/LinearlyRecurrent.hpp
     title: Polynomial/LinearlyRecurrent.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Polynomial/Poly.hpp
     title: Polynomial/Poly.hpp
   - icon: ':warning:'
@@ -156,7 +159,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/VertexAddPathSum.test.cpp
     title: Verify/VertexAddPathSum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
   _isVerificationFailed: true
@@ -205,6 +208,7 @@ data:
   - ModInt/Modint32.hpp
   - ModInt/Modint32_change.hpp
   - Number_Theory/OsakDivisors.hpp
+  - Number_Theory/Binary-Gcd.hpp
   - Number_Theory/Factorization.hpp
   - Number_Theory/Mf_Sieve.hpp
   - Number_Theory/OsakDivisorsFast.hpp

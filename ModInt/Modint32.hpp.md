@@ -24,12 +24,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/SumofTotientFunction2.test.cpp
     title: Verify/SumofTotientFunction2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"ModInt/Modint32.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
@@ -83,7 +83,7 @@ data:
   path: ModInt/Modint32.hpp
   requiredBy: []
   timestamp: '2023-02-11 22:28:05+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/SumofTotientFunction2.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp

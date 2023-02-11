@@ -4,13 +4,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: ModInt/Modint32_change.hpp
     title: ModInt/Modint32_change.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Polynomial/Poly.hpp
     title: Polynomial/Poly.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Power.hpp
     title: Template/Power.hpp
   - icon: ':question:'

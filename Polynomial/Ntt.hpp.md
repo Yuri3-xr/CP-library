@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Power.hpp
     title: Template/Power.hpp
   - icon: ':question:'
@@ -17,7 +17,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Polynomial/LinearlyRecurrent.hpp
     title: Polynomial/LinearlyRecurrent.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Polynomial/Poly.hpp
     title: Polynomial/Poly.hpp
   - icon: ':warning:'
@@ -39,12 +39,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/Polynomial_Interpolation.test.cpp
     title: Verify/Polynomial_Interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Polynomial/Ntt.hpp\"\n\n#line 1 \"Template/Power.hpp\"\n\
@@ -124,7 +124,7 @@ data:
   - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/Poly.hpp
   timestamp: '2023-02-11 22:39:37+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp

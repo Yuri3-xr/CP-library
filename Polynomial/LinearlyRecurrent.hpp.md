@@ -4,13 +4,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: Polynomial/CoeffofRationalFunction.hpp
     title: Polynomial/CoeffofRationalFunction.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Polynomial/Poly.hpp
     title: Polynomial/Poly.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Power.hpp
     title: Template/Power.hpp
   - icon: ':question:'

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Power.hpp
     title: Template/Power.hpp
   - icon: ':question:'
@@ -39,12 +39,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/Polynomial_Interpolation.test.cpp
     title: Verify/Polynomial_Interpolation.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Polynomial/Poly.hpp\"\n\n#line 2 \"Polynomial/Ntt.hpp\"\n\
@@ -320,7 +320,7 @@ data:
   - Polynomial/LinearlyRecurrent.hpp
   - Polynomial/PrefixSumBinomial.hpp
   timestamp: '2023-02-11 22:39:37+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/Polynomial_Interpolation.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp

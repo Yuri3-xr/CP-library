@@ -14,10 +14,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Polynomial/LinearlyRecurrent.hpp
     title: Polynomial/LinearlyRecurrent.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Polynomial/Poly.hpp
     title: Polynomial/Poly.hpp
   - icon: ':warning:'
@@ -45,12 +45,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/SumofTotientFunction2.test.cpp
     title: Verify/SumofTotientFunction2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"Template/Power.hpp\"\ntemplate <class T>\nT power(T a, int\
@@ -72,7 +72,7 @@ data:
   - Polynomial/Poly.hpp
   - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   timestamp: '2022-08-20 01:45:54+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/SumofTotientFunction2.test.cpp
   - Verify/CountingPrimes.test.cpp
