@@ -51,21 +51,21 @@ data:
     \ factor(x), r = factor(n / x);\n    l.insert(l.end(), r.begin(), r.end());\n\
     \    return l;\n}\n}  // namespace Factor\n#line 4 \"Number_Theory/OsakDivisorsFast.hpp\"\
     \n\ntemplate <class T>\nstd::vector<T> OsakDivisorsFast(T x) {\n    auto fac =\
-    \ factorization<i64>(x);\n    std::sort(fac.begin(), fac.end());\n    std::vector<std::pair<T,\
+    \ Factor::factor(x);\n    std::sort(fac.begin(), fac.end());\n    std::vector<std::pair<T,\
     \ int>> lt;\n    for (int i = 0, j; i < int(fac.size()); i = j) {\n        j =\
     \ i;\n        while (fac[j] == fac[i] && j < int(fac.size())) j++;\n        lt.emplace_back(fac[i],\
-    \ j - i);\n    }\n    std::vector<T> div;\n    auto dfs = [&](auto rec, int i,\
-    \ T c) {\n        if (i == int(lt.size())) {\n            div.push_back(c);\n\
+    \ j - i);\n    }\n    std::vector<T> div;\n    auto dfs = [&](auto&& rec, int\
+    \ i, T c) {\n        if (i == int(lt.size())) {\n            div.push_back(c);\n\
     \            return;\n        }\n        for (int j = 0; j <= lt[i].second; j++)\
     \ {\n            rec(rec, i + 1, c);\n            c *= lt[i].first;\n        }\n\
     \    };\n    dfs(dfs, 0, 1);\n    return div;\n}\n"
   code: "#pragma once\n\n#include \"Factorization.hpp\"\n\ntemplate <class T>\nstd::vector<T>\
-    \ OsakDivisorsFast(T x) {\n    auto fac = factorization<i64>(x);\n    std::sort(fac.begin(),\
+    \ OsakDivisorsFast(T x) {\n    auto fac = Factor::factor(x);\n    std::sort(fac.begin(),\
     \ fac.end());\n    std::vector<std::pair<T, int>> lt;\n    for (int i = 0, j;\
     \ i < int(fac.size()); i = j) {\n        j = i;\n        while (fac[j] == fac[i]\
     \ && j < int(fac.size())) j++;\n        lt.emplace_back(fac[i], j - i);\n    }\n\
-    \    std::vector<T> div;\n    auto dfs = [&](auto rec, int i, T c) {\n       \
-    \ if (i == int(lt.size())) {\n            div.push_back(c);\n            return;\n\
+    \    std::vector<T> div;\n    auto dfs = [&](auto&& rec, int i, T c) {\n     \
+    \   if (i == int(lt.size())) {\n            div.push_back(c);\n            return;\n\
     \        }\n        for (int j = 0; j <= lt[i].second; j++) {\n            rec(rec,\
     \ i + 1, c);\n            c *= lt[i].first;\n        }\n    };\n    dfs(dfs, 0,\
     \ 1);\n    return div;\n}"
@@ -76,7 +76,7 @@ data:
   isVerificationFile: false
   path: Number_Theory/OsakDivisorsFast.hpp
   requiredBy: []
-  timestamp: '2023-02-11 23:20:31+08:00'
+  timestamp: '2023-02-11 23:30:12+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Number_Theory/OsakDivisorsFast.hpp
