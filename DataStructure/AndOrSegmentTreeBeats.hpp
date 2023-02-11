@@ -12,16 +12,16 @@ struct AndOrSegmentTreeBeats {
         Verify: https://csacademy.com/contest/archive/task/and-or-max
     */
     const int n;
-    vector<T> tor, tand, tag, mx;
+    std::vector<T> tor, tand, tag, mx;
     AndOrSegmentTreeBeats(int n)
         : n(n),
-          tor(4 << __lg(n)),
-          tand(4 << __lg(n)),
-          tag(4 << __lg(n)),
-          mx(4 << __lg(n)){};
-    AndOrSegmentTreeBeats(const vector<T>& init)
+          tor(4 << std::__lg(n)),
+          tand(4 << std::__lg(n)),
+          tag(4 << std::__lg(n)),
+          mx(4 << std::__lg(n)){};
+    AndOrSegmentTreeBeats(const std::vector<T>& init)
         : AndOrSegmentTreeBeats(init.size()) {
-        function<void(int, int, int)> build = [&](int p, int l, int r) {
+        std::function<void(int, int, int)> build = [&](int p, int l, int r) {
             if (r - l == 1) {
                 tor[p] = tand[p] = mx[p] = init[l];
                 return;

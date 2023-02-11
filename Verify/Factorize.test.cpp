@@ -4,20 +4,20 @@
 #include "../Template/Template.hpp"
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
 
     int _;
-    cin >> _;
+    std::cin >> _;
     while (_--) {
         i64 x;
-        cin >> x;
+        std::cin >> x;
         auto ans = factorization<i64>(x);
-        sort(begin(ans), end(ans));
+        std::sort(begin(ans), end(ans));
 
-        cout << ans.size() << '\n';
+        std::cout << ans.size() << '\n';
         for (int i = 0; i < (int)ans.size(); i++) {
-            cout << ans[i] << " \n"[i == (int)ans.size() - 1];
+            std::cout << ans[i] << " \n"[i == (int)ans.size() - 1];
         }
     }
 

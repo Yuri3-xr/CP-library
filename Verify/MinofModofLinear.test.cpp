@@ -4,17 +4,17 @@
 
 void solve() {
     i64 n, m, a, b;
-    cin >> n >> m >> a >> b;
+    std::cin >> n >> m >> a >> b;
     auto [x, fx] = min_of_linear<i64>(0, n, a, b, m);
-    cout << fx << '\n';
+    std::cout << fx << '\n';
     assert((a * x + b) % m == fx);
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
     int T;
-    cin >> T;
+    std::cin >> T;
 
     while (T--) {
         solve();

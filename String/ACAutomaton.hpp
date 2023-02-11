@@ -1,14 +1,15 @@
 #pragma once
 
 #include "Trie.hpp"
+
 template <class Node>
 struct ACAutomaton : public trie<Node> {
-    vector<int> fail;
+    std::vector<int> fail;
     ACAutomaton(){};
 
     void BuildAC() {
         fail.resize(this->tr.size());
-        queue<int> Q;
+        std::queue<int> Q;
         for (int i = 0; i < 26; i++)
             if (this->tr[0][i]) Q.push(this->tr[0][i]);
         while (!Q.empty()) {

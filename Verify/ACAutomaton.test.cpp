@@ -5,20 +5,20 @@
 #include "../Template/Template.hpp"
 
 struct TrieNode {
-    TrieNode() { id = 0, dep = 0, nxt = array<int, 26>(); };
+    TrieNode() { id = 0, dep = 0, nxt = std::array<int, 26>(); };
     TrieNode(int _id, int _dep) : id(_id), dep(_dep) {}
     int id;
     int dep;
-    array<int, 26> nxt = {};
+    std::array<int, 26> nxt = {};
     int &operator[](const int x) { return this->nxt[x]; }
 };
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
 
     int a, b;
-    cin >> a >> b;
-    cout << a + b << endl;
+    std::cin >> a >> b;
+    std::cout << a + b << std::endl;
     // string s;
     // int m;
     // cin >> s >> m;

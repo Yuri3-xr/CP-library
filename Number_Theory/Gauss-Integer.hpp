@@ -58,7 +58,7 @@ G solveprime(i128 p) {
     for (; qpow(t, (p - 1) / 2, p) != p - 1;) t++;
     i128 k = qpow(t, (p - 1) / 4, p);
 
-    function<G(G, G)> Ggcd = [&](G a, G b) -> G {
+    std::function<G(G, G)> Ggcd = [&](G a, G b) -> G {
         if (b.a == 0 && b.b == 0)
             return a;
         else
@@ -71,24 +71,24 @@ G solveprime(i128 p) {
     if (g.a > g.b) swap(g.a, g.b);
     return g;
 }
-vector<G> solvecomposite(i128 n) {
+std::vector<G> solvecomposite(i128 n) {
     auto fact = factorization<i64>(n);
-    sort(begin(fact), end(fact));
+    std::sort(begin(fact), end(fact));
 
-    vector<pair<i128, i64>> prm;
+    std::vector<pair<i128, i64>> prm;
     for (int i = 0, j = 0; i < int(fact.size()); i = j) {
         while (fact[j] == fact[i] && j < int(fact.size())) j++;
         prm.emplace_back(fact[i], j - i);
     }
 
-    vector<G> v{{1, 0}};
+    std::vector<G> v{{1, 0}};
     for (auto [p, tmp] : prm) {
         if (p % 4 == 1) {
             G A = solveprime(p);
             G B = {A.a, -A.b};
             auto now = _power<G>(A, 2 * tmp);
 
-            vector<G> res;
+            std::vector<G> res;
             for (i64 i = 0; i <= 2 * tmp; i++) {
                 for (auto it : v) res.push_back(it * now);
                 now = now * B / A;
@@ -104,12 +104,12 @@ vector<G> solvecomposite(i128 n) {
         if (a < 0) a = -a;
         if (b < 0) b = -b;
     }
-    sort(v.begin(), v.end(), [&](const G &a, const G &b) {
+    std::sort(v.begin(), v.end(), [&](const G &a, const G &b) {
         return make_pair(a.a, a.b) < make_pair(b.a, b.b);
     });
     v.resize(unique(v.begin(), v.end()) - v.begin());
 
-    vector<G> t;
+    std::vector<G> t;
     for (auto [a, b] : v)
         if (a != 0 && b != 0) t.emplace_back(a, b);
     return t;

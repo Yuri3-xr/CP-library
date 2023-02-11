@@ -3,16 +3,16 @@
 #include "Prime_Sieve.hpp"
 
 template <class T>
-vector<T> mf_sieve(int n, function<T(i64, i64, i64)> f) {
+std::vector<T> mf_sieve(int n, std::function<T(i64, i64, i64)> f) {
     /*
         ##pragma f is a multiplicative-function
         f(n,p,c) <-> n=p^c
     */
-    vector<T> ans(n + 1, T());
-    vector<int> ps = prime_sieve(n);
+    std::vector<T> ans(n + 1, T());
+    std::vector<int> ps = prime_sieve(n);
     int p(ps.size());
 
-    function<void(int, i64, T)> dfs = [&](int i, i64 x, T y) {
+    std::function<void(int, i64, T)> dfs = [&](int i, i64 x, T y) {
         ans[x] = y;
         if (y == T()) return;
         for (int j = i + 1; j < p; j++) {

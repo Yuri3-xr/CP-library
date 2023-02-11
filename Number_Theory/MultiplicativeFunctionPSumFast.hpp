@@ -7,9 +7,9 @@
 template <typename T, T (*f)(i64, i64)>
 struct MfPrefixSum {
     i64 M, sq, s;
-    vector<int> p;
+    std::vector<int> p;
     int ps;
-    vector<T> buf;
+    std::vector<T> buf;
     T ans;
 
     MfPrefixSum(i64 m) : M(m) {
@@ -29,7 +29,7 @@ struct MfPrefixSum {
         }
     }
     T PSumPower(i64 n, int k) {
-        vector<T> now(k + 2);
+        std::vector<T> now(k + 2);
         now[0] = T(0);
         for (int i = 1; i < k + 2; i++) {
             T res = i;
@@ -37,22 +37,22 @@ struct MfPrefixSum {
         }
         return LagrangeInterpolation<T>(now, n);
     }
-    vector<T> pi_table() {
+    std::vector<T> pi_table() {
         //\sum_{p\in prime \and p\leq m} p^0
         if (M == 0) return {};
         i64 hls = md(M, sq);
         if (hls != 1 && md(M, hls - 1) == sq) hls--;
 
-        vector<i64> hl(hls);
+        std::vector<i64> hl(hls);
         for (int i = 1; i < hls; i++) hl[i] = md(M, i) - 1;
 
-        vector<int> hs(sq + 1);
-        iota(begin(hs), end(hs), -1);
+        std::vector<int> hs(sq + 1);
+        std::iota(begin(hs), end(hs), -1);
 
         int pi = 0;
         for (auto &x : p) {
             i64 x2 = i64(x) * x;
-            i64 imax = min<i64>(hls, md(M, x2) + 1);
+            i64 imax = std::min<i64>(hls, md(M, x2) + 1);
             for (i64 i = 1, ix = x; i < imax; ++i, ix += x) {
                 hl[i] -= (ix < hls ? hl[ix] : hs[md(M, ix)]) - pi;
             }
@@ -60,20 +60,20 @@ struct MfPrefixSum {
             pi++;
         }
 
-        vector<T> res;
+        std::vector<T> res;
         res.reserve(2 * sq + 10);
         for (auto &x : hl) res.push_back(x);
         for (int i = hs.size(); --i;) res.push_back(hs[i]);
         assert((int)res.size() == s);
         return res;
     }
-    vector<T> prime_sum_table(int k) {
+    std::vector<T> prime_sum_table(int k) {
         //\sum_{p\in prime \and p\leq m} p^k
         if (M == 0) return {};
         i64 hls = md(M, sq);
         if (hls != 1 && md(M, hls - 1) == sq) hls--;
 
-        vector<T> h(s);
+        std::vector<T> h(s);
         T inv2 = T{2}.inverse();
         for (int i = 1; i < hls; i++) {
             T x = md(M, i);
@@ -89,7 +89,7 @@ struct MfPrefixSum {
             xt = power(xt, k);
             T pi = h[s - x + 1];
             i64 x2 = i64(x) * x;
-            i64 imax = min<i64>(hls, md(M, x2) + 1);
+            i64 imax = std::min<i64>(hls, md(M, x2) + 1);
             i64 ix = x;
             for (i64 i = 1; i < imax; ++i, ix += x) {
                 h[i] -= ((ix < hls ? h[ix] : h[s - md(M, ix)]) - pi) * xt;
@@ -122,7 +122,7 @@ struct MfPrefixSum {
         }
     }
 
-    T run(vector<T> &fprime) {
+    T run(std::vector<T> &fprime) {
         if (M == 0) return {};
         set_buf(fprime);
         assert((int)buf.size() == s);
@@ -134,5 +134,5 @@ struct MfPrefixSum {
    private:
     i64 md(i64 n, i64 d) { return double(n) / d; }
     i64 idx(i64 n) { return n <= sq ? s - n : md(M, n); }
-    void set_buf(vector<T> &_buf) { swap(buf, _buf); }
+    void set_buf(std::vector<T> &_buf) { swap(buf, _buf); }
 };

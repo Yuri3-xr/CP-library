@@ -34,15 +34,15 @@ struct mintc {
         int a = x, b = mod, u = 1, v = 0, t;
         while (b > 0) {
             t = a / b;
-            swap(a -= t * b, b);
-            swap(u -= t * v, v);
+            std::swap(a -= t * b, b);
+            std::swap(u -= t * v, v);
         }
         return mintc(u);
     }
-    friend ostream &operator<<(ostream &os, const mintc &p) {
+    friend std::ostream &operator<<(std::ostream &os, const mintc &p) {
         return os << p.x;
     }
-    friend istream &operator>>(istream &is, mintc &a) {
+    friend std::istream &operator>>(std::istream &is, mintc &a) {
         int64_t t;
         is >> t;
         a = mintc(t);

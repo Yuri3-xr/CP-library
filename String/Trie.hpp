@@ -2,19 +2,19 @@
 #include "../Template/Template.hpp"
 
 // struct TrieNode {
-//     TrieNode() { id = 0, dep = 0, nxt = array<int, 26>(); };
+//     TrieNode() { id = 0, dep = 0, nxt = std::array<int, 26>(); };
 //     TrieNode(int _id, int _dep) : id(_id), dep(_dep) {}
 //     int id;
 //     int dep;
-//     array<int, 26> nxt = {};
+//     std::array<int, 26> nxt = {};
 //     int &operator[](const int x) { return this->nxt[x]; }
 // };
 template <class Node>
 struct trie {
-    vector<Node> tr;
+    std::vector<Node> tr;
     trie() { tr.push_back(Node()); };
 
-    int add(const string &s) {
+    int add(const std::string &s) {
         int n = s.size();
         int p = 0;
         for (int i = 0; i < n; i++) {

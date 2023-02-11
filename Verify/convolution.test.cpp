@@ -11,15 +11,15 @@ int main() {
     using Z = mint<mod>;
     using poly = Poly<Z, 3>;
 
-    cin >> n >> m;
+    std::cin >> n >> m;
 
-    vector<Z> a(n), b(m);
+    std::vector<Z> a(n), b(m);
 
-    for (int i = 0; i < n; i++) cin >> a[i];
-    for (int i = 0; i < m; i++) cin >> b[i];
+    for (int i = 0; i < n; i++) std::cin >> a[i];
+    for (int i = 0; i < m; i++) std::cin >> b[i];
 
     auto ans = poly(a) * poly(b);
 
     for (int i = 0; i < (int)(ans.size()); i++)
-        cout << ans[i] << " \n"[i == (int)ans.size() - 1];
+        std::cout << ans[i] << " \n"[i == (int)ans.size() - 1];
 }

@@ -4,18 +4,18 @@
 
 void solve() {
     i64 n, m, a, b;
-    cin >> n >> m >> a >> b;
+    std::cin >> n >> m >> a >> b;
     auto ans = sum_of_floor<i64>(n, m, a, b);
-    cout << ans << '\n';
+    std::cout << ans << '\n';
     return;
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
 
     int T;
-    cin >> T;
+    std::cin >> T;
 
     while (T--) {
         solve();

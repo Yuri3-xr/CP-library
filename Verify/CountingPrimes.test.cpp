@@ -4,8 +4,11 @@
 i64 f(i64 p, i64 c) { return 1; }
 int main() {
     i64 n;
-    cin >> n;
+    std::cin >> n;
+
     MfPrefixSum<i64, f> mf(n);
     auto now = mf.pi_table();
-    cout << now[1] << endl;
+    std::cout << now[1] << std::endl;
+
+    return 0;
 }

@@ -3,8 +3,9 @@
 #include "Prime_Sieve.hpp"
 
 template <class T>
-T PNSieve(i64 n, const function<T(i64)> G, const function<T(i64, i64, i64)> f,
-          const function<T(i64, i64, i64)> g) {
+T PNSieve(i64 n, const std::function<T(i64)> G,
+          const std::function<T(i64, i64, i64)> f,
+          const std::function<T(i64, i64, i64)> g) {
     /*
         \sum_{i=1}^n f(i)
         Find g: g(x) = f(x) when x is prime ,and g is multiplicative
@@ -15,11 +16,12 @@ T PNSieve(i64 n, const function<T(i64)> G, const function<T(i64, i64, i64)> f,
     */
     const int sq = sqrt(n) + 10;
     auto prime = prime_sieve(sq);
-    vector<vector<T>> h(prime.size(), vector<T>(__lg(n) + 2));
+    std::vector<std::vector<T>> h(prime.size(),
+                                  std::vector<T>(std::__lg(n) + 2));
     for (int i = 0; i < int(prime.size()); i++) h[i][0] = T(1);
     T ans = 0;
 
-    auto dfs = [&](auto self, i64 x, T y, i64 pos) -> void {
+    auto dfs = [&](auto&& self, i64 x, T y, i64 pos) -> void {
         ans = ans + y * G(n / x);
         if (pos >= int(prime.size())) return;
         if (x > n / prime[pos] / prime[pos]) return;

@@ -4,19 +4,19 @@
 #include "../Template/Template.hpp"
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
 
-    string s;
-    cin >> s;
-    SuffixArrayFast<string> SA(s);
+    std::string s;
+    std::cin >> s;
+    SuffixArrayFast<std::string> SA(s);
 
     i64 ans = 1ll * (SA.n + 1) * (SA.n) / 2;
     for (int i = 0; i < SA.n - 1; i++) {
         ans -= SA.lc[i];
     }
 
-    cout << ans << '\n';
+    std::cout << ans << '\n';
 
     return 0;
 }

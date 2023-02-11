@@ -3,7 +3,8 @@
 #include "../Template/Template.hpp"
 
 template <typename T>
-std::pair<int, T> GaussElimination(vector<vector<T>> &a, int pivot_end = -1,
+std::pair<int, T> GaussElimination(std::vector<std::vector<T>> &a,
+                                   int pivot_end = -1,
                                    bool diagonalize = false) {
     int H = a.size(), W = a[0].size();
     int rank = 0, je = pivot_end;
@@ -23,7 +24,7 @@ std::pair<int, T> GaussElimination(vector<vector<T>> &a, int pivot_end = -1,
         }
         if (rank != idx) {
             det = -det;
-            swap(a[rank], a[idx]);
+            std::swap(a[rank], a[idx]);
         }
         det *= a[rank][j];
         if (diagonalize && a[rank][j] != T(1)) {

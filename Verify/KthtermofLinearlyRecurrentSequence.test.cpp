@@ -7,7 +7,7 @@
 
 int main() {
     std::ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    std::cin.tie(nullptr);
 
     constexpr int mod = 998244353;
     using Z = mint<mod>;
@@ -15,12 +15,12 @@ int main() {
 
     int d;
     i64 k;
-    cin >> d >> k;
+    std::cin >> d >> k;
     poly a(d, 0), c(d, 0);
-    for (int i = 0; i < d; i++) cin >> a[i];
-    for (int i = 0; i < d; i++) cin >> c[i];
+    for (int i = 0; i < d; i++) std::cin >> a[i];
+    for (int i = 0; i < d; i++) std::cin >> c[i];
 
-    cout << LinearlyRecurrent<Z, 3>(a, c, k) << endl;
+    std::cout << LinearlyRecurrent<Z, 3>(a, c, k) << std::endl;
 
     return 0;
 }

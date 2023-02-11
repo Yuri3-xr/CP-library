@@ -10,16 +10,16 @@ struct DivSumSegmentTreeBeats {
         Verify: https://atcoder.jp/contests/abc256/tasks/abc256_h
     */
     const int n;
-    vector<T> tmax, tmin, tag, tsum;
+    std::vector<T> tmax, tmin, tag, tsum;
     DivSumSegmentTreeBeats(int n)
         : n(n),
-          tmax(4 << __lg(n)),
-          tmin(4 << __lg(n)),
-          tag(4 << __lg(n), -1),
-          tsum(4 << __lg(n)){};
-    DivSumSegmentTreeBeats(const vector<T>& init)
+          tmax(4 << std::__lg(n)),
+          tmin(4 << std::__lg(n)),
+          tag(4 << std::__lg(n), -1),
+          tsum(4 << std::__lg(n)){};
+    DivSumSegmentTreeBeats(const std::vector<T>& init)
         : DivSumSegmentTreeBeats(init.size()) {
-        function<void(int, int, int)> build = [&](int p, int l, int r) {
+        std::function<void(int, int, int)> build = [&](int p, int l, int r) {
             if (r - l == 1) {
                 tmax[p] = tmin[p] = tsum[p] = init[l];
                 return;

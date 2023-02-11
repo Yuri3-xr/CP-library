@@ -7,12 +7,13 @@ T ceil(T x, U y) {
     return (x > 0 ? (x + y - 1) / y : x / y);
 }
 template <class T>
-pair<vector<T>, vector<T>> min_of_linear_segments(T a, T b, T mod) {
+std::pair<std::vector<T>, std::vector<T>> min_of_linear_segments(T a, T b,
+                                                                 T mod) {
     assert(0 <= a && a < mod);
     assert(0 <= b && b < mod);
-    vector<T> X = {0};
-    vector<T> DX;
-    T g = gcd(a, mod);
+    std::vector<T> X = {0};
+    std::vector<T> DX;
+    T g = std::gcd(a, mod);
     a /= g, b /= g, mod /= g;
     T p = 0, q = 1, r = 1, s = 1;
     T det_l = mod - a, det_r = a;
@@ -28,7 +29,7 @@ pair<vector<T>, vector<T>> min_of_linear_segments(T a, T b, T mod) {
         r += k * p;
         s += k * q;
         while (1) {
-            T k = max<T>(0, ceil(det_l - y, det_r));
+            T k = std::max<T>(0, ceil(det_l - y, det_r));
             if (det_l - k * det_r <= 0) break;
             det_l -= k * det_r;
             p += k * r;
@@ -43,13 +44,13 @@ pair<vector<T>, vector<T>> min_of_linear_segments(T a, T b, T mod) {
         det_l -= k * det_r;
         p += k * r;
         q += k * s;
-        assert(min({p, q, r, s}) >= 0);
+        assert(std::min({p, q, r, s}) >= 0);
     }
     return {X, DX};
 }
 // min_{x in [L, R)} (ax+b mod MOD)
 template <class T>
-pair<T, T> min_of_linear(T L, T R, T a, T b, T mod) {
+std::pair<T, T> min_of_linear(T L, T R, T a, T b, T mod) {
     // return [x,fx]
     T n = R - L;
     b = (b + a * L) % mod;

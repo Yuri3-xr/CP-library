@@ -6,39 +6,39 @@
 template <class T>
 struct SuffixArrayFast {
     int n;
-    vector<int> sa, rk, lc;
+    std::vector<int> sa, rk, lc;
     RMQ<int> *rmq;
 
-    vector<int> sa_is(const vector<int> &s) const {
+    std::vector<int> sa_is(const std::vector<int> &s) const {
         const int n = (int)s.size();
-        vector<int> ret(n);
+        std::vector<int> ret(n);
 
-        vector<int> is_s(n), is_lms(n);
+        std::vector<int> is_s(n), is_lms(n);
         int m = 0;
         for (int i = n - 2; i >= 0; i--) {
             is_s[i] = (s[i] > s[i + 1]) or (s[i] == s[i + 1] and is_s[i + 1]);
             m += (is_lms[i + 1] = is_s[i] and not is_s[i + 1]);
         }
 
-        auto induced_sort = [&](const vector<int> &lms) {
-            int upper = *max_element(s.begin(), s.end());
-            vector<int> l(upper + 2), r(upper + 2);
+        auto induced_sort = [&](const std::vector<int> &lms) {
+            int upper = *(std::max_element(s.begin(), s.end()));
+            std::vector<int> l(upper + 2), r(upper + 2);
             for (auto &&v : s) {
                 ++l[v + 1];
                 ++r[v];
             }
-            partial_sum(l.begin(), l.end(), l.begin());
-            partial_sum(r.begin(), r.end(), r.begin());
-            fill(ret.begin(), ret.end(), -1);
+            std::partial_sum(l.begin(), l.end(), l.begin());
+            std::partial_sum(r.begin(), r.end(), r.begin());
+            std::fill(ret.begin(), ret.end(), -1);
             for (int i = (int)lms.size() - 1; i >= 0; i--) {
                 ret[--r[s[lms[i]]]] = lms[i];
             }
             for (auto &&v : ret) {
                 if (v >= 1 and is_s[v - 1]) ret[l[s[v - 1]]++] = v - 1;
             }
-            fill(r.begin(), r.end(), 0);
+            std::fill(r.begin(), r.end(), 0);
             for (auto &&v : s) ++r[v];
-            partial_sum(r.begin(), r.end(), r.begin());
+            std::partial_sum(r.begin(), r.end(), r.begin());
             for (int k = (int)ret.size() - 1, i = ret[k]; k >= 1;
                  i = ret[--k]) {
                 if (i >= 1 and not is_s[i - 1]) {
@@ -47,7 +47,7 @@ struct SuffixArrayFast {
             }
         };
 
-        vector<int> lms;
+        std::vector<int> lms;
         lms.reserve(m);
         for (int i = 1; i < n; i++) {
             if (is_lms[i]) lms.push_back(i);
@@ -55,7 +55,7 @@ struct SuffixArrayFast {
 
         induced_sort(lms);
 
-        vector<int> new_lms;
+        std::vector<int> new_lms;
         new_lms.reserve(m);
         for (int i = 0; i < n; i++) {
             if (not is_s[ret[i]] and ret[i] > 0 and is_s[ret[i] - 1]) {
@@ -79,7 +79,7 @@ struct SuffixArrayFast {
         }
 
         if (rank + 1 < m) {
-            vector<int> new_s(m);
+            std::vector<int> new_s(m);
             for (int i = 0; i < m; i++) {
                 new_s[i] = ret[lms[i]];
             }
@@ -95,17 +95,17 @@ struct SuffixArrayFast {
     }
 
     SuffixArrayFast(const T &vs, bool compress = false) : rmq(nullptr) {
-        vector<int> new_vs(vs.size() + 1);
+        std::vector<int> new_vs(vs.size() + 1);
         if (compress) {
             T xs = vs;
-            sort(xs.begin(), xs.end());
+            std::sort(xs.begin(), xs.end());
             xs.erase(unique(xs.begin(), xs.end()), xs.end());
             for (int i = 0; i < (int)vs.size(); i++) {
                 new_vs[i] = std::lower_bound(xs.begin(), xs.end(), vs[i]) -
                             xs.begin() + 1;
             }
         } else {
-            auto d = *min_element(vs.begin(), vs.end());
+            auto d = *(std::min_element(vs.begin(), vs.end()));
             for (int i = 0; i < (int)vs.size(); i++) {
                 new_vs[i] = vs[i] - d + 1;
             }
@@ -147,7 +147,7 @@ struct SuffixArrayFast {
         x = rk[x];
         y = rk[y];
         if (x > y) {
-            swap(x, y);
+            std::swap(x, y);
         }
         return rmq->rangeMin(x, y);
     }

@@ -4,10 +4,11 @@
 #include "Binary-Gcd.hpp"
 template <class T>
 T mul(T x, T y, T c) {
-    if (is_same<int, T>::value) return 1ll * x * y % c;
-    if (is_same<i64, T>::value) return __int128(x) * y % c;
+    if (std::is_same<int, T>::value) return 1ll * x * y % c;
+    if (std::is_same<i64, T>::value) return __int128(x) * y % c;
     return x * y % c;
 }
+
 template <class T>
 bool miller(T n) {
     if (n == 2) return 1;
@@ -34,15 +35,15 @@ bool miller(T n) {
     return 1;
 }
 template <class T>
-vector<T> factorization(T n) {
-    static mt19937_64 rng(114514);
+std::vector<T> factorization(T n) {
+    std::mt19937_64 rng(std::time(nullptr));
     auto myrand = [&](i64 a, i64 b) -> i64 {
-        return uniform_int_distribution<i64>(a, b)(rng);
+        return std::uniform_int_distribution<i64>(a, b)(rng);
     };
 
-    vector<T> res;
+    std::vector<T> res;
 
-    function<void(T)> solve = [&](T x) {
+    std::function<void(T)> solve = [&](T x) {
         if (x == 1) return;
         if (miller(x))
             res.push_back(x);

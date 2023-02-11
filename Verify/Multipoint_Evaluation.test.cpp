@@ -11,17 +11,17 @@ int main() {
     using Z = mint<mod>;
     using poly = Poly<Z, 3>;
 
-    cin >> n >> m;
+    std::cin >> n >> m;
 
     poly f(n, 0);
-    for (int i = 0; i < n; i++) cin >> f[i];
+    for (int i = 0; i < n; i++) std::cin >> f[i];
 
-    vector<Z> g(m);
-    for (int i = 0; i < m; i++) cin >> g[i];
+    std::vector<Z> g(m);
+    for (int i = 0; i < m; i++) std::cin >> g[i];
 
     auto ans = f.eval(g);
 
-    for (int i = 0; i < m; i++) cout << ans[i] << " \n"[i == m - 1];
+    for (int i = 0; i < m; i++) std::cout << ans[i] << " \n"[i == m - 1];
 
     return 0;
 }

@@ -2,12 +2,12 @@
 
 #include "../Template/Template.hpp"
 template <typename T>
-T LagrangeInterpolation(const vector<T> &y, long long x) {
+T LagrangeInterpolation(const std::vector<T> &y, i64 x) {
     //(0,y[0]),(1,y[1]),...,(N,y[N])
     int N = (int)y.size() - 1;
     if (x <= N) return y[x];
     T ret = 0;
-    vector<T> dp(N + 1, 1), pd(N + 1, 1), finv(N + 1, 0);
+    std::vector<T> dp(N + 1, 1), pd(N + 1, 1), finv(N + 1, 0);
     T a = x, one = 1;
     finv[N] = T(1);
     for (int i = 1; i <= N; i++) finv[N] *= T(i);

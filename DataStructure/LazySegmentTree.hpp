@@ -8,11 +8,12 @@ struct LazySegmentTree {
         all operations obey [l,r)
     */
     const int n;
-    vector<Info> info;
-    vector<Tag> tag;
-    LazySegmentTree(int n) : n(n), info(4 << __lg(n)), tag(4 << __lg(n)) {}
-    LazySegmentTree(vector<Info> init) : LazySegmentTree(init.size()) {
-        function<void(int, int, int)> build = [&](int p, int l, int r) {
+    std::vector<Info> info;
+    std::vector<Tag> tag;
+    LazySegmentTree(int n)
+        : n(n), info(4 << std::__lg(n)), tag(4 << std::__lg(n)) {}
+    LazySegmentTree(std::vector<Info> init) : LazySegmentTree(init.size()) {
+        std::function<void(int, int, int)> build = [&](int p, int l, int r) {
             if (r - l == 1) {
                 info[p] = init[l];
                 return;

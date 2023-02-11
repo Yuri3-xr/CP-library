@@ -24,15 +24,15 @@ struct Info {
 };
 Info operator+(const Info& a, const Info& b) { return {a.x + b.x, a.l, b.r}; }
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
 
     int n, q;
-    cin >> n >> q;
+    std::cin >> n >> q;
 
-    vector<Info> a(n);
+    std::vector<Info> a(n);
     for (int i = 0; i < n; i++) {
-        cin >> a[i].x;
+        std::cin >> a[i].x;
         a[i].l = i;
         a[i].r = i + 1;
     }
@@ -41,17 +41,17 @@ int main() {
 
     for (int i = 1; i <= q; i++) {
         int op;
-        cin >> op;
+        std::cin >> op;
         if (op == 0) {
             int l, r, b, c;
-            cin >> l >> r >> b >> c;
+            std::cin >> l >> r >> b >> c;
             t.rangeApply(l, r, Tag{b, c});
         }
         if (op == 1) {
             int l, r;
-            cin >> l >> r;
+            std::cin >> l >> r;
             auto ans = t.rangeQuery(l, r);
-            cout << ans.x << '\n';
+            std::cout << ans.x << '\n';
         }
     }
 

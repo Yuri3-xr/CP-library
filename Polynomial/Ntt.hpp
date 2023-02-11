@@ -4,9 +4,9 @@
 #include "../Template/Template.hpp"
 template <class Z, int rt>
 struct NTT {
-    vector<int> rev;
-    vector<Z> roots{0, 1};
-    void dft(vector<Z> &a) {
+    std::vector<int> rev;
+    std::vector<Z> roots{0, 1};
+    void dft(std::vector<Z> &a) {
         int n = a.size();
 
         if (int(rev.size()) != n) {
@@ -19,7 +19,7 @@ struct NTT {
 
         for (int i = 0; i < n; i++) {
             if (rev[i] < i) {
-                swap(a[i], a[rev[i]]);
+                std::swap(a[i], a[rev[i]]);
             }
         }
         if (int(roots.size()) < n) {
@@ -45,7 +45,7 @@ struct NTT {
             }
         }
     }
-    void idft(vector<Z> &a) {
+    void idft(std::vector<Z> &a) {
         int n = a.size();
         reverse(a.begin() + 1, a.end());
         dft(a);
@@ -54,8 +54,16 @@ struct NTT {
             a[i] *= inv;
         }
     }
-    vector<Z> multiply(vector<Z> a, vector<Z> b) {
+    std::vector<Z> multiply(std::vector<Z> a, std::vector<Z> b) {
         int sz = 1, tot = a.size() + b.size() - 1;
+
+        if (tot <= 40) {
+            std::vector<Z> ret(tot);
+            for (size_t i = 0; i < a.size(); i++)
+                for (size_t j = 0; j < b.size(); j++) ret[i + j] = a[i] * b[j];
+            return ret;
+        }
+
         while (sz < tot) {
             sz *= 2;
         }

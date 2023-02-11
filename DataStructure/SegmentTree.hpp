@@ -5,12 +5,12 @@ template <typename Info>
 struct SegmentTree {
     int N;
     int size;
-    vector<Info> seg;
+    std::vector<Info> seg;
 
     SegmentTree(int _N) { init(_N); }
 
     //[0,v.size)
-    SegmentTree(const vector<Info> &v) {
+    SegmentTree(const std::vector<Info> &v) {
         init(v.size());
         for (int i = 0; i < (int)v.size(); i++) {
             seg[i + size] = v[i];

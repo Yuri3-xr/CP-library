@@ -8,7 +8,7 @@ using Z = mint<mod>;
 Z f(i64 p, i64 c) { return power(p, c) - power(p, c - 1); }
 int main() {
     i64 n;
-    cin >> n;
+    std::cin >> n;
 
     MfPrefixSum<Z, f> mf(n);
 
@@ -20,7 +20,7 @@ int main() {
 
     auto ans = mf.run(psum);
 
-    cout << ans << endl;
+    std::cout << ans << std::endl;
 
     return 0;
 }
