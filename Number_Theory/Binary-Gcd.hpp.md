@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Number_Theory/Factorization.hpp
     title: Number_Theory/Factorization.hpp
   - icon: ':warning:'
@@ -15,12 +15,12 @@ data:
     path: Number_Theory/OsakDivisorsFast.hpp
     title: Number_Theory/OsakDivisorsFast.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/Factorize.test.cpp
     title: Verify/Factorize.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Number_Theory/Binary-Gcd.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
@@ -46,7 +46,7 @@ data:
   - Number_Theory/OsakDivisorsFast.hpp
   - Number_Theory/Gauss-Integer.hpp
   timestamp: '2023-02-11 22:54:48+08:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/Factorize.test.cpp
 documentation_of: Number_Theory/Binary-Gcd.hpp

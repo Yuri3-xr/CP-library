@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: Geometry/Point.hpp
     title: Geometry/Point.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []

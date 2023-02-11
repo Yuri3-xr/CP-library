@@ -35,10 +35,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: ModInt/Modint32_change.hpp
     title: ModInt/Modint32_change.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Number_Theory/Binary-Gcd.hpp
     title: Number_Theory/Binary-Gcd.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Number_Theory/Factorization.hpp
     title: Number_Theory/Factorization.hpp
   - icon: ':warning:'
@@ -114,7 +114,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/CountingPrimes.test.cpp
     title: Verify/CountingPrimes.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Verify/Factorize.test.cpp
     title: Verify/Factorize.test.cpp
   - icon: ':heavy_check_mark:'
@@ -162,9 +162,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "Template/Template.hpp"
@@ -223,7 +223,7 @@ data:
   - String/Trie.hpp
   - String/ACAutomaton.hpp
   timestamp: '2023-02-11 22:28:05+08:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/SumofFloorofLinear.test.cpp
   - Verify/SumofTotientFunction2.test.cpp

@@ -47,10 +47,10 @@ data:
       title: ModInt/Modint32_change.hpp
   - name: Number_Theory
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Number_Theory/Binary-Gcd.hpp
       title: Number_Theory/Binary-Gcd.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Number_Theory/Factorization.hpp
       title: Number_Theory/Factorization.hpp
     - icon: ':warning:'
@@ -125,7 +125,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Template/Power.hpp
       title: Template/Power.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   - name: Tree
@@ -142,7 +142,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/CountingPrimes.test.cpp
       title: Verify/CountingPrimes.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/Factorize.test.cpp
       title: Verify/Factorize.test.cpp
     - icon: ':heavy_check_mark:'
