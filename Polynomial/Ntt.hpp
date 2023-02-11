@@ -57,10 +57,10 @@ struct NTT {
     std::vector<Z> multiply(std::vector<Z> a, std::vector<Z> b) {
         int sz = 1, tot = a.size() + b.size() - 1;
 
-        if (tot <= 40) {
+        if (tot <= 20) {
             std::vector<Z> ret(tot);
             for (size_t i = 0; i < a.size(); i++)
-                for (size_t j = 0; j < b.size(); j++) ret[i + j] = a[i] * b[j];
+                for (size_t j = 0; j < b.size(); j++) ret[i + j] += a[i] * b[j];
             return ret;
         }
 
