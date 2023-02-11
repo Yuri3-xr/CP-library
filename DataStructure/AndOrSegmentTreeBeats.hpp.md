@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
@@ -13,38 +13,37 @@ data:
     links:
     - https://csacademy.com/contest/archive/task/and-or-max
   bundledCode: "#line 2 \"DataStructure/AndOrSegmentTreeBeats.hpp\"\n\n#line 2 \"\
-    Template/Template.hpp\"\n\nusing namespace std;\n\n#include <bits/stdc++.h>\n\n\
-    using i64 = long long;\nusing VI = vector<int>;\nusing pii = pair<int, int>;\n\
+    Template/Template.hpp\"\n\n#include <bits/stdc++.h>\n\nusing i64 = std::int64_t;\n\
     #line 4 \"DataStructure/AndOrSegmentTreeBeats.hpp\"\n\ntemplate <class T>\nstruct\
     \ AndOrSegmentTreeBeats {\n    /*\n        applyAnd(l,r,v) \\forall x \\in [l,r)\
     \ x = x&v\n        applyOr(l,r,v) \\forall x \\in [l,r) x = x|v\n        rangeQuery(l,r)\
     \  max element  [l,r)\n        Time Complexity: O(NKlogN) K = __LG(max(x))\n \
     \       Verify: https://csacademy.com/contest/archive/task/and-or-max\n    */\n\
-    \    const int n;\n    vector<T> tor, tand, tag, mx;\n    AndOrSegmentTreeBeats(int\
-    \ n)\n        : n(n),\n          tor(4 << __lg(n)),\n          tand(4 << __lg(n)),\n\
-    \          tag(4 << __lg(n)),\n          mx(4 << __lg(n)){};\n    AndOrSegmentTreeBeats(const\
-    \ vector<T>& init)\n        : AndOrSegmentTreeBeats(init.size()) {\n        function<void(int,\
-    \ int, int)> build = [&](int p, int l, int r) {\n            if (r - l == 1) {\n\
-    \                tor[p] = tand[p] = mx[p] = init[l];\n                return;\n\
-    \            }\n            int m = (l + r) / 2;\n            build(2 * p, l,\
-    \ m);\n            build(2 * p + 1, m, r);\n            pull(p);\n        };\n\
-    \        build(1, 0, n);\n    }\n    void pull(int p) {\n        tand[p] = tand[p\
-    \ * 2] & tand[p * 2 + 1];\n        tor[p] = tor[p * 2] | tor[p * 2 + 1];\n   \
-    \     mx[p] = max(mx[p * 2], mx[p * 2 + 1]);\n        return;\n    }\n    void\
-    \ apply(int p, T v) {\n        tag[p] += v;\n        tand[p] += v;\n        tor[p]\
-    \ += v;\n        mx[p] += v;\n        return;\n    }\n    void push(int p) {\n\
-    \        apply(p * 2, tag[p]);\n        apply(p * 2 + 1, tag[p]);\n        tag[p]\
-    \ = 0;\n        return;\n    }\n\n    void applyAnd(int p, int l, int r, int x,\
-    \ int y, const T v) {\n        if (l >= y || r <= x) {\n            return;\n\
-    \        }\n        if (r - l > 1) push(p);\n        if ((tor[p] & v) == tor[p])\
-    \ return;\n        if (l >= x && r <= y) {\n            if (((tand[p] & v) - tand[p])\
-    \ == ((tor[p] & v) - tor[p])) {\n                apply(p, ((tand[p] & v) - tand[p]));\n\
-    \                return;\n            }\n        }\n        int mid = (l + r)\
-    \ / 2;\n        applyAnd(p * 2, l, mid, x, y, v);\n        applyAnd(p * 2 + 1,\
-    \ mid, r, x, y, v);\n        pull(p);\n    }\n    void applyOr(int p, int l, int\
-    \ r, int x, int y, const T v) {\n        if (l >= y || r <= x) {\n           \
-    \ return;\n        }\n        if (r - l > 1) push(p);\n        if ((tand[p] |\
-    \ v) == tand[p]) return;\n        if (l >= x && r <= y) {\n            if (((tand[p]\
+    \    const int n;\n    std::vector<T> tor, tand, tag, mx;\n    AndOrSegmentTreeBeats(int\
+    \ n)\n        : n(n),\n          tor(4 << std::__lg(n)),\n          tand(4 <<\
+    \ std::__lg(n)),\n          tag(4 << std::__lg(n)),\n          mx(4 << std::__lg(n)){};\n\
+    \    AndOrSegmentTreeBeats(const std::vector<T>& init)\n        : AndOrSegmentTreeBeats(init.size())\
+    \ {\n        std::function<void(int, int, int)> build = [&](int p, int l, int\
+    \ r) {\n            if (r - l == 1) {\n                tor[p] = tand[p] = mx[p]\
+    \ = init[l];\n                return;\n            }\n            int m = (l +\
+    \ r) / 2;\n            build(2 * p, l, m);\n            build(2 * p + 1, m, r);\n\
+    \            pull(p);\n        };\n        build(1, 0, n);\n    }\n    void pull(int\
+    \ p) {\n        tand[p] = tand[p * 2] & tand[p * 2 + 1];\n        tor[p] = tor[p\
+    \ * 2] | tor[p * 2 + 1];\n        mx[p] = max(mx[p * 2], mx[p * 2 + 1]);\n   \
+    \     return;\n    }\n    void apply(int p, T v) {\n        tag[p] += v;\n   \
+    \     tand[p] += v;\n        tor[p] += v;\n        mx[p] += v;\n        return;\n\
+    \    }\n    void push(int p) {\n        apply(p * 2, tag[p]);\n        apply(p\
+    \ * 2 + 1, tag[p]);\n        tag[p] = 0;\n        return;\n    }\n\n    void applyAnd(int\
+    \ p, int l, int r, int x, int y, const T v) {\n        if (l >= y || r <= x) {\n\
+    \            return;\n        }\n        if (r - l > 1) push(p);\n        if ((tor[p]\
+    \ & v) == tor[p]) return;\n        if (l >= x && r <= y) {\n            if (((tand[p]\
+    \ & v) - tand[p]) == ((tor[p] & v) - tor[p])) {\n                apply(p, ((tand[p]\
+    \ & v) - tand[p]));\n                return;\n            }\n        }\n     \
+    \   int mid = (l + r) / 2;\n        applyAnd(p * 2, l, mid, x, y, v);\n      \
+    \  applyAnd(p * 2 + 1, mid, r, x, y, v);\n        pull(p);\n    }\n    void applyOr(int\
+    \ p, int l, int r, int x, int y, const T v) {\n        if (l >= y || r <= x) {\n\
+    \            return;\n        }\n        if (r - l > 1) push(p);\n        if ((tand[p]\
+    \ | v) == tand[p]) return;\n        if (l >= x && r <= y) {\n            if (((tand[p]\
     \ | v) - tand[p]) == ((tor[p] | v) - tor[p])) {\n                apply(p, ((tand[p]\
     \ | v) - tand[p]));\n                return;\n            }\n        }\n     \
     \   int mid = (l + r) / 2;\n        applyOr(p * 2, l, mid, x, y, v);\n       \
@@ -62,31 +61,31 @@ data:
     \ x \\in [l,r) x = x&v\n        applyOr(l,r,v) \\forall x \\in [l,r) x = x|v\n\
     \        rangeQuery(l,r)  max element  [l,r)\n        Time Complexity: O(NKlogN)\
     \ K = __LG(max(x))\n        Verify: https://csacademy.com/contest/archive/task/and-or-max\n\
-    \    */\n    const int n;\n    vector<T> tor, tand, tag, mx;\n    AndOrSegmentTreeBeats(int\
-    \ n)\n        : n(n),\n          tor(4 << __lg(n)),\n          tand(4 << __lg(n)),\n\
-    \          tag(4 << __lg(n)),\n          mx(4 << __lg(n)){};\n    AndOrSegmentTreeBeats(const\
-    \ vector<T>& init)\n        : AndOrSegmentTreeBeats(init.size()) {\n        function<void(int,\
-    \ int, int)> build = [&](int p, int l, int r) {\n            if (r - l == 1) {\n\
-    \                tor[p] = tand[p] = mx[p] = init[l];\n                return;\n\
-    \            }\n            int m = (l + r) / 2;\n            build(2 * p, l,\
-    \ m);\n            build(2 * p + 1, m, r);\n            pull(p);\n        };\n\
-    \        build(1, 0, n);\n    }\n    void pull(int p) {\n        tand[p] = tand[p\
-    \ * 2] & tand[p * 2 + 1];\n        tor[p] = tor[p * 2] | tor[p * 2 + 1];\n   \
-    \     mx[p] = max(mx[p * 2], mx[p * 2 + 1]);\n        return;\n    }\n    void\
-    \ apply(int p, T v) {\n        tag[p] += v;\n        tand[p] += v;\n        tor[p]\
-    \ += v;\n        mx[p] += v;\n        return;\n    }\n    void push(int p) {\n\
-    \        apply(p * 2, tag[p]);\n        apply(p * 2 + 1, tag[p]);\n        tag[p]\
-    \ = 0;\n        return;\n    }\n\n    void applyAnd(int p, int l, int r, int x,\
-    \ int y, const T v) {\n        if (l >= y || r <= x) {\n            return;\n\
-    \        }\n        if (r - l > 1) push(p);\n        if ((tor[p] & v) == tor[p])\
-    \ return;\n        if (l >= x && r <= y) {\n            if (((tand[p] & v) - tand[p])\
-    \ == ((tor[p] & v) - tor[p])) {\n                apply(p, ((tand[p] & v) - tand[p]));\n\
-    \                return;\n            }\n        }\n        int mid = (l + r)\
-    \ / 2;\n        applyAnd(p * 2, l, mid, x, y, v);\n        applyAnd(p * 2 + 1,\
-    \ mid, r, x, y, v);\n        pull(p);\n    }\n    void applyOr(int p, int l, int\
-    \ r, int x, int y, const T v) {\n        if (l >= y || r <= x) {\n           \
-    \ return;\n        }\n        if (r - l > 1) push(p);\n        if ((tand[p] |\
-    \ v) == tand[p]) return;\n        if (l >= x && r <= y) {\n            if (((tand[p]\
+    \    */\n    const int n;\n    std::vector<T> tor, tand, tag, mx;\n    AndOrSegmentTreeBeats(int\
+    \ n)\n        : n(n),\n          tor(4 << std::__lg(n)),\n          tand(4 <<\
+    \ std::__lg(n)),\n          tag(4 << std::__lg(n)),\n          mx(4 << std::__lg(n)){};\n\
+    \    AndOrSegmentTreeBeats(const std::vector<T>& init)\n        : AndOrSegmentTreeBeats(init.size())\
+    \ {\n        std::function<void(int, int, int)> build = [&](int p, int l, int\
+    \ r) {\n            if (r - l == 1) {\n                tor[p] = tand[p] = mx[p]\
+    \ = init[l];\n                return;\n            }\n            int m = (l +\
+    \ r) / 2;\n            build(2 * p, l, m);\n            build(2 * p + 1, m, r);\n\
+    \            pull(p);\n        };\n        build(1, 0, n);\n    }\n    void pull(int\
+    \ p) {\n        tand[p] = tand[p * 2] & tand[p * 2 + 1];\n        tor[p] = tor[p\
+    \ * 2] | tor[p * 2 + 1];\n        mx[p] = max(mx[p * 2], mx[p * 2 + 1]);\n   \
+    \     return;\n    }\n    void apply(int p, T v) {\n        tag[p] += v;\n   \
+    \     tand[p] += v;\n        tor[p] += v;\n        mx[p] += v;\n        return;\n\
+    \    }\n    void push(int p) {\n        apply(p * 2, tag[p]);\n        apply(p\
+    \ * 2 + 1, tag[p]);\n        tag[p] = 0;\n        return;\n    }\n\n    void applyAnd(int\
+    \ p, int l, int r, int x, int y, const T v) {\n        if (l >= y || r <= x) {\n\
+    \            return;\n        }\n        if (r - l > 1) push(p);\n        if ((tor[p]\
+    \ & v) == tor[p]) return;\n        if (l >= x && r <= y) {\n            if (((tand[p]\
+    \ & v) - tand[p]) == ((tor[p] & v) - tor[p])) {\n                apply(p, ((tand[p]\
+    \ & v) - tand[p]));\n                return;\n            }\n        }\n     \
+    \   int mid = (l + r) / 2;\n        applyAnd(p * 2, l, mid, x, y, v);\n      \
+    \  applyAnd(p * 2 + 1, mid, r, x, y, v);\n        pull(p);\n    }\n    void applyOr(int\
+    \ p, int l, int r, int x, int y, const T v) {\n        if (l >= y || r <= x) {\n\
+    \            return;\n        }\n        if (r - l > 1) push(p);\n        if ((tand[p]\
+    \ | v) == tand[p]) return;\n        if (l >= x && r <= y) {\n            if (((tand[p]\
     \ | v) - tand[p]) == ((tor[p] | v) - tor[p])) {\n                apply(p, ((tand[p]\
     \ | v) - tand[p]));\n                return;\n            }\n        }\n     \
     \   int mid = (l + r) / 2;\n        applyOr(p * 2, l, mid, x, y, v);\n       \
@@ -104,7 +103,7 @@ data:
   isVerificationFile: false
   path: DataStructure/AndOrSegmentTreeBeats.hpp
   requiredBy: []
-  timestamp: '2022-11-04 00:07:05+08:00'
+  timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: DataStructure/AndOrSegmentTreeBeats.hpp

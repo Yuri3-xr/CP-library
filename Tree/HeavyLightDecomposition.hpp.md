@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
@@ -15,8 +15,7 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"Tree/HeavyLightDecomposition.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
-    \n\nusing namespace std;\n\n#include <bits/stdc++.h>\n\nusing i64 = long long;\n\
-    using VI = vector<int>;\nusing pii = pair<int, int>;\n#line 4 \"Tree/HeavyLightDecomposition.hpp\"\
+    \n\n#include <bits/stdc++.h>\n\nusing i64 = std::int64_t;\n#line 4 \"Tree/HeavyLightDecomposition.hpp\"\
     \nstruct HLD {\n    int n;\n    int cnt;  // dfs order [0,n)\n    std::vector<std::vector<int>>\
     \ adj;\n    std::vector<int> par, dfn, hson, siz, top, dep;\n    HLD() = delete;\n\
     \    HLD(int _n)\n        : n(_n),\n          cnt(0),\n          adj(_n),\n  \
@@ -95,7 +94,7 @@ data:
   isVerificationFile: false
   path: Tree/HeavyLightDecomposition.hpp
   requiredBy: []
-  timestamp: '2023-02-04 02:50:27+08:00'
+  timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/VertexAddPathSum.test.cpp

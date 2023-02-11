@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Number_Theory/Factorization.hpp
     title: Number_Theory/Factorization.hpp
   - icon: ':warning:'
@@ -12,12 +12,12 @@ data:
     path: Number_Theory/OsakDivisorsFast.hpp
     title: Number_Theory/OsakDivisorsFast.hpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/Factorize.test.cpp
     title: Verify/Factorize.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Number_Theory/Binary-Gcd.hpp\"\n\n#include <algorithm>\n\
@@ -42,7 +42,7 @@ data:
   - Number_Theory/OsakDivisorsFast.hpp
   - Number_Theory/Gauss-Integer.hpp
   timestamp: '2022-09-03 03:40:06+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/Factorize.test.cpp
 documentation_of: Number_Theory/Binary-Gcd.hpp

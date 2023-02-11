@@ -18,6 +18,9 @@ data:
     path: Geometry/Minkowski_Sum.hpp
     title: Geometry/Minkowski_Sum.hpp
   - icon: ':warning:'
+    path: Geometry/Point.hpp
+    title: Geometry/Point.hpp
+  - icon: ':warning:'
     path: Matrix/AdjugateMatrix.hpp
     title: Matrix/AdjugateMatrix.hpp
   - icon: ':warning:'
@@ -26,13 +29,13 @@ data:
   - icon: ':warning:'
     path: Matrix/LinearEquation.hpp
     title: Matrix/LinearEquation.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: ModInt/Modint32.hpp
     title: ModInt/Modint32.hpp
   - icon: ':heavy_check_mark:'
     path: ModInt/Modint32_change.hpp
     title: ModInt/Modint32_change.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Number_Theory/Factorization.hpp
     title: Number_Theory/Factorization.hpp
   - icon: ':warning:'
@@ -74,10 +77,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Polynomial/LinearlyRecurrent.hpp
     title: Polynomial/LinearlyRecurrent.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Polynomial/Poly.hpp
     title: Polynomial/Poly.hpp
   - icon: ':warning:'
@@ -108,7 +111,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/CountingPrimes.test.cpp
     title: Verify/CountingPrimes.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/Factorize.test.cpp
     title: Verify/Factorize.test.cpp
   - icon: ':heavy_check_mark:'
@@ -153,51 +156,36 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/VertexAddPathSum.test.cpp
     title: Verify/VertexAddPathSum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 2 "Template/Template.hpp"
 
 
-    using namespace std;
-
-
     #include <bits/stdc++.h>
 
 
-    using i64 = long long;
-
-    using VI = vector<int>;
-
-    using pii = pair<int, int>;
+    using i64 = std::int64_t;
 
     '
   code: '#pragma once
 
 
-    using namespace std;
-
-
     #include <bits/stdc++.h>
 
 
-    using i64 = long long;
-
-    using VI = vector<int>;
-
-    using pii = pair<int, int>;
-
-    '
+    using i64 = std::int64_t;'
   dependsOn: []
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy:
   - Geometry/Minkowski_Sum.hpp
+  - Geometry/Point.hpp
   - Tree/HeavyLightDecomposition.hpp
   - DataStructure/SegmentTree.hpp
   - DataStructure/RMQ.hpp
@@ -230,8 +218,8 @@ data:
   - String/SuffixArray.hpp
   - String/Trie.hpp
   - String/ACAutomaton.hpp
-  timestamp: '2022-08-16 22:05:54+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-11 22:28:05+08:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/SumofFloorofLinear.test.cpp
   - Verify/SumofTotientFunction2.test.cpp

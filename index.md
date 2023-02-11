@@ -23,6 +23,9 @@ data:
     - icon: ':warning:'
       path: Geometry/Minkowski_Sum.hpp
       title: Geometry/Minkowski_Sum.hpp
+    - icon: ':warning:'
+      path: Geometry/Point.hpp
+      title: Geometry/Point.hpp
   - name: Matrix
     pages:
     - icon: ':warning:'
@@ -36,7 +39,7 @@ data:
       title: Matrix/LinearEquation.hpp
   - name: ModInt
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: ModInt/Modint32.hpp
       title: ModInt/Modint32.hpp
     - icon: ':heavy_check_mark:'
@@ -44,10 +47,10 @@ data:
       title: ModInt/Modint32_change.hpp
   - name: Number_Theory
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Number_Theory/Binary-Gcd.hpp
       title: Number_Theory/Binary-Gcd.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Number_Theory/Factorization.hpp
       title: Number_Theory/Factorization.hpp
     - icon: ':warning:'
@@ -91,10 +94,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: Polynomial/LinearlyRecurrent.hpp
       title: Polynomial/LinearlyRecurrent.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Polynomial/Ntt.hpp
       title: Polynomial/Ntt.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Polynomial/Poly.hpp
       title: Polynomial/Poly.hpp
     - icon: ':warning:'
@@ -119,10 +122,10 @@ data:
       title: String/Trie.hpp
   - name: Template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Power.hpp
       title: Template/Power.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   - name: Tree
@@ -139,7 +142,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/CountingPrimes.test.cpp
       title: Verify/CountingPrimes.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/Factorize.test.cpp
       title: Verify/Factorize.test.cpp
     - icon: ':heavy_check_mark:'
@@ -184,7 +187,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/VertexAddPathSum.test.cpp
       title: Verify/VertexAddPathSum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Verify/convolution.test.cpp
       title: Verify/convolution.test.cpp
 layout: toppage

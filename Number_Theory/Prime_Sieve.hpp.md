@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy:
@@ -33,25 +33,25 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"Number_Theory/Prime_Sieve.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
-    \n\nusing namespace std;\n\n#include <bits/stdc++.h>\n\nusing i64 = long long;\n\
-    using VI = vector<int>;\nusing pii = pair<int, int>;\n#line 4 \"Number_Theory/Prime_Sieve.hpp\"\
-    \n\nvector<int> prime_sieve(int N) {\n    vector<bool> sieve(N / 3 + 1, 1);\n\
-    \    for (int p = 5, d = 4, i = 1, sqn = sqrt(N); p <= sqn;\n         p += d =\
-    \ 6 - d, i++) {\n        if (!sieve[i]) continue;\n        for (int q = p * p\
-    \ / 3, r = d * p / 3 + (d * p % 3 == 2), s = 2 * p,\n                 qe = sieve.size();\n\
-    \             q < qe; q += r = s - r)\n            sieve[q] = 0;\n    }\n    vector<int>\
+    \n\n#include <bits/stdc++.h>\n\nusing i64 = std::int64_t;\n#line 4 \"Number_Theory/Prime_Sieve.hpp\"\
+    \n\nstd::vector<int> prime_sieve(int N) {\n    std::vector<bool> sieve(N / 3 +\
+    \ 1, 1);\n    for (int p = 5, d = 4, i = 1, sqn = sqrt(N); p <= sqn;\n       \
+    \  p += d = 6 - d, i++) {\n        if (!sieve[i]) continue;\n        for (int\
+    \ q = p * p / 3, r = d * p / 3 + (d * p % 3 == 2), s = 2 * p,\n              \
+    \   qe = sieve.size();\n             q < qe; q += r = s - r)\n            sieve[q]\
+    \ = 0;\n    }\n    std::vector<int> ret{2, 3};\n    for (int p = 5, d = 4, i =\
+    \ 1; p <= N; p += d = 6 - d, i++)\n        if (sieve[i]) ret.push_back(p);\n \
+    \   while (!ret.empty() && ret.back() > N) ret.pop_back();\n    return ret;\n\
+    }\n"
+  code: "#pragma once\n\n#include \"../Template/Template.hpp\"\n\nstd::vector<int>\
+    \ prime_sieve(int N) {\n    std::vector<bool> sieve(N / 3 + 1, 1);\n    for (int\
+    \ p = 5, d = 4, i = 1, sqn = sqrt(N); p <= sqn;\n         p += d = 6 - d, i++)\
+    \ {\n        if (!sieve[i]) continue;\n        for (int q = p * p / 3, r = d *\
+    \ p / 3 + (d * p % 3 == 2), s = 2 * p,\n                 qe = sieve.size();\n\
+    \             q < qe; q += r = s - r)\n            sieve[q] = 0;\n    }\n    std::vector<int>\
     \ ret{2, 3};\n    for (int p = 5, d = 4, i = 1; p <= N; p += d = 6 - d, i++)\n\
     \        if (sieve[i]) ret.push_back(p);\n    while (!ret.empty() && ret.back()\
-    \ > N) ret.pop_back();\n    return ret;\n}\n"
-  code: "#pragma once\n\n#include \"../Template/Template.hpp\"\n\nvector<int> prime_sieve(int\
-    \ N) {\n    vector<bool> sieve(N / 3 + 1, 1);\n    for (int p = 5, d = 4, i =\
-    \ 1, sqn = sqrt(N); p <= sqn;\n         p += d = 6 - d, i++) {\n        if (!sieve[i])\
-    \ continue;\n        for (int q = p * p / 3, r = d * p / 3 + (d * p % 3 == 2),\
-    \ s = 2 * p,\n                 qe = sieve.size();\n             q < qe; q += r\
-    \ = s - r)\n            sieve[q] = 0;\n    }\n    vector<int> ret{2, 3};\n   \
-    \ for (int p = 5, d = 4, i = 1; p <= N; p += d = 6 - d, i++)\n        if (sieve[i])\
-    \ ret.push_back(p);\n    while (!ret.empty() && ret.back() > N) ret.pop_back();\n\
-    \    return ret;\n}"
+    \ > N) ret.pop_back();\n    return ret;\n}"
   dependsOn:
   - Template/Template.hpp
   isVerificationFile: false
@@ -61,7 +61,7 @@ data:
   - Number_Theory/Mf_Sieve.hpp
   - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - Number_Theory/PNSieve.hpp
-  timestamp: '2022-09-08 18:33:50+08:00'
+  timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/SumofTotientFunction2.test.cpp

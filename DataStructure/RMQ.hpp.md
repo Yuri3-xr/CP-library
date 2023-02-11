@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy:
@@ -26,28 +26,28 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"Template/Template.hpp\"\n\nusing namespace std;\n\n#include\
-    \ <bits/stdc++.h>\n\nusing i64 = long long;\nusing VI = vector<int>;\nusing pii\
-    \ = pair<int, int>;\n#line 3 \"DataStructure/RMQ.hpp\"\n\ntemplate <class T, class\
-    \ Cmp = less<T>>\nstruct RMQ {\n    const int n;\n    const Cmp cmp;\n    vector<vector<T>>\
-    \ a;\n    RMQ(const vector<T> &init) : n(init.size()), cmp(Cmp()) {\n        int\
-    \ lg = __lg(n);\n        a.assign(lg + 1, vector<T>(n));\n        for (int j =\
-    \ 0; j <= lg; j++) {\n            for (int i = 0; i + (1 << j) <= n; i++) {\n\
-    \                a[j][i] = (j == 0 ? init[i]\n                               \
-    \   : min(a[j - 1][i],\n                                        a[j - 1][i + (1\
-    \ << (j - 1))], cmp));\n            }\n        }\n    }\n    T rangeMin(int l,\
-    \ int r) {\n        int k = __lg(r - l);\n        return min(a[k][l], a[k][r -\
-    \ (1 << k)], cmp);\n    }\n};\n"
+  bundledCode: "#line 2 \"Template/Template.hpp\"\n\n#include <bits/stdc++.h>\n\n\
+    using i64 = std::int64_t;\n#line 3 \"DataStructure/RMQ.hpp\"\n\ntemplate <class\
+    \ T, class Cmp = std::less<T>>\nstruct RMQ {\n    const int n;\n    const Cmp\
+    \ cmp;\n    std::vector<std::vector<T>> a;\n    RMQ(const std::vector<T> &init)\
+    \ : n(init.size()), cmp(Cmp()) {\n        int lg = std::__lg(n);\n        a.assign(lg\
+    \ + 1, std::vector<T>(n));\n        for (int j = 0; j <= lg; j++) {\n        \
+    \    for (int i = 0; i + (1 << j) <= n; i++) {\n                a[j][i] =\n  \
+    \                  (j == 0 ? init[i]\n                            : std::min(a[j\
+    \ - 1][i],\n                                       a[j - 1][i + (1 << (j - 1))],\
+    \ cmp));\n            }\n        }\n    }\n    T rangeMin(int l, int r) {\n  \
+    \      int k = std::__lg(r - l);\n        return std::min(a[k][l], a[k][r - (1\
+    \ << k)], cmp);\n    }\n};\n"
   code: "#pragma once\n#include \"../Template/Template.hpp\"\n\ntemplate <class T,\
-    \ class Cmp = less<T>>\nstruct RMQ {\n    const int n;\n    const Cmp cmp;\n \
-    \   vector<vector<T>> a;\n    RMQ(const vector<T> &init) : n(init.size()), cmp(Cmp())\
-    \ {\n        int lg = __lg(n);\n        a.assign(lg + 1, vector<T>(n));\n    \
-    \    for (int j = 0; j <= lg; j++) {\n            for (int i = 0; i + (1 << j)\
-    \ <= n; i++) {\n                a[j][i] = (j == 0 ? init[i]\n                \
-    \                  : min(a[j - 1][i],\n                                      \
-    \  a[j - 1][i + (1 << (j - 1))], cmp));\n            }\n        }\n    }\n   \
-    \ T rangeMin(int l, int r) {\n        int k = __lg(r - l);\n        return min(a[k][l],\
-    \ a[k][r - (1 << k)], cmp);\n    }\n};"
+    \ class Cmp = std::less<T>>\nstruct RMQ {\n    const int n;\n    const Cmp cmp;\n\
+    \    std::vector<std::vector<T>> a;\n    RMQ(const std::vector<T> &init) : n(init.size()),\
+    \ cmp(Cmp()) {\n        int lg = std::__lg(n);\n        a.assign(lg + 1, std::vector<T>(n));\n\
+    \        for (int j = 0; j <= lg; j++) {\n            for (int i = 0; i + (1 <<\
+    \ j) <= n; i++) {\n                a[j][i] =\n                    (j == 0 ? init[i]\n\
+    \                            : std::min(a[j - 1][i],\n                       \
+    \                a[j - 1][i + (1 << (j - 1))], cmp));\n            }\n       \
+    \ }\n    }\n    T rangeMin(int l, int r) {\n        int k = std::__lg(r - l);\n\
+    \        return std::min(a[k][l], a[k][r - (1 << k)], cmp);\n    }\n};"
   dependsOn:
   - Template/Template.hpp
   isVerificationFile: false
@@ -55,7 +55,7 @@ data:
   requiredBy:
   - String/SuffixArrayFast.hpp
   - String/SuffixArray.hpp
-  timestamp: '2022-09-27 10:55:07+08:00'
+  timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/StaticRMQ.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
@@ -15,8 +15,7 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"Number_Theory/SumofFloor.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
-    \n\nusing namespace std;\n\n#include <bits/stdc++.h>\n\nusing i64 = long long;\n\
-    using VI = vector<int>;\nusing pii = pair<int, int>;\n#line 4 \"Number_Theory/SumofFloor.hpp\"\
+    \n\n#include <bits/stdc++.h>\n\nusing i64 = std::int64_t;\n#line 4 \"Number_Theory/SumofFloor.hpp\"\
     \n// sum_{0 <= i < N} (ai + b) // m\ntemplate <typename T>\nT sum_of_floor(T n,\
     \ T m, T a, T b) {\n    T ret = 0;\n    if (a >= m) ret += (n - 1) * n * (a /\
     \ m) / 2, a %= m;\n    if (b >= m) ret += n * (b / m), b %= m;\n    T y = (a *\
@@ -41,7 +40,7 @@ data:
   isVerificationFile: false
   path: Number_Theory/SumofFloor.hpp
   requiredBy: []
-  timestamp: '2022-11-03 22:40:46+08:00'
+  timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/SumofFloorofLinear.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
@@ -24,17 +24,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: Verify/SumofTotientFunction2.test.cpp
     title: Verify/SumofTotientFunction2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/convolution.test.cpp
     title: Verify/convolution.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"ModInt/Modint32.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
-    \n\nusing namespace std;\n\n#include <bits/stdc++.h>\n\nusing i64 = long long;\n\
-    using VI = vector<int>;\nusing pii = pair<int, int>;\n#line 4 \"ModInt/Modint32.hpp\"\
+    \n\n#include <bits/stdc++.h>\n\nusing i64 = std::int64_t;\n#line 4 \"ModInt/Modint32.hpp\"\
     \n\ntemplate <int mod>\nstruct mint {\n    int x;\n    mint() : x(0) {}\n    mint(int64_t\
     \ y) : x(y >= 0 ? y % mod : (mod - (-y) % mod) % mod) {}\n    mint &operator+=(const\
     \ mint &p) {\n        if ((x += p.x) >= mod) x -= mod;\n        return *this;\n\
@@ -49,13 +48,13 @@ data:
     \ { return mint(*this) /= p; }\n    bool operator==(const mint &p) const { return\
     \ x == p.x; }\n    bool operator!=(const mint &p) const { return x != p.x; }\n\
     \    mint inverse() const {\n        int a = x, b = mod, u = 1, v = 0, t;\n  \
-    \      while (b > 0) {\n            t = a / b;\n            swap(a -= t * b, b);\n\
-    \            swap(u -= t * v, v);\n        }\n        return mint(u);\n    }\n\
-    \    friend ostream &operator<<(ostream &os, const mint &p) { return os << p.x;\
-    \ }\n    friend istream &operator>>(istream &is, mint &a) {\n        int64_t t;\n\
-    \        is >> t;\n        a = mint<mod>(t);\n        return (is);\n    }\n  \
-    \  int get() const { return x; }\n    static constexpr int get_mod() { return\
-    \ mod; }\n};\n"
+    \      while (b > 0) {\n            t = a / b;\n            std::swap(a -= t *\
+    \ b, b);\n            std::swap(u -= t * v, v);\n        }\n        return mint(u);\n\
+    \    }\n    friend std::ostream &operator<<(std::ostream &os, const mint &p) {\n\
+    \        return os << p.x;\n    }\n    friend std::istream &operator>>(std::istream\
+    \ &is, mint &a) {\n        int64_t t;\n        is >> t;\n        a = mint<mod>(t);\n\
+    \        return (is);\n    }\n    int get() const { return x; }\n    static constexpr\
+    \ int get_mod() { return mod; }\n};\n"
   code: "#pragma once\n\n#include \"../Template/Template.hpp\"\n\ntemplate <int mod>\n\
     struct mint {\n    int x;\n    mint() : x(0) {}\n    mint(int64_t y) : x(y >=\
     \ 0 ? y % mod : (mod - (-y) % mod) % mod) {}\n    mint &operator+=(const mint\
@@ -71,20 +70,20 @@ data:
     \ { return mint(*this) /= p; }\n    bool operator==(const mint &p) const { return\
     \ x == p.x; }\n    bool operator!=(const mint &p) const { return x != p.x; }\n\
     \    mint inverse() const {\n        int a = x, b = mod, u = 1, v = 0, t;\n  \
-    \      while (b > 0) {\n            t = a / b;\n            swap(a -= t * b, b);\n\
-    \            swap(u -= t * v, v);\n        }\n        return mint(u);\n    }\n\
-    \    friend ostream &operator<<(ostream &os, const mint &p) { return os << p.x;\
-    \ }\n    friend istream &operator>>(istream &is, mint &a) {\n        int64_t t;\n\
-    \        is >> t;\n        a = mint<mod>(t);\n        return (is);\n    }\n  \
-    \  int get() const { return x; }\n    static constexpr int get_mod() { return\
-    \ mod; }\n};"
+    \      while (b > 0) {\n            t = a / b;\n            std::swap(a -= t *\
+    \ b, b);\n            std::swap(u -= t * v, v);\n        }\n        return mint(u);\n\
+    \    }\n    friend std::ostream &operator<<(std::ostream &os, const mint &p) {\n\
+    \        return os << p.x;\n    }\n    friend std::istream &operator>>(std::istream\
+    \ &is, mint &a) {\n        int64_t t;\n        is >> t;\n        a = mint<mod>(t);\n\
+    \        return (is);\n    }\n    int get() const { return x; }\n    static constexpr\
+    \ int get_mod() { return mod; }\n};"
   dependsOn:
   - Template/Template.hpp
   isVerificationFile: false
   path: ModInt/Modint32.hpp
   requiredBy: []
-  timestamp: '2022-08-20 01:45:54+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-11 22:28:05+08:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Verify/SumofTotientFunction2.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
