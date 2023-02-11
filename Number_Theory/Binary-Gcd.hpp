@@ -1,7 +1,7 @@
 #pragma once
 
-#include <algorithm>
-using i64 = long long;
+#include "../Template/Template.hpp"
+
 inline i64 binary_gcd(i64 a, i64 b) {
     if (a == 0 || b == 0) return a + b;
     char n = __builtin_ctzll(a);
