@@ -63,23 +63,23 @@ data:
   isVerificationFile: false
   path: Template/Power.hpp
   requiredBy:
-  - Polynomial/Ntt.hpp
-  - Polynomial/Factorial.hpp
-  - Polynomial/PrefixSumH.hpp
-  - Polynomial/CoeffofRationalFunction.hpp
-  - Polynomial/LinearlyRecurrent.hpp
   - Polynomial/PrefixSumBinomial.hpp
+  - Polynomial/CoeffofRationalFunction.hpp
+  - Polynomial/Ntt.hpp
+  - Polynomial/PrefixSumH.hpp
   - Polynomial/Poly.hpp
+  - Polynomial/LinearlyRecurrent.hpp
+  - Polynomial/Factorial.hpp
   - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   timestamp: '2022-08-20 01:45:54+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/SumofTotientFunction2.test.cpp
-  - Verify/CountingPrimes.test.cpp
-  - Verify/Polynomial_Interpolation.test.cpp
-  - Verify/InvofFormalPowerSeries.test.cpp
   - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+  - Verify/Polynomial_Interpolation.test.cpp
+  - Verify/SumofTotientFunction2.test.cpp
   - Verify/convolution.test.cpp
+  - Verify/CountingPrimes.test.cpp
+  - Verify/InvofFormalPowerSeries.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
 documentation_of: Template/Power.hpp
 layout: document

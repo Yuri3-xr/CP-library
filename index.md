@@ -39,6 +39,9 @@ data:
       title: Matrix/LinearEquation.hpp
   - name: ModInt
     pages:
+    - icon: ':warning:'
+      path: ModInt/Binomial.hpp
+      title: ModInt/Binomial.hpp
     - icon: ':heavy_check_mark:'
       path: ModInt/Modint32.hpp
       title: ModInt/Modint32.hpp
