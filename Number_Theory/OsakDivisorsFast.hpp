@@ -4,14 +4,8 @@
 
 template <class T>
 std::vector<T> OsakDivisorsFast(T x) {
-    auto fac = Factor::factor(x);
-    std::sort(fac.begin(), fac.end());
-    std::vector<std::pair<T, int>> lt;
-    for (int i = 0, j; i < int(fac.size()); i = j) {
-        j = i;
-        while (fac[j] == fac[i] && j < int(fac.size())) j++;
-        lt.emplace_back(fac[i], j - i);
-    }
+    auto lt = Factor::factorSortedList<T>(x);
+
     std::vector<T> div;
     auto dfs = [&](auto&& rec, int i, T c) {
         if (i == int(lt.size())) {

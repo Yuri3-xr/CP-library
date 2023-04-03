@@ -18,24 +18,6 @@ u64 modpow(u64 b, u64 e, u64 mod) {
     return ans;
 }
 
-template <typename T>
-T modinv(T a) {
-    T b = ((a << 1) + a) * ((a << 1) + a);
-    b *= 2 - a * b;
-    b *= 2 - a * b;
-    b *= 2 - a * b;
-    b *= 2 - a * b;
-    return b;
-}
-
-u64 montgomery(u64 a, u64 M) {
-    u64 ninv = -modinv(M) & 0x7fffffff;
-    const u64 b = (a + ((a * ninv) & 0x7fffffff) * M) >> 31;
-    return (b >= M) ? (b - M) : b;
-}
-
-/*Montgomery Multiplt Template*/
-
 bool isPrime(u64 n) {
     if (n < 2 || n % 6 % 4 != 1) return (n | 1) == 3;
     std::vector<u64> A = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};
@@ -64,5 +46,21 @@ std::vector<u64> factor(u64 n) {
     auto l = factor(x), r = factor(n / x);
     l.insert(l.end(), r.begin(), r.end());
     return l;
+}
+
+template <class T = u64>
+std::vector<std::pair<T, int>> factorSortedList(u64 n) {
+    // \prid x_i^p_i
+    auto fac = factor(n);
+    std::sort(fac.begin(), fac.end());
+
+    std::vector<std::pair<T, int>> lt;
+    for (int i = 0, j; i < int(fac.size()); i = j) {
+        j = i;
+        while (j < static_cast<int>(fac.size()) && fac[i] == fac[j]) j++;
+        lt.emplace_back(fac[i], j - i);
+    }
+
+    return lt;
 }
 }  // namespace Factor

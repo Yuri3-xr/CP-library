@@ -72,17 +72,10 @@ G solveprime(i128 p) {
     return g;
 }
 std::vector<G> solvecomposite(i128 n) {
-    auto fact = Factor::factor(n);
-    std::sort(begin(fact), end(fact));
-
-    std::vector<std::pair<i128, i64>> prm;
-    for (int i = 0, j = 0; i < int(fact.size()); i = j) {
-        while (fact[j] == fact[i] && j < int(fact.size())) j++;
-        prm.emplace_back(fact[i], j - i);
-    }
+    auto prm = Factor::factorSortedList<i128>(n);
 
     std::vector<G> v{{1, 0}};
-    for (auto [p, tmp] : prm) {
+    for (const auto &[p, tmp] : prm) {
         if (p % 4 == 1) {
             G A = solveprime(p);
             G B = {A.a, -A.b};
