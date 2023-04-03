@@ -35,51 +35,53 @@ data:
     \ u64 M) {\n    i64 ret = a * b - M * u64(1.L / M * a * b);\n    return ret +\
     \ M * (ret < 0) - M * (ret >= (i64)M);\n}\n\nu64 modpow(u64 b, u64 e, u64 mod)\
     \ {\n    u64 ans = 1;\n    for (; e; b = modmul(b, b, mod), e /= 2)\n        if\
-    \ (e & 1) ans = modmul(ans, b, mod);\n    return ans;\n}\n\ntemplate <typename\
-    \ T>\nT modinv(T a) {\n    T b = ((a << 1) + a) * ((a << 1) + a);\n    b *= 2\
-    \ - a * b;\n    b *= 2 - a * b;\n    b *= 2 - a * b;\n    b *= 2 - a * b;\n  \
-    \  return b;\n}\n\nu64 montgomery(u64 a, u64 M) {\n    u64 ninv = -modinv(M) &\
-    \ 0x7fffffff;\n    const u64 b = (a + ((a * ninv) & 0x7fffffff) * M) >> 31;\n\
-    \    return (b >= M) ? (b - M) : b;\n}\n\n/*Montgomery Multiplt Template*/\n\n\
-    bool isPrime(u64 n) {\n    if (n < 2 || n % 6 % 4 != 1) return (n | 1) == 3;\n\
-    \    std::vector<u64> A = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};\n\
-    \    u64 s = __builtin_ctzll(n - 1), d = n >> s;\n    for (u64 a : A) {  // ^\
-    \ count trailing zeroes\n        u64 p = modpow(a % n, d, n), i = s;\n       \
-    \ while (p != 1 && p != n - 1 && a % n && i--) p = modmul(p, p, n);\n        if\
-    \ (p != n - 1 && i != s) return 0;\n    }\n    return 1;\n}\nu64 pollard(u64 n)\
-    \ {\n    auto f = [n](u64 x, u64 k) { return modmul(x, x, n) + k; };\n    u64\
-    \ x = 0, y = 0, t = 30, prd = 2, i = 1, q;\n    while (t++ % 40 || binary_gcd(prd,\
-    \ n) == 1) {\n        if (x == y) x = ++i, y = f(x, i);\n        if ((q = modmul(prd,\
-    \ std::max(x, y) - std::min(x, y), n))) prd = q;\n        x = f(x, i), y = f(f(y,\
-    \ i), i);\n    }\n    return std::gcd(prd, n);\n}\nstd::vector<u64> factor(u64\
-    \ n) {\n    if (n == 1) return {};\n    if (isPrime(n)) return {n};\n    u64 x\
-    \ = pollard(n);\n    auto l = factor(x), r = factor(n / x);\n    l.insert(l.end(),\
-    \ r.begin(), r.end());\n    return l;\n}\n}  // namespace Factor\n"
+    \ (e & 1) ans = modmul(ans, b, mod);\n    return ans;\n}\n\nbool isPrime(u64 n)\
+    \ {\n    if (n < 2 || n % 6 % 4 != 1) return (n | 1) == 3;\n    std::vector<u64>\
+    \ A = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};\n    u64 s = __builtin_ctzll(n\
+    \ - 1), d = n >> s;\n    for (u64 a : A) {  // ^ count trailing zeroes\n     \
+    \   u64 p = modpow(a % n, d, n), i = s;\n        while (p != 1 && p != n - 1 &&\
+    \ a % n && i--) p = modmul(p, p, n);\n        if (p != n - 1 && i != s) return\
+    \ 0;\n    }\n    return 1;\n}\nu64 pollard(u64 n) {\n    auto f = [n](u64 x, u64\
+    \ k) { return modmul(x, x, n) + k; };\n    u64 x = 0, y = 0, t = 30, prd = 2,\
+    \ i = 1, q;\n    while (t++ % 40 || binary_gcd(prd, n) == 1) {\n        if (x\
+    \ == y) x = ++i, y = f(x, i);\n        if ((q = modmul(prd, std::max(x, y) - std::min(x,\
+    \ y), n))) prd = q;\n        x = f(x, i), y = f(f(y, i), i);\n    }\n    return\
+    \ std::gcd(prd, n);\n}\nstd::vector<u64> factor(u64 n) {\n    if (n == 1) return\
+    \ {};\n    if (isPrime(n)) return {n};\n    u64 x = pollard(n);\n    auto l =\
+    \ factor(x), r = factor(n / x);\n    l.insert(l.end(), r.begin(), r.end());\n\
+    \    return l;\n}\n\ntemplate <class T = u64>\nstd::vector<std::pair<T, int>>\
+    \ factorSortedList(u64 n) {\n    // \\prid x_i^p_i\n    auto fac = factor(n);\n\
+    \    std::sort(fac.begin(), fac.end());\n\n    std::vector<std::pair<T, int>>\
+    \ lt;\n    for (int i = 0, j; i < int(fac.size()); i = j) {\n        j = i;\n\
+    \        while (j < static_cast<int>(fac.size()) && fac[i] == fac[j]) j++;\n \
+    \       lt.emplace_back(fac[i], j - i);\n    }\n\n    return lt;\n}\n}  // namespace\
+    \ Factor\n"
   code: "#pragma once\n\n#include \"../Template/Template.hpp\"\n#include \"Binary-Gcd.hpp\"\
     \n\nnamespace Factor {\nusing u64 = std::uint64_t;\n\nu64 modmul(u64 a, u64 b,\
     \ u64 M) {\n    i64 ret = a * b - M * u64(1.L / M * a * b);\n    return ret +\
     \ M * (ret < 0) - M * (ret >= (i64)M);\n}\n\nu64 modpow(u64 b, u64 e, u64 mod)\
     \ {\n    u64 ans = 1;\n    for (; e; b = modmul(b, b, mod), e /= 2)\n        if\
-    \ (e & 1) ans = modmul(ans, b, mod);\n    return ans;\n}\n\ntemplate <typename\
-    \ T>\nT modinv(T a) {\n    T b = ((a << 1) + a) * ((a << 1) + a);\n    b *= 2\
-    \ - a * b;\n    b *= 2 - a * b;\n    b *= 2 - a * b;\n    b *= 2 - a * b;\n  \
-    \  return b;\n}\n\nu64 montgomery(u64 a, u64 M) {\n    u64 ninv = -modinv(M) &\
-    \ 0x7fffffff;\n    const u64 b = (a + ((a * ninv) & 0x7fffffff) * M) >> 31;\n\
-    \    return (b >= M) ? (b - M) : b;\n}\n\n/*Montgomery Multiplt Template*/\n\n\
-    bool isPrime(u64 n) {\n    if (n < 2 || n % 6 % 4 != 1) return (n | 1) == 3;\n\
-    \    std::vector<u64> A = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};\n\
-    \    u64 s = __builtin_ctzll(n - 1), d = n >> s;\n    for (u64 a : A) {  // ^\
-    \ count trailing zeroes\n        u64 p = modpow(a % n, d, n), i = s;\n       \
-    \ while (p != 1 && p != n - 1 && a % n && i--) p = modmul(p, p, n);\n        if\
-    \ (p != n - 1 && i != s) return 0;\n    }\n    return 1;\n}\nu64 pollard(u64 n)\
-    \ {\n    auto f = [n](u64 x, u64 k) { return modmul(x, x, n) + k; };\n    u64\
-    \ x = 0, y = 0, t = 30, prd = 2, i = 1, q;\n    while (t++ % 40 || binary_gcd(prd,\
-    \ n) == 1) {\n        if (x == y) x = ++i, y = f(x, i);\n        if ((q = modmul(prd,\
-    \ std::max(x, y) - std::min(x, y), n))) prd = q;\n        x = f(x, i), y = f(f(y,\
-    \ i), i);\n    }\n    return std::gcd(prd, n);\n}\nstd::vector<u64> factor(u64\
-    \ n) {\n    if (n == 1) return {};\n    if (isPrime(n)) return {n};\n    u64 x\
-    \ = pollard(n);\n    auto l = factor(x), r = factor(n / x);\n    l.insert(l.end(),\
-    \ r.begin(), r.end());\n    return l;\n}\n}  // namespace Factor\n"
+    \ (e & 1) ans = modmul(ans, b, mod);\n    return ans;\n}\n\nbool isPrime(u64 n)\
+    \ {\n    if (n < 2 || n % 6 % 4 != 1) return (n | 1) == 3;\n    std::vector<u64>\
+    \ A = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};\n    u64 s = __builtin_ctzll(n\
+    \ - 1), d = n >> s;\n    for (u64 a : A) {  // ^ count trailing zeroes\n     \
+    \   u64 p = modpow(a % n, d, n), i = s;\n        while (p != 1 && p != n - 1 &&\
+    \ a % n && i--) p = modmul(p, p, n);\n        if (p != n - 1 && i != s) return\
+    \ 0;\n    }\n    return 1;\n}\nu64 pollard(u64 n) {\n    auto f = [n](u64 x, u64\
+    \ k) { return modmul(x, x, n) + k; };\n    u64 x = 0, y = 0, t = 30, prd = 2,\
+    \ i = 1, q;\n    while (t++ % 40 || binary_gcd(prd, n) == 1) {\n        if (x\
+    \ == y) x = ++i, y = f(x, i);\n        if ((q = modmul(prd, std::max(x, y) - std::min(x,\
+    \ y), n))) prd = q;\n        x = f(x, i), y = f(f(y, i), i);\n    }\n    return\
+    \ std::gcd(prd, n);\n}\nstd::vector<u64> factor(u64 n) {\n    if (n == 1) return\
+    \ {};\n    if (isPrime(n)) return {n};\n    u64 x = pollard(n);\n    auto l =\
+    \ factor(x), r = factor(n / x);\n    l.insert(l.end(), r.begin(), r.end());\n\
+    \    return l;\n}\n\ntemplate <class T = u64>\nstd::vector<std::pair<T, int>>\
+    \ factorSortedList(u64 n) {\n    // \\prid x_i^p_i\n    auto fac = factor(n);\n\
+    \    std::sort(fac.begin(), fac.end());\n\n    std::vector<std::pair<T, int>>\
+    \ lt;\n    for (int i = 0, j; i < int(fac.size()); i = j) {\n        j = i;\n\
+    \        while (j < static_cast<int>(fac.size()) && fac[i] == fac[j]) j++;\n \
+    \       lt.emplace_back(fac[i], j - i);\n    }\n\n    return lt;\n}\n}  // namespace\
+    \ Factor\n"
   dependsOn:
   - Template/Template.hpp
   - Number_Theory/Binary-Gcd.hpp
@@ -88,7 +90,7 @@ data:
   requiredBy:
   - Number_Theory/OsakDivisorsFast.hpp
   - Number_Theory/Gauss-Integer.hpp
-  timestamp: '2023-02-11 23:20:31+08:00'
+  timestamp: '2023-04-03 20:03:50+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/Factorize.test.cpp
