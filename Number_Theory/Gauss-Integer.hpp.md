@@ -56,40 +56,39 @@ data:
     \ operator-(const G &a, const G &b) {\n        return {a.a - b.a, a.b - b.b};\n\
     \    }\n    G friend operator*(const G &a, const G &b) {\n        return {a.a\
     \ * b.a - a.b * b.b, a.a * b.b + a.b * b.a};\n    }\n    bool operator==(const\
-    \ G &x) const { return x.a == a && x.b == b; }\n    G operator*(const i128 &t)\
-    \ const { return {a * t, b * t}; }\n    G operator/(const i128 &t) const { return\
-    \ {a / t, b / t}; }\n    G friend operator/(const G &a, const G &b) {\n      \
-    \  i128 len = b.a * b.a + b.b * b.b;\n        G c = a * G(b.a, -b.b);\n      \
-    \  auto div = [&](i128 a, i128 n) -> i128 {\n            i128 now = (a % n + n)\
-    \ % n;\n            return ((a - now) / n);\n        };\n        return {div(2\
-    \ * c.a + len, 2 * len), div(2 * c.b + len, 2 * len)};\n    }\n};\n\nstatic G\
-    \ one = G(1, 0);\ntemplate <class T>\nT _power(T x, i128 b) {\n    T res = one;\n\
-    \    while (b) {\n        if (b & 1) res = res * x;\n        x = x * x;\n    \
-    \    b = b / 2;\n    }\n    return res;\n}\nG solveprime(i128 p) {\n    if (p\
-    \ == 2) return {1, 1};\n    i128 t = 1;\n    auto qpow = [&](i128 a, i128 b, i128\
-    \ p) {\n        i128 res = 1;\n        while (b) {\n            if (b & 1) res\
-    \ = res * a % p;\n            a = a * a % p;\n            b = b / 2;\n       \
-    \ }\n        return res;\n    };\n    for (; qpow(t, (p - 1) / 2, p) != p - 1;)\
-    \ t++;\n    i128 k = qpow(t, (p - 1) / 4, p);\n\n    std::function<G(G, G)> Ggcd\
-    \ = [&](G a, G b) -> G {\n        if (b.a == 0 && b.b == 0)\n            return\
-    \ a;\n        else\n            return Ggcd(b, a - (a / b) * b);\n    };\n   \
-    \ auto g = Ggcd({p, 0}, {k, 1});\n\n    if (g.a < 0) g.a = -g.a;\n    if (g.b\
-    \ < 0) g.b = -g.b;\n    if (g.a > g.b) std::swap(g.a, g.b);\n    return g;\n}\n\
-    std::vector<G> solvecomposite(i128 n) {\n    auto prm = Factor::factorSortedList<i128>(n);\n\
+    \ G &x) const { return x.a == a && x.b == b; }\n    inline G operator*(const i128\
+    \ &t) const { return {a * t, b * t}; }\n    inline G operator/(const i128 &t)\
+    \ const { return {a / t, b / t}; }\n    G friend operator/(const G &a, const G\
+    \ &b) {\n        i128 len = b.a * b.a + b.b * b.b;\n        G c = a * G(b.a, -b.b);\n\
+    \        auto div = [&](i128 a, i128 n) -> i128 {\n            i128 now = (a %\
+    \ n + n) % n;\n            return ((a - now) / n);\n        };\n        return\
+    \ {div(2 * c.a + len, 2 * len), div(2 * c.b + len, 2 * len)};\n    }\n    G power(i128\
+    \ b) {\n        G res(1, 0);\n        G a = *this;\n        for (; b; b /= 2,\
+    \ a = a * a) {\n            if (b % 2) {\n                res = res * a;\n   \
+    \         }\n        }\n        return res;\n    }\n};\n\nG solveprime(i128 p)\
+    \ {\n    if (p == 2) return {1, 1};\n    i128 t = 1;\n    auto qpow = [](i128\
+    \ a, i128 b, i128 p) {\n        i128 res = 1;\n        while (b) {\n         \
+    \   if (b & 1) res = res * a % p;\n            a = a * a % p;\n            b =\
+    \ b / 2;\n        }\n        return res;\n    };\n    for (; qpow(t, (p - 1) /\
+    \ 2, p) != p - 1;) t++;\n    i128 k = qpow(t, (p - 1) / 4, p);\n\n    auto gcd\
+    \ = [&](auto &&self, G a, G b) -> G {\n        if (b.a == 0 && b.b == 0)\n   \
+    \         return a;\n        else\n            return self(self, b, a - (a / b)\
+    \ * b);\n    };\n    auto g = gcd(gcd, {p, 0}, {k, 1});\n\n    if (g.a < 0) g.a\
+    \ = -g.a;\n    if (g.b < 0) g.b = -g.b;\n    if (g.a > g.b) std::swap(g.a, g.b);\n\
+    \    return g;\n}\nstd::vector<G> solvecomposite(i128 n) {\n    auto prm = Factor::factorSortedList<i128>(n);\n\
     \n    std::vector<G> v{{1, 0}};\n    for (const auto &[p, tmp] : prm) {\n    \
     \    if (p % 4 == 1) {\n            G A = solveprime(p);\n            G B = {A.a,\
-    \ -A.b};\n            auto now = _power<G>(A, 2 * tmp);\n\n            std::vector<G>\
+    \ -A.b};\n            auto now = A.power(2 * tmp);\n\n            std::vector<G>\
     \ res;\n            for (i64 i = 0; i <= 2 * tmp; i++) {\n                for\
     \ (auto it : v) res.push_back(it * now);\n                now = now * B / A;\n\
     \            }\n            swap(v, res);\n        } else {\n            G now(p,\
-    \ 0);\n            now = _power<G>(now, tmp);\n            for (auto &&it : v)\
-    \ it = it * now;\n        }\n    }\n    for (auto &&[a, b] : v) {\n        if\
-    \ (a < 0) a = -a;\n        if (b < 0) b = -b;\n    }\n    std::sort(v.begin(),\
-    \ v.end(), [&](const G &a, const G &b) {\n        return std::make_pair(a.a, a.b)\
-    \ < std::make_pair(b.a, b.b);\n    });\n    v.resize(unique(v.begin(), v.end())\
-    \ - v.begin());\n\n    std::vector<G> t;\n    for (auto [a, b] : v)\n        if\
-    \ (a != 0 && b != 0) t.emplace_back(a, b);\n    return t;\n}\n}  // namespace\
-    \ Format_Fact\n"
+    \ 0);\n            now = now.power(tmp);\n            for (auto &&it : v) it =\
+    \ it * now;\n        }\n    }\n    for (auto &&[a, b] : v) {\n        if (a <\
+    \ 0) a = -a;\n        if (b < 0) b = -b;\n    }\n    std::sort(v.begin(), v.end(),\
+    \ [&](const G &a, const G &b) {\n        return std::make_pair(a.a, a.b) < std::make_pair(b.a,\
+    \ b.b);\n    });\n    v.resize(unique(v.begin(), v.end()) - v.begin());\n\n  \
+    \  std::vector<G> t;\n    for (const auto &[a, b] : v)\n        if (a != 0 &&\
+    \ b != 0) t.emplace_back(a, b);\n    return t;\n}\n}  // namespace Format_Fact\n"
   code: "#pragma once\n\n#include \"../Template/Template.hpp\"\n#include \"Factorization.hpp\"\
     \n\nnamespace Format_Fact {\nusing i128 = __int128;\nstruct G {\n    i128 a, b;\n\
     \    G(){};\n    G(i128 a, i128 b) : a(a), b(b){};\n    G friend operator+(const\
@@ -97,40 +96,39 @@ data:
     \ operator-(const G &a, const G &b) {\n        return {a.a - b.a, a.b - b.b};\n\
     \    }\n    G friend operator*(const G &a, const G &b) {\n        return {a.a\
     \ * b.a - a.b * b.b, a.a * b.b + a.b * b.a};\n    }\n    bool operator==(const\
-    \ G &x) const { return x.a == a && x.b == b; }\n    G operator*(const i128 &t)\
-    \ const { return {a * t, b * t}; }\n    G operator/(const i128 &t) const { return\
-    \ {a / t, b / t}; }\n    G friend operator/(const G &a, const G &b) {\n      \
-    \  i128 len = b.a * b.a + b.b * b.b;\n        G c = a * G(b.a, -b.b);\n      \
-    \  auto div = [&](i128 a, i128 n) -> i128 {\n            i128 now = (a % n + n)\
-    \ % n;\n            return ((a - now) / n);\n        };\n        return {div(2\
-    \ * c.a + len, 2 * len), div(2 * c.b + len, 2 * len)};\n    }\n};\n\nstatic G\
-    \ one = G(1, 0);\ntemplate <class T>\nT _power(T x, i128 b) {\n    T res = one;\n\
-    \    while (b) {\n        if (b & 1) res = res * x;\n        x = x * x;\n    \
-    \    b = b / 2;\n    }\n    return res;\n}\nG solveprime(i128 p) {\n    if (p\
-    \ == 2) return {1, 1};\n    i128 t = 1;\n    auto qpow = [&](i128 a, i128 b, i128\
-    \ p) {\n        i128 res = 1;\n        while (b) {\n            if (b & 1) res\
-    \ = res * a % p;\n            a = a * a % p;\n            b = b / 2;\n       \
-    \ }\n        return res;\n    };\n    for (; qpow(t, (p - 1) / 2, p) != p - 1;)\
-    \ t++;\n    i128 k = qpow(t, (p - 1) / 4, p);\n\n    std::function<G(G, G)> Ggcd\
-    \ = [&](G a, G b) -> G {\n        if (b.a == 0 && b.b == 0)\n            return\
-    \ a;\n        else\n            return Ggcd(b, a - (a / b) * b);\n    };\n   \
-    \ auto g = Ggcd({p, 0}, {k, 1});\n\n    if (g.a < 0) g.a = -g.a;\n    if (g.b\
-    \ < 0) g.b = -g.b;\n    if (g.a > g.b) std::swap(g.a, g.b);\n    return g;\n}\n\
-    std::vector<G> solvecomposite(i128 n) {\n    auto prm = Factor::factorSortedList<i128>(n);\n\
+    \ G &x) const { return x.a == a && x.b == b; }\n    inline G operator*(const i128\
+    \ &t) const { return {a * t, b * t}; }\n    inline G operator/(const i128 &t)\
+    \ const { return {a / t, b / t}; }\n    G friend operator/(const G &a, const G\
+    \ &b) {\n        i128 len = b.a * b.a + b.b * b.b;\n        G c = a * G(b.a, -b.b);\n\
+    \        auto div = [&](i128 a, i128 n) -> i128 {\n            i128 now = (a %\
+    \ n + n) % n;\n            return ((a - now) / n);\n        };\n        return\
+    \ {div(2 * c.a + len, 2 * len), div(2 * c.b + len, 2 * len)};\n    }\n    G power(i128\
+    \ b) {\n        G res(1, 0);\n        G a = *this;\n        for (; b; b /= 2,\
+    \ a = a * a) {\n            if (b % 2) {\n                res = res * a;\n   \
+    \         }\n        }\n        return res;\n    }\n};\n\nG solveprime(i128 p)\
+    \ {\n    if (p == 2) return {1, 1};\n    i128 t = 1;\n    auto qpow = [](i128\
+    \ a, i128 b, i128 p) {\n        i128 res = 1;\n        while (b) {\n         \
+    \   if (b & 1) res = res * a % p;\n            a = a * a % p;\n            b =\
+    \ b / 2;\n        }\n        return res;\n    };\n    for (; qpow(t, (p - 1) /\
+    \ 2, p) != p - 1;) t++;\n    i128 k = qpow(t, (p - 1) / 4, p);\n\n    auto gcd\
+    \ = [&](auto &&self, G a, G b) -> G {\n        if (b.a == 0 && b.b == 0)\n   \
+    \         return a;\n        else\n            return self(self, b, a - (a / b)\
+    \ * b);\n    };\n    auto g = gcd(gcd, {p, 0}, {k, 1});\n\n    if (g.a < 0) g.a\
+    \ = -g.a;\n    if (g.b < 0) g.b = -g.b;\n    if (g.a > g.b) std::swap(g.a, g.b);\n\
+    \    return g;\n}\nstd::vector<G> solvecomposite(i128 n) {\n    auto prm = Factor::factorSortedList<i128>(n);\n\
     \n    std::vector<G> v{{1, 0}};\n    for (const auto &[p, tmp] : prm) {\n    \
     \    if (p % 4 == 1) {\n            G A = solveprime(p);\n            G B = {A.a,\
-    \ -A.b};\n            auto now = _power<G>(A, 2 * tmp);\n\n            std::vector<G>\
+    \ -A.b};\n            auto now = A.power(2 * tmp);\n\n            std::vector<G>\
     \ res;\n            for (i64 i = 0; i <= 2 * tmp; i++) {\n                for\
     \ (auto it : v) res.push_back(it * now);\n                now = now * B / A;\n\
     \            }\n            swap(v, res);\n        } else {\n            G now(p,\
-    \ 0);\n            now = _power<G>(now, tmp);\n            for (auto &&it : v)\
-    \ it = it * now;\n        }\n    }\n    for (auto &&[a, b] : v) {\n        if\
-    \ (a < 0) a = -a;\n        if (b < 0) b = -b;\n    }\n    std::sort(v.begin(),\
-    \ v.end(), [&](const G &a, const G &b) {\n        return std::make_pair(a.a, a.b)\
-    \ < std::make_pair(b.a, b.b);\n    });\n    v.resize(unique(v.begin(), v.end())\
-    \ - v.begin());\n\n    std::vector<G> t;\n    for (auto [a, b] : v)\n        if\
-    \ (a != 0 && b != 0) t.emplace_back(a, b);\n    return t;\n}\n}  // namespace\
-    \ Format_Fact"
+    \ 0);\n            now = now.power(tmp);\n            for (auto &&it : v) it =\
+    \ it * now;\n        }\n    }\n    for (auto &&[a, b] : v) {\n        if (a <\
+    \ 0) a = -a;\n        if (b < 0) b = -b;\n    }\n    std::sort(v.begin(), v.end(),\
+    \ [&](const G &a, const G &b) {\n        return std::make_pair(a.a, a.b) < std::make_pair(b.a,\
+    \ b.b);\n    });\n    v.resize(unique(v.begin(), v.end()) - v.begin());\n\n  \
+    \  std::vector<G> t;\n    for (const auto &[a, b] : v)\n        if (a != 0 &&\
+    \ b != 0) t.emplace_back(a, b);\n    return t;\n}\n}  // namespace Format_Fact"
   dependsOn:
   - Template/Template.hpp
   - Number_Theory/Factorization.hpp
@@ -138,7 +136,7 @@ data:
   isVerificationFile: false
   path: Number_Theory/Gauss-Integer.hpp
   requiredBy: []
-  timestamp: '2023-04-03 20:03:50+08:00'
+  timestamp: '2023-04-03 20:21:35+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Number_Theory/Gauss-Integer.hpp
