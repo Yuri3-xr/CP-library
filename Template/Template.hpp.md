@@ -15,11 +15,8 @@ data:
     path: DataStructure/SegmentTree.hpp
     title: DataStructure/SegmentTree.hpp
   - icon: ':warning:'
-    path: Geometry/Minkowski_Sum.hpp
-    title: Geometry/Minkowski_Sum.hpp
-  - icon: ':warning:'
-    path: Geometry/Point.hpp
-    title: Geometry/Point.hpp
+    path: Geometry/GeometryTemplate.hpp
+    title: Geometry/GeometryTemplate.hpp
   - icon: ':warning:'
     path: Matrix/AdjugateMatrix.hpp
     title: Matrix/AdjugateMatrix.hpp
@@ -224,8 +221,7 @@ data:
   - String/Trie.hpp
   - String/SuffixArrayFast.hpp
   - String/ACAutomaton.hpp
-  - Geometry/Minkowski_Sum.hpp
-  - Geometry/Point.hpp
+  - Geometry/GeometryTemplate.hpp
   timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

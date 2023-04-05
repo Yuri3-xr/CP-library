@@ -21,11 +21,8 @@ data:
   - name: Geometry
     pages:
     - icon: ':warning:'
-      path: Geometry/Minkowski_Sum.hpp
-      title: Geometry/Minkowski_Sum.hpp
-    - icon: ':warning:'
-      path: Geometry/Point.hpp
-      title: Geometry/Point.hpp
+      path: Geometry/GeometryTemplate.hpp
+      title: Geometry/GeometryTemplate.hpp
   - name: Matrix
     pages:
     - icon: ':warning:'
