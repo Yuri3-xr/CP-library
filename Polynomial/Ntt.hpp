@@ -7,7 +7,7 @@ struct NTT {
     std::vector<int> rev;
     std::vector<Z> roots{0, 1};
 
-    static constexpr uint32_t getRoot() {
+    static constexpr int getRoot() {
         auto _mod = Z::get_mod();
         using u64 = uint64_t;
         u64 ds[32] = {};
@@ -21,7 +21,7 @@ struct NTT {
         }
         if (m != 1) ds[idx++] = m;
 
-        uint32_t _pr = 2;
+        int _pr = 2;
         for (;;) {
             int flg = 1;
             for (int i = 0; i < idx; ++i) {
@@ -40,8 +40,7 @@ struct NTT {
         return _pr;
     };
 
-    static constexpr uint32_t mod = Z::get_mod();
-    static constexpr uint32_t rt = getRoot();
+    static constexpr int rt = getRoot();
 
     void dft(std::vector<Z> &a) {
         int n = a.size();
