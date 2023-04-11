@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy:
@@ -59,8 +59,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/StaticRMQ.test.cpp
-  - Verify/NumberofSubstrings.test.cpp
   - Verify/SuffixArray.test.cpp
+  - Verify/NumberofSubstrings.test.cpp
 documentation_of: DataStructure/RMQ.hpp
 layout: document
 redirect_from:

@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: DataStructure/LazySegmentTree.hpp
     title: DataStructure/LazySegmentTree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: ModInt/Modint32.hpp
     title: ModInt/Modint32.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []

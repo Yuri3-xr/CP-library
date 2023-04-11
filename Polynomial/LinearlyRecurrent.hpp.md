@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Polynomial/CoeffofRationalFunction.hpp
     title: Polynomial/CoeffofRationalFunction.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Polynomial/Poly.hpp
     title: Polynomial/Poly.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Power.hpp
     title: Template/Power.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
     title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"Polynomial/LinearlyRecurrent.hpp\"\n\n#line 2 \"Polynomial/CoeffofRationalFunction.hpp\"\
@@ -32,56 +32,68 @@ data:
     \n\n#line 1 \"Template/Power.hpp\"\ntemplate <class T>\nT power(T a, int b) {\n\
     \    T res = 1;\n    for (; b; b /= 2, a *= a) {\n        if (b % 2) {\n     \
     \       res *= a;\n        }\n    }\n    return res;\n}\n#line 5 \"Polynomial/Ntt.hpp\"\
-    \ntemplate <class Z, int rt>\nstruct NTT {\n    std::vector<int> rev;\n    std::vector<Z>\
-    \ roots{0, 1};\n    void dft(std::vector<Z> &a) {\n        int n = a.size();\n\
-    \n        if (int(rev.size()) != n) {\n            int k = __builtin_ctz(n) -\
-    \ 1;\n            rev.resize(n);\n            for (int i = 0; i < n; i++) {\n\
-    \                rev[i] = rev[i >> 1] >> 1 | (i & 1) << k;\n            }\n  \
-    \      }\n\n        for (int i = 0; i < n; i++) {\n            if (rev[i] < i)\
-    \ {\n                std::swap(a[i], a[rev[i]]);\n            }\n        }\n \
-    \       if (int(roots.size()) < n) {\n            int k = __builtin_ctz(roots.size());\n\
-    \            roots.resize(n);\n            while ((1 << k) < n) {\n          \
-    \      Z e = power(Z(rt), (Z::get_mod() - 1) >> (k + 1));\n                for\
-    \ (int i = 1 << (k - 1); i < (1 << k); i++) {\n                    roots[2 * i]\
-    \ = roots[i];\n                    roots[2 * i + 1] = roots[i] * e;\n        \
-    \        }\n                k++;\n            }\n        }\n        for (int k\
-    \ = 1; k < n; k *= 2) {\n            for (int i = 0; i < n; i += 2 * k) {\n  \
-    \              for (int j = 0; j < k; j++) {\n                    Z u = a[i +\
-    \ j];\n                    Z v = a[i + j + k] * roots[k + j];\n              \
-    \      a[i + j] = u + v;\n                    a[i + j + k] = u - v;\n        \
-    \        }\n            }\n        }\n    }\n    void idft(std::vector<Z> &a)\
-    \ {\n        int n = a.size();\n        reverse(a.begin() + 1, a.end());\n   \
-    \     dft(a);\n        Z inv = (1 - Z::get_mod()) / n;\n        for (int i = 0;\
-    \ i < n; i++) {\n            a[i] *= inv;\n        }\n    }\n    std::vector<Z>\
-    \ multiply(std::vector<Z> a, std::vector<Z> b) {\n        int sz = 1, tot = a.size()\
-    \ + b.size() - 1;\n\n        if (tot <= 20) {\n            std::vector<Z> ret(tot);\n\
-    \            for (size_t i = 0; i < a.size(); i++)\n                for (size_t\
-    \ j = 0; j < b.size(); j++) ret[i + j] += a[i] * b[j];\n            return ret;\n\
-    \        }\n\n        while (sz < tot) {\n            sz *= 2;\n        }\n\n\
-    \        a.resize(sz), b.resize(sz);\n        dft(a), dft(b);\n\n        for (int\
-    \ i = 0; i < sz; ++i) {\n            a[i] = a[i] * b[i];\n        }\n\n      \
-    \  idft(a);\n        a.resize(tot);\n        return a;\n    }\n};\n#line 4 \"\
-    Polynomial/Poly.hpp\"\n\ntemplate <class Z, int rt>\nstruct Poly {\n    std::vector<Z>\
-    \ a;\n    Poly() {}\n    Poly(int sz, Z val) { a.assign(sz, val); }\n    Poly(const\
-    \ std::vector<Z> &a) : a(a) {}\n    Poly(const std::initializer_list<Z> &a) :\
-    \ a(a) {}\n    int size() const { return a.size(); }\n    void resize(int n) {\
-    \ a.resize(n); }\n    Z operator[](int idx) const {\n        if (idx < size())\
-    \ {\n            return a[idx];\n        } else {\n            return 0;\n   \
-    \     }\n    }\n    Z &operator[](int idx) { return a[idx]; }\n    Poly mulxk(int\
-    \ k) const {\n        auto b = a;\n        b.insert(b.begin(), k, 0);\n      \
-    \  return Poly(b);\n    }\n    Poly modxk(int k) const {\n        k = std::min(k,\
-    \ size());\n        return Poly(std::vector<Z>(a.begin(), a.begin() + k));\n \
-    \   }\n    Poly divxk(int k) const {\n        if (size() <= k) {\n           \
-    \ return Poly();\n        }\n        return Poly(std::vector<Z>(a.begin() + k,\
-    \ a.end()));\n    }\n    friend Poly operator+(const Poly &a, const Poly &b) {\n\
-    \        std::vector<Z> res(std::max(a.size(), b.size()));\n        for (int i\
-    \ = 0; i < int(res.size()); i++) {\n            res[i] = a[i] + b[i];\n      \
-    \  }\n        return Poly(res);\n    }\n    friend Poly operator-(const Poly &a,\
-    \ const Poly &b) {\n        std::vector<Z> res(std::max(a.size(), b.size()));\n\
+    \ntemplate <class Z>\nstruct NTT {\n    std::vector<int> rev;\n    std::vector<Z>\
+    \ roots{0, 1};\n\n    static constexpr uint32_t getRoot() {\n        auto _mod\
+    \ = Z::get_mod();\n        using u64 = uint64_t;\n        u64 ds[32] = {};\n \
+    \       int idx = 0;\n        u64 m = _mod - 1;\n        for (u64 i = 2; i * i\
+    \ <= m; ++i) {\n            if (m % i == 0) {\n                ds[idx++] = i;\n\
+    \                while (m % i == 0) m /= i;\n            }\n        }\n      \
+    \  if (m != 1) ds[idx++] = m;\n\n        uint32_t _pr = 2;\n        for (;;) {\n\
+    \            int flg = 1;\n            for (int i = 0; i < idx; ++i) {\n     \
+    \           u64 a = _pr, b = (_mod - 1) / ds[i], r = 1;\n                for (;\
+    \ b; a = a * a % _mod, b /= 2) {\n                    if (b % 2 == 1) r = r *\
+    \ a % _mod;\n                }\n                if (r == 1) {\n              \
+    \      flg = 0;\n                    break;\n                }\n            }\n\
+    \            if (flg == 1) break;\n            ++_pr;\n        }\n        return\
+    \ _pr;\n    };\n\n    static constexpr uint32_t mod = Z::get_mod();\n    static\
+    \ constexpr uint32_t rt = getRoot();\n\n    void dft(std::vector<Z> &a) {\n  \
+    \      int n = a.size();\n\n        if (int(rev.size()) != n) {\n            int\
+    \ k = __builtin_ctz(n) - 1;\n            rev.resize(n);\n            for (int\
+    \ i = 0; i < n; i++) {\n                rev[i] = rev[i >> 1] >> 1 | (i & 1) <<\
+    \ k;\n            }\n        }\n\n        for (int i = 0; i < n; i++) {\n    \
+    \        if (rev[i] < i) {\n                std::swap(a[i], a[rev[i]]);\n    \
+    \        }\n        }\n        if (int(roots.size()) < n) {\n            int k\
+    \ = __builtin_ctz(roots.size());\n            roots.resize(n);\n            while\
+    \ ((1 << k) < n) {\n                Z e = power(Z(rt), (mod - 1) >> (k + 1));\n\
+    \                for (int i = 1 << (k - 1); i < (1 << k); i++) {\n           \
+    \         roots[2 * i] = roots[i];\n                    roots[2 * i + 1] = roots[i]\
+    \ * e;\n                }\n                k++;\n            }\n        }\n  \
+    \      for (int k = 1; k < n; k *= 2) {\n            for (int i = 0; i < n; i\
+    \ += 2 * k) {\n                for (int j = 0; j < k; j++) {\n               \
+    \     Z u = a[i + j];\n                    Z v = a[i + j + k] * roots[k + j];\n\
+    \                    a[i + j] = u + v;\n                    a[i + j + k] = u -\
+    \ v;\n                }\n            }\n        }\n    }\n    void idft(std::vector<Z>\
+    \ &a) {\n        int n = a.size();\n        reverse(a.begin() + 1, a.end());\n\
+    \        dft(a);\n        Z inv = (1 - mod) / n;\n        for (int i = 0; i <\
+    \ n; i++) {\n            a[i] *= inv;\n        }\n    }\n    std::vector<Z> multiply(std::vector<Z>\
+    \ a, std::vector<Z> b) {\n        int sz = 1, tot = a.size() + b.size() - 1;\n\
+    \n        if (tot <= 20) {\n            std::vector<Z> ret(tot);\n           \
+    \ for (size_t i = 0; i < a.size(); i++)\n                for (size_t j = 0; j\
+    \ < b.size(); j++) ret[i + j] += a[i] * b[j];\n            return ret;\n     \
+    \   }\n\n        while (sz < tot) {\n            sz *= 2;\n        }\n\n     \
+    \   a.resize(sz), b.resize(sz);\n        dft(a), dft(b);\n\n        for (int i\
+    \ = 0; i < sz; ++i) {\n            a[i] = a[i] * b[i];\n        }\n\n        idft(a);\n\
+    \        a.resize(tot);\n        return a;\n    }\n};\n#line 4 \"Polynomial/Poly.hpp\"\
+    \n\ntemplate <class Z>\nstruct Poly {\n    std::vector<Z> a;\n    Poly() {}\n\
+    \    Poly(int sz, Z val) { a.assign(sz, val); }\n    Poly(const std::vector<Z>\
+    \ &a) : a(a) {}\n    Poly(const std::initializer_list<Z> &a) : a(a) {}\n    int\
+    \ size() const { return a.size(); }\n    void resize(int n) { a.resize(n); }\n\
+    \    Z operator[](int idx) const {\n        if (idx < size()) {\n            return\
+    \ a[idx];\n        } else {\n            return 0;\n        }\n    }\n    Z &operator[](int\
+    \ idx) { return a[idx]; }\n    Poly mulxk(int k) const {\n        auto b = a;\n\
+    \        b.insert(b.begin(), k, 0);\n        return Poly(b);\n    }\n    Poly\
+    \ modxk(int k) const {\n        k = std::min(k, size());\n        return Poly(std::vector<Z>(a.begin(),\
+    \ a.begin() + k));\n    }\n    Poly divxk(int k) const {\n        if (size() <=\
+    \ k) {\n            return Poly();\n        }\n        return Poly(std::vector<Z>(a.begin()\
+    \ + k, a.end()));\n    }\n    friend Poly operator+(const Poly &a, const Poly\
+    \ &b) {\n        std::vector<Z> res(std::max(a.size(), b.size()));\n        for\
+    \ (int i = 0; i < int(res.size()); i++) {\n            res[i] = a[i] + b[i];\n\
+    \        }\n        return Poly(res);\n    }\n    friend Poly operator-(const\
+    \ Poly &a, const Poly &b) {\n        std::vector<Z> res(std::max(a.size(), b.size()));\n\
     \        for (int i = 0; i < int(res.size()); i++) {\n            res[i] = a[i]\
     \ - b[i];\n        }\n        return Poly(res);\n    }\n\n    friend Poly operator*(Poly\
     \ a, Poly b) {\n        if (a.size() == 0 || b.size() == 0) {\n            return\
-    \ Poly();\n        }\n        static NTT<Z, rt> ntt;\n        return ntt.multiply(a.a,\
+    \ Poly();\n        }\n        static NTT<Z> ntt;\n        return ntt.multiply(a.a,\
     \ b.a);\n    }\n    friend Poly operator*(Z a, Poly b) {\n        for (int i =\
     \ 0; i < int(b.size()); i++) {\n            b[i] *= a;\n        }\n        return\
     \ b;\n    }\n    friend Poly operator*(Poly a, Z b) {\n        for (int i = 0;\
@@ -174,30 +186,30 @@ data:
     \    for (int i = 0; i < m; i++) {\n            ret[i] = cur * dh[k + i];\n  \
     \          cur *= T + i + 1;\n            cur *= h[i];\n        }\n        return\
     \ ret;\n    }\n};\n#line 5 \"Polynomial/CoeffofRationalFunction.hpp\"\n\ntemplate\
-    \ <class Z, int rt>\nZ CoeffofRationalFunction(Poly<Z, rt> P, Poly<Z, rt> Q, i64\
-    \ k) {\n    Z ret = 0;\n    if (P.size() >= Q.size()) {\n        auto R = P /\
-    \ Q;\n        P -= R * Q;\n        while (P.size() && P.a.back() == Z(0)) P.a.pop_back();\n\
-    \        if (k < int(R.size())) ret += R[k];\n    }\n    if (P.a.empty()) return\
-    \ ret;\n    P.a.resize(int(Q.size()) - 1);\n\n    while (k > 0) {\n        Poly<Z,\
-    \ rt> Q2(Q.a);\n        for (int i = 1; i < int(Q2.size()); i += 2) Q2[i] = -Q2[i];\n\
-    \        auto sub = [&](const Poly<Z, rt> &as, bool odd) {\n            Poly<Z,\
-    \ rt> bs((as.size() + !odd) / 2, 0);\n            for (int i = odd; i < (int)as.size();\
-    \ i += 2) bs[i >> 1] = as[i];\n            return bs;\n        };\n        P =\
-    \ sub(P * Q2, k & 1);\n        Q = sub(Q * Q2, 0);\n        k /= 2;\n    }\n\n\
-    \    return ret + P[0];\n}\n#line 4 \"Polynomial/LinearlyRecurrent.hpp\"\n\ntemplate\
-    \ <class Z, int rt>\nZ LinearlyRecurrent(const Poly<Z, rt> &a, Poly<Z, rt> c,\
-    \ i64 k) {\n    /*\n        a_n=\\sum_{d=1^t} c_d * a_{n-d}\n        give a_0,a_1,...,a_{t-1}\n\
-    \        c_1,c_2,...,c_t[but store at cp[0,...,t-1]]\n        solev a_k\n    \
-    \    TC: O(t\\logt\\logk)\n    */\n    assert(a.size() == c.size());\n    c =\
-    \ Poly<Z, rt>{1} - c.mulxk(1);\n    return CoeffofRationalFunction<Z, rt>((a *\
-    \ c).modxk(a.size()), c, k);\n}\n"
+    \ <class Z>\nZ CoeffofRationalFunction(Poly<Z> P, Poly<Z> Q, i64 k) {\n    Z ret\
+    \ = 0;\n    if (P.size() >= Q.size()) {\n        auto R = P / Q;\n        P -=\
+    \ R * Q;\n        while (P.size() && P.a.back() == Z(0)) P.a.pop_back();\n   \
+    \     if (k < int(R.size())) ret += R[k];\n    }\n    if (P.a.empty()) return\
+    \ ret;\n    P.a.resize(int(Q.size()) - 1);\n\n    while (k > 0) {\n        Poly<Z>\
+    \ Q2(Q.a);\n        for (int i = 1; i < int(Q2.size()); i += 2) Q2[i] = -Q2[i];\n\
+    \        auto sub = [&](const Poly<Z> &as, bool odd) {\n            Poly<Z> bs((as.size()\
+    \ + !odd) / 2, 0);\n            for (int i = odd; i < (int)as.size(); i += 2)\
+    \ bs[i >> 1] = as[i];\n            return bs;\n        };\n        P = sub(P *\
+    \ Q2, k & 1);\n        Q = sub(Q * Q2, 0);\n        k /= 2;\n    }\n\n    return\
+    \ ret + P[0];\n}\n#line 4 \"Polynomial/LinearlyRecurrent.hpp\"\n\ntemplate <class\
+    \ Z>\nZ LinearlyRecurrent(const Poly<Z> &a, Poly<Z> c, i64 k) {\n    /*\n    \
+    \    a_n=\\sum_{d=1^t} c_d * a_{n-d}\n        give a_0,a_1,...,a_{t-1}\n     \
+    \   c_1,c_2,...,c_t[but store at cp[0,...,t-1]]\n        solev a_k\n        TC:\
+    \ O(t\\logt\\logk)\n    */\n    assert(a.size() == c.size());\n    c = Poly<Z>{1}\
+    \ - c.mulxk(1);\n    return CoeffofRationalFunction<Z>((a * c).modxk(a.size()),\
+    \ c, k);\n}\n"
   code: "#pragma once\n\n#include \"CoeffofRationalFunction.hpp\"\n\ntemplate <class\
-    \ Z, int rt>\nZ LinearlyRecurrent(const Poly<Z, rt> &a, Poly<Z, rt> c, i64 k)\
-    \ {\n    /*\n        a_n=\\sum_{d=1^t} c_d * a_{n-d}\n        give a_0,a_1,...,a_{t-1}\n\
-    \        c_1,c_2,...,c_t[but store at cp[0,...,t-1]]\n        solev a_k\n    \
-    \    TC: O(t\\logt\\logk)\n    */\n    assert(a.size() == c.size());\n    c =\
-    \ Poly<Z, rt>{1} - c.mulxk(1);\n    return CoeffofRationalFunction<Z, rt>((a *\
-    \ c).modxk(a.size()), c, k);\n}"
+    \ Z>\nZ LinearlyRecurrent(const Poly<Z> &a, Poly<Z> c, i64 k) {\n    /*\n    \
+    \    a_n=\\sum_{d=1^t} c_d * a_{n-d}\n        give a_0,a_1,...,a_{t-1}\n     \
+    \   c_1,c_2,...,c_t[but store at cp[0,...,t-1]]\n        solev a_k\n        TC:\
+    \ O(t\\logt\\logk)\n    */\n    assert(a.size() == c.size());\n    c = Poly<Z>{1}\
+    \ - c.mulxk(1);\n    return CoeffofRationalFunction<Z>((a * c).modxk(a.size()),\
+    \ c, k);\n}"
   dependsOn:
   - Polynomial/CoeffofRationalFunction.hpp
   - Template/Template.hpp
@@ -207,8 +219,8 @@ data:
   isVerificationFile: false
   path: Polynomial/LinearlyRecurrent.hpp
   requiredBy: []
-  timestamp: '2023-02-11 22:39:37+08:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-04-12 00:19:37+08:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
 documentation_of: Polynomial/LinearlyRecurrent.hpp

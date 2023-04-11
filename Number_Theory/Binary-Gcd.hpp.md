@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy:
@@ -42,9 +42,9 @@ data:
   isVerificationFile: false
   path: Number_Theory/Binary-Gcd.hpp
   requiredBy:
-  - Number_Theory/OsakDivisorsFast.hpp
-  - Number_Theory/Factorization.hpp
   - Number_Theory/Gauss-Integer.hpp
+  - Number_Theory/Factorization.hpp
+  - Number_Theory/OsakDivisorsFast.hpp
   timestamp: '2023-02-11 22:54:48+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

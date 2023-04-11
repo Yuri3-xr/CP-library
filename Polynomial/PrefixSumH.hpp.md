@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Polynomial/Poly.hpp
     title: Polynomial/Poly.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Power.hpp
     title: Template/Power.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
@@ -25,8 +25,21 @@ data:
     \n\n#line 2 \"Polynomial/Ntt.hpp\"\n\n#line 1 \"Template/Power.hpp\"\ntemplate\
     \ <class T>\nT power(T a, int b) {\n    T res = 1;\n    for (; b; b /= 2, a *=\
     \ a) {\n        if (b % 2) {\n            res *= a;\n        }\n    }\n    return\
-    \ res;\n}\n#line 5 \"Polynomial/Ntt.hpp\"\ntemplate <class Z, int rt>\nstruct\
-    \ NTT {\n    std::vector<int> rev;\n    std::vector<Z> roots{0, 1};\n    void\
+    \ res;\n}\n#line 5 \"Polynomial/Ntt.hpp\"\ntemplate <class Z>\nstruct NTT {\n\
+    \    std::vector<int> rev;\n    std::vector<Z> roots{0, 1};\n\n    static constexpr\
+    \ uint32_t getRoot() {\n        auto _mod = Z::get_mod();\n        using u64 =\
+    \ uint64_t;\n        u64 ds[32] = {};\n        int idx = 0;\n        u64 m = _mod\
+    \ - 1;\n        for (u64 i = 2; i * i <= m; ++i) {\n            if (m % i == 0)\
+    \ {\n                ds[idx++] = i;\n                while (m % i == 0) m /= i;\n\
+    \            }\n        }\n        if (m != 1) ds[idx++] = m;\n\n        uint32_t\
+    \ _pr = 2;\n        for (;;) {\n            int flg = 1;\n            for (int\
+    \ i = 0; i < idx; ++i) {\n                u64 a = _pr, b = (_mod - 1) / ds[i],\
+    \ r = 1;\n                for (; b; a = a * a % _mod, b /= 2) {\n            \
+    \        if (b % 2 == 1) r = r * a % _mod;\n                }\n              \
+    \  if (r == 1) {\n                    flg = 0;\n                    break;\n \
+    \               }\n            }\n            if (flg == 1) break;\n         \
+    \   ++_pr;\n        }\n        return _pr;\n    };\n\n    static constexpr uint32_t\
+    \ mod = Z::get_mod();\n    static constexpr uint32_t rt = getRoot();\n\n    void\
     \ dft(std::vector<Z> &a) {\n        int n = a.size();\n\n        if (int(rev.size())\
     \ != n) {\n            int k = __builtin_ctz(n) - 1;\n            rev.resize(n);\n\
     \            for (int i = 0; i < n; i++) {\n                rev[i] = rev[i >>\
@@ -34,9 +47,9 @@ data:
     \ i < n; i++) {\n            if (rev[i] < i) {\n                std::swap(a[i],\
     \ a[rev[i]]);\n            }\n        }\n        if (int(roots.size()) < n) {\n\
     \            int k = __builtin_ctz(roots.size());\n            roots.resize(n);\n\
-    \            while ((1 << k) < n) {\n                Z e = power(Z(rt), (Z::get_mod()\
-    \ - 1) >> (k + 1));\n                for (int i = 1 << (k - 1); i < (1 << k);\
-    \ i++) {\n                    roots[2 * i] = roots[i];\n                    roots[2\
+    \            while ((1 << k) < n) {\n                Z e = power(Z(rt), (mod -\
+    \ 1) >> (k + 1));\n                for (int i = 1 << (k - 1); i < (1 << k); i++)\
+    \ {\n                    roots[2 * i] = roots[i];\n                    roots[2\
     \ * i + 1] = roots[i] * e;\n                }\n                k++;\n        \
     \    }\n        }\n        for (int k = 1; k < n; k *= 2) {\n            for (int\
     \ i = 0; i < n; i += 2 * k) {\n                for (int j = 0; j < k; j++) {\n\
@@ -44,37 +57,37 @@ data:
     \ roots[k + j];\n                    a[i + j] = u + v;\n                    a[i\
     \ + j + k] = u - v;\n                }\n            }\n        }\n    }\n    void\
     \ idft(std::vector<Z> &a) {\n        int n = a.size();\n        reverse(a.begin()\
-    \ + 1, a.end());\n        dft(a);\n        Z inv = (1 - Z::get_mod()) / n;\n \
-    \       for (int i = 0; i < n; i++) {\n            a[i] *= inv;\n        }\n \
-    \   }\n    std::vector<Z> multiply(std::vector<Z> a, std::vector<Z> b) {\n   \
-    \     int sz = 1, tot = a.size() + b.size() - 1;\n\n        if (tot <= 20) {\n\
-    \            std::vector<Z> ret(tot);\n            for (size_t i = 0; i < a.size();\
-    \ i++)\n                for (size_t j = 0; j < b.size(); j++) ret[i + j] += a[i]\
-    \ * b[j];\n            return ret;\n        }\n\n        while (sz < tot) {\n\
-    \            sz *= 2;\n        }\n\n        a.resize(sz), b.resize(sz);\n    \
-    \    dft(a), dft(b);\n\n        for (int i = 0; i < sz; ++i) {\n            a[i]\
-    \ = a[i] * b[i];\n        }\n\n        idft(a);\n        a.resize(tot);\n    \
-    \    return a;\n    }\n};\n#line 4 \"Polynomial/Poly.hpp\"\n\ntemplate <class\
-    \ Z, int rt>\nstruct Poly {\n    std::vector<Z> a;\n    Poly() {}\n    Poly(int\
-    \ sz, Z val) { a.assign(sz, val); }\n    Poly(const std::vector<Z> &a) : a(a)\
-    \ {}\n    Poly(const std::initializer_list<Z> &a) : a(a) {}\n    int size() const\
-    \ { return a.size(); }\n    void resize(int n) { a.resize(n); }\n    Z operator[](int\
-    \ idx) const {\n        if (idx < size()) {\n            return a[idx];\n    \
-    \    } else {\n            return 0;\n        }\n    }\n    Z &operator[](int\
-    \ idx) { return a[idx]; }\n    Poly mulxk(int k) const {\n        auto b = a;\n\
-    \        b.insert(b.begin(), k, 0);\n        return Poly(b);\n    }\n    Poly\
-    \ modxk(int k) const {\n        k = std::min(k, size());\n        return Poly(std::vector<Z>(a.begin(),\
-    \ a.begin() + k));\n    }\n    Poly divxk(int k) const {\n        if (size() <=\
-    \ k) {\n            return Poly();\n        }\n        return Poly(std::vector<Z>(a.begin()\
-    \ + k, a.end()));\n    }\n    friend Poly operator+(const Poly &a, const Poly\
-    \ &b) {\n        std::vector<Z> res(std::max(a.size(), b.size()));\n        for\
-    \ (int i = 0; i < int(res.size()); i++) {\n            res[i] = a[i] + b[i];\n\
-    \        }\n        return Poly(res);\n    }\n    friend Poly operator-(const\
-    \ Poly &a, const Poly &b) {\n        std::vector<Z> res(std::max(a.size(), b.size()));\n\
+    \ + 1, a.end());\n        dft(a);\n        Z inv = (1 - mod) / n;\n        for\
+    \ (int i = 0; i < n; i++) {\n            a[i] *= inv;\n        }\n    }\n    std::vector<Z>\
+    \ multiply(std::vector<Z> a, std::vector<Z> b) {\n        int sz = 1, tot = a.size()\
+    \ + b.size() - 1;\n\n        if (tot <= 20) {\n            std::vector<Z> ret(tot);\n\
+    \            for (size_t i = 0; i < a.size(); i++)\n                for (size_t\
+    \ j = 0; j < b.size(); j++) ret[i + j] += a[i] * b[j];\n            return ret;\n\
+    \        }\n\n        while (sz < tot) {\n            sz *= 2;\n        }\n\n\
+    \        a.resize(sz), b.resize(sz);\n        dft(a), dft(b);\n\n        for (int\
+    \ i = 0; i < sz; ++i) {\n            a[i] = a[i] * b[i];\n        }\n\n      \
+    \  idft(a);\n        a.resize(tot);\n        return a;\n    }\n};\n#line 4 \"\
+    Polynomial/Poly.hpp\"\n\ntemplate <class Z>\nstruct Poly {\n    std::vector<Z>\
+    \ a;\n    Poly() {}\n    Poly(int sz, Z val) { a.assign(sz, val); }\n    Poly(const\
+    \ std::vector<Z> &a) : a(a) {}\n    Poly(const std::initializer_list<Z> &a) :\
+    \ a(a) {}\n    int size() const { return a.size(); }\n    void resize(int n) {\
+    \ a.resize(n); }\n    Z operator[](int idx) const {\n        if (idx < size())\
+    \ {\n            return a[idx];\n        } else {\n            return 0;\n   \
+    \     }\n    }\n    Z &operator[](int idx) { return a[idx]; }\n    Poly mulxk(int\
+    \ k) const {\n        auto b = a;\n        b.insert(b.begin(), k, 0);\n      \
+    \  return Poly(b);\n    }\n    Poly modxk(int k) const {\n        k = std::min(k,\
+    \ size());\n        return Poly(std::vector<Z>(a.begin(), a.begin() + k));\n \
+    \   }\n    Poly divxk(int k) const {\n        if (size() <= k) {\n           \
+    \ return Poly();\n        }\n        return Poly(std::vector<Z>(a.begin() + k,\
+    \ a.end()));\n    }\n    friend Poly operator+(const Poly &a, const Poly &b) {\n\
+    \        std::vector<Z> res(std::max(a.size(), b.size()));\n        for (int i\
+    \ = 0; i < int(res.size()); i++) {\n            res[i] = a[i] + b[i];\n      \
+    \  }\n        return Poly(res);\n    }\n    friend Poly operator-(const Poly &a,\
+    \ const Poly &b) {\n        std::vector<Z> res(std::max(a.size(), b.size()));\n\
     \        for (int i = 0; i < int(res.size()); i++) {\n            res[i] = a[i]\
     \ - b[i];\n        }\n        return Poly(res);\n    }\n\n    friend Poly operator*(Poly\
     \ a, Poly b) {\n        if (a.size() == 0 || b.size() == 0) {\n            return\
-    \ Poly();\n        }\n        static NTT<Z, rt> ntt;\n        return ntt.multiply(a.a,\
+    \ Poly();\n        }\n        static NTT<Z> ntt;\n        return ntt.multiply(a.a,\
     \ b.a);\n    }\n    friend Poly operator*(Z a, Poly b) {\n        for (int i =\
     \ 0; i < int(b.size()); i++) {\n            b[i] *= a;\n        }\n        return\
     \ b;\n    }\n    friend Poly operator*(Poly a, Z b) {\n        for (int i = 0;\
@@ -169,11 +182,11 @@ data:
     \ ret;\n    }\n};\n#line 5 \"Polynomial/PrefixSumH.hpp\"\ntemplate <class T>\n\
     T PrefixSumH(i64 n) {\n    /*\n        \\sum_{i=0}^n frac{1}{i}\n        Time\
     \ Complexity: O(\\sqrt(n)\\log n)\n    */\n    assert(n != 0);\n    if (n == 1)\
-    \ return 1;\n    using poly = Poly<T, 3>;\n    i64 v = 1;\n    while (v * v <\
-    \ n) v *= 2;\n    T iv = T(v).inverse();\n    std::array<poly, 3> G = {poly({1,\
-    \ v + 1}), poly({1, 1}), poly({1, v + 1})};\n    for (i64 d = 1; d != v; d <<=\
-    \ 1ll) {\n        std::array<poly, 3> G1, G2, G3;\n        for (int i = 0; i <\
-    \ 3; i++) {\n            G1[i] = G[i].shift(T(d) * iv);\n            G2[i] = G[i].shift(T(d\
+    \ return 1;\n    using poly = Poly<T>;\n    i64 v = 1;\n    while (v * v < n)\
+    \ v *= 2;\n    T iv = T(v).inverse();\n    std::array<poly, 3> G = {poly({1, v\
+    \ + 1}), poly({1, 1}), poly({1, v + 1})};\n    for (i64 d = 1; d != v; d <<= 1ll)\
+    \ {\n        std::array<poly, 3> G1, G2, G3;\n        for (int i = 0; i < 3; i++)\
+    \ {\n            G1[i] = G[i].shift(T(d) * iv);\n            G2[i] = G[i].shift(T(d\
     \ * v + v) * iv);\n            G3[i] = G[i].shift(T(d * v + d + v) * iv);\n  \
     \      }\n\n        for (int t = 0; t <= d; t++) {\n            G[1][t] = G1[1][t]\
     \ * G[0][t] + G[1][t] * G1[2][t];\n            G2[1][t] = G2[1][t] * G3[2][t]\
@@ -194,7 +207,7 @@ data:
   code: "#pragma once\n\n#include \"../Template/Template.hpp\"\n#include \"Poly.hpp\"\
     \ntemplate <class T>\nT PrefixSumH(i64 n) {\n    /*\n        \\sum_{i=0}^n frac{1}{i}\n\
     \        Time Complexity: O(\\sqrt(n)\\log n)\n    */\n    assert(n != 0);\n \
-    \   if (n == 1) return 1;\n    using poly = Poly<T, 3>;\n    i64 v = 1;\n    while\
+    \   if (n == 1) return 1;\n    using poly = Poly<T>;\n    i64 v = 1;\n    while\
     \ (v * v < n) v *= 2;\n    T iv = T(v).inverse();\n    std::array<poly, 3> G =\
     \ {poly({1, v + 1}), poly({1, 1}), poly({1, v + 1})};\n    for (i64 d = 1; d !=\
     \ v; d <<= 1ll) {\n        std::array<poly, 3> G1, G2, G3;\n        for (int i\
@@ -225,7 +238,7 @@ data:
   isVerificationFile: false
   path: Polynomial/PrefixSumH.hpp
   requiredBy: []
-  timestamp: '2023-02-11 22:39:37+08:00'
+  timestamp: '2023-04-12 00:19:37+08:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Polynomial/PrefixSumH.hpp

@@ -7,7 +7,7 @@ data:
   - icon: ':warning:'
     path: Matrix/LinearEquation.hpp
     title: Matrix/LinearEquation.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
