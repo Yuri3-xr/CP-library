@@ -1,15 +1,14 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/inv_of_formal_power_series"
 
-#include "../ModInt/Modint32_change.hpp"
+#include "../ModInt/Modint32.hpp"
 #include "../Polynomial/Poly.hpp"
 #include "../Template/Template.hpp"
 
 int main() {
     int n, m;
 
-    int mod = 998244353;
-    using Z = mintc;
-    Z::set_mod(mod);
+    constexpr int mod = 998244353;
+    using Z = mint<mod>;
     using poly = Poly<Z>;
 
     std::cin >> n;
