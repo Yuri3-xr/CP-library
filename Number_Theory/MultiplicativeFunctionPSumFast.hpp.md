@@ -7,10 +7,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: Polynomial/LagrangeInterpolation.hpp
     title: Polynomial/LagrangeInterpolation.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Power.hpp
     title: Template/Power.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []

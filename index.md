@@ -39,7 +39,7 @@ data:
     - icon: ':warning:'
       path: ModInt/Binomial.hpp
       title: ModInt/Binomial.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: ModInt/Modint32.hpp
       title: ModInt/Modint32.hpp
     - icon: ':warning:'
@@ -82,7 +82,7 @@ data:
       title: Number_Theory/SumofFloor.hpp
   - name: Polynomial
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Polynomial/CoeffofRationalFunction.hpp
       title: Polynomial/CoeffofRationalFunction.hpp
     - icon: ':warning:'
@@ -91,13 +91,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: Polynomial/LagrangeInterpolation.hpp
       title: Polynomial/LagrangeInterpolation.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Polynomial/LinearlyRecurrent.hpp
       title: Polynomial/LinearlyRecurrent.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Polynomial/Ntt.hpp
       title: Polynomial/Ntt.hpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Polynomial/Poly.hpp
       title: Polynomial/Poly.hpp
     - icon: ':warning:'
@@ -122,10 +122,10 @@ data:
       title: String/Trie.hpp
   - name: Template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Power.hpp
       title: Template/Power.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: Template/Template.hpp
       title: Template/Template.hpp
   - name: Tree
@@ -145,16 +145,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/Factorize.test.cpp
       title: Verify/Factorize.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/InvofFormalPowerSeries.test.cpp
       title: Verify/InvofFormalPowerSeries.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
       title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/MinofModofLinear.test.cpp
       title: Verify/MinofModofLinear.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/Multipoint_Evaluation.test.cpp
       title: Verify/Multipoint_Evaluation.test.cpp
     - icon: ':heavy_check_mark:'
@@ -163,7 +163,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/PointAddRangeSum.test.cpp
       title: Verify/PointAddRangeSum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/Polynomial_Interpolation.test.cpp
       title: Verify/Polynomial_Interpolation.test.cpp
     - icon: ':heavy_check_mark:'
@@ -187,7 +187,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/VertexAddPathSum.test.cpp
       title: Verify/VertexAddPathSum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Verify/convolution.test.cpp
       title: Verify/convolution.test.cpp
 layout: toppage
