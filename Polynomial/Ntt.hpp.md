@@ -18,6 +18,9 @@ data:
     path: Polynomial/LinearlyRecurrent.hpp
     title: Polynomial/LinearlyRecurrent.hpp
   - icon: ':heavy_check_mark:'
+    path: Polynomial/NttLarge.hpp
+    title: Polynomial/NttLarge.hpp
+  - icon: ':heavy_check_mark:'
     path: Polynomial/Poly.hpp
     title: Polynomial/Poly.hpp
   - icon: ':warning:'
@@ -27,6 +30,9 @@ data:
     path: Polynomial/PrefixSumH.hpp
     title: Polynomial/PrefixSumH.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: Verify/ConvolutionLarge.test.cpp
+    title: Verify/ConvolutionLarge.test.cpp
   - icon: ':heavy_check_mark:'
     path: Verify/InvofFormalPowerSeries.test.cpp
     title: Verify/InvofFormalPowerSeries.test.cpp
@@ -146,6 +152,7 @@ data:
   - Polynomial/CoeffofRationalFunction.hpp
   - Polynomial/Factorial.hpp
   - Polynomial/LinearlyRecurrent.hpp
+  - Polynomial/NttLarge.hpp
   - Polynomial/PrefixSumH.hpp
   timestamp: '2023-04-12 00:49:31+08:00'
   verificationStatus: LIBRARY_ALL_AC
@@ -154,6 +161,7 @@ data:
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/convolution.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
+  - Verify/ConvolutionLarge.test.cpp
   - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
 documentation_of: Polynomial/Ntt.hpp
 layout: document
