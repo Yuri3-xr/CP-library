@@ -9,7 +9,7 @@ T factorial(i64 n) {
         n!
         Time Complexity: O(\sqrt(n)\log(n))
     */
-    using poly = Poly<T, 3>;
+    using poly = Poly<T>;
 
     if (n <= 1) return T(1);
 

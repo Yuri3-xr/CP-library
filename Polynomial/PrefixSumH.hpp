@@ -10,7 +10,7 @@ T PrefixSumH(i64 n) {
     */
     assert(n != 0);
     if (n == 1) return 1;
-    using poly = Poly<T, 3>;
+    using poly = Poly<T>;
     i64 v = 1;
     while (v * v < n) v *= 2;
     T iv = T(v).inverse();

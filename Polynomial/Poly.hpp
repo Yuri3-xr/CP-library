@@ -2,7 +2,7 @@
 
 #include "Ntt.hpp"
 
-template <class Z, int rt>
+template <class Z>
 struct Poly {
     std::vector<Z> a;
     Poly() {}
@@ -53,7 +53,7 @@ struct Poly {
         if (a.size() == 0 || b.size() == 0) {
             return Poly();
         }
-        static NTT<Z, rt> ntt;
+        static NTT<Z> ntt;
         return ntt.multiply(a.a, b.a);
     }
     friend Poly operator*(Z a, Poly b) {

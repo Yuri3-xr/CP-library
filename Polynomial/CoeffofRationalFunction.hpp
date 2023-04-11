@@ -3,8 +3,8 @@
 #include "../Template/Template.hpp"
 #include "Poly.hpp"
 
-template <class Z, int rt>
-Z CoeffofRationalFunction(Poly<Z, rt> P, Poly<Z, rt> Q, i64 k) {
+template <class Z>
+Z CoeffofRationalFunction(Poly<Z> P, Poly<Z> Q, i64 k) {
     Z ret = 0;
     if (P.size() >= Q.size()) {
         auto R = P / Q;
@@ -16,10 +16,10 @@ Z CoeffofRationalFunction(Poly<Z, rt> P, Poly<Z, rt> Q, i64 k) {
     P.a.resize(int(Q.size()) - 1);
 
     while (k > 0) {
-        Poly<Z, rt> Q2(Q.a);
+        Poly<Z> Q2(Q.a);
         for (int i = 1; i < int(Q2.size()); i += 2) Q2[i] = -Q2[i];
-        auto sub = [&](const Poly<Z, rt> &as, bool odd) {
-            Poly<Z, rt> bs((as.size() + !odd) / 2, 0);
+        auto sub = [&](const Poly<Z> &as, bool odd) {
+            Poly<Z> bs((as.size() + !odd) / 2, 0);
             for (int i = odd; i < (int)as.size(); i += 2) bs[i >> 1] = as[i];
             return bs;
         };

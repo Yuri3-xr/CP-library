@@ -9,7 +9,7 @@ int main() {
 
     constexpr int mod = 998244353;
     using Z = mint<mod>;
-    using poly = Poly<Z, 3>;
+    using poly = Poly<Z>;
 
     std::cin >> n >> m;
 

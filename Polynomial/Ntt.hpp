@@ -2,10 +2,47 @@
 
 #include "../Template/Power.hpp"
 #include "../Template/Template.hpp"
-template <class Z, int rt>
+template <class Z>
 struct NTT {
     std::vector<int> rev;
     std::vector<Z> roots{0, 1};
+
+    static constexpr uint32_t getRoot() {
+        auto _mod = Z::get_mod();
+        using u64 = uint64_t;
+        u64 ds[32] = {};
+        int idx = 0;
+        u64 m = _mod - 1;
+        for (u64 i = 2; i * i <= m; ++i) {
+            if (m % i == 0) {
+                ds[idx++] = i;
+                while (m % i == 0) m /= i;
+            }
+        }
+        if (m != 1) ds[idx++] = m;
+
+        uint32_t _pr = 2;
+        for (;;) {
+            int flg = 1;
+            for (int i = 0; i < idx; ++i) {
+                u64 a = _pr, b = (_mod - 1) / ds[i], r = 1;
+                for (; b; a = a * a % _mod, b /= 2) {
+                    if (b % 2 == 1) r = r * a % _mod;
+                }
+                if (r == 1) {
+                    flg = 0;
+                    break;
+                }
+            }
+            if (flg == 1) break;
+            ++_pr;
+        }
+        return _pr;
+    };
+
+    static constexpr uint32_t mod = Z::get_mod();
+    static constexpr uint32_t rt = getRoot();
+
     void dft(std::vector<Z> &a) {
         int n = a.size();
 
@@ -26,7 +63,7 @@ struct NTT {
             int k = __builtin_ctz(roots.size());
             roots.resize(n);
             while ((1 << k) < n) {
-                Z e = power(Z(rt), (Z::get_mod() - 1) >> (k + 1));
+                Z e = power(Z(rt), (mod - 1) >> (k + 1));
                 for (int i = 1 << (k - 1); i < (1 << k); i++) {
                     roots[2 * i] = roots[i];
                     roots[2 * i + 1] = roots[i] * e;
@@ -49,7 +86,7 @@ struct NTT {
         int n = a.size();
         reverse(a.begin() + 1, a.end());
         dft(a);
-        Z inv = (1 - Z::get_mod()) / n;
+        Z inv = (1 - mod) / n;
         for (int i = 0; i < n; i++) {
             a[i] *= inv;
         }

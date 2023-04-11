@@ -11,7 +11,7 @@ int main() {
 
     constexpr int mod = 998244353;
     using Z = mint<mod>;
-    using poly = Poly<Z, 3>;
+    using poly = Poly<Z>;
 
     int d;
     i64 k;
@@ -20,7 +20,7 @@ int main() {
     for (int i = 0; i < d; i++) std::cin >> a[i];
     for (int i = 0; i < d; i++) std::cin >> c[i];
 
-    std::cout << LinearlyRecurrent<Z, 3>(a, c, k) << std::endl;
+    std::cout << LinearlyRecurrent<Z>(a, c, k) << std::endl;
 
     return 0;
 }

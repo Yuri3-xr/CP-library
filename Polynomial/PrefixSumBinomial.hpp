@@ -11,7 +11,7 @@ T PrefixSumBinomial(i64 m, i64 n) {
     */
     if (m == 0) return 1;
     if (m == 1) return n + 1;
-    using poly = Poly<T, 3>;
+    using poly = Poly<T>;
     m += 1;
     i64 v = 1;
     while (v * v < m) v *= 2;

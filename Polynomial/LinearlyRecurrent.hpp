@@ -2,8 +2,8 @@
 
 #include "CoeffofRationalFunction.hpp"
 
-template <class Z, int rt>
-Z LinearlyRecurrent(const Poly<Z, rt> &a, Poly<Z, rt> c, i64 k) {
+template <class Z>
+Z LinearlyRecurrent(const Poly<Z> &a, Poly<Z> c, i64 k) {
     /*
         a_n=\sum_{d=1^t} c_d * a_{n-d}
         give a_0,a_1,...,a_{t-1}
@@ -12,6 +12,6 @@ Z LinearlyRecurrent(const Poly<Z, rt> &a, Poly<Z, rt> c, i64 k) {
         TC: O(t\logt\logk)
     */
     assert(a.size() == c.size());
-    c = Poly<Z, rt>{1} - c.mulxk(1);
-    return CoeffofRationalFunction<Z, rt>((a * c).modxk(a.size()), c, k);
+    c = Poly<Z>{1} - c.mulxk(1);
+    return CoeffofRationalFunction<Z>((a * c).modxk(a.size()), c, k);
 }

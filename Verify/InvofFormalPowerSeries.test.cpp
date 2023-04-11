@@ -10,7 +10,7 @@ int main() {
     int mod = 998244353;
     using Z = mintc;
     Z::set_mod(mod);
-    using poly = Poly<Z, 3>;
+    using poly = Poly<Z>;
 
     std::cin >> n;
 
