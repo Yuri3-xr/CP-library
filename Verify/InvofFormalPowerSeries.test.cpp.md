@@ -1,9 +1,9 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
-    path: ModInt/Modint32_change.hpp
-    title: ModInt/Modint32_change.hpp
+  - icon: ':question:'
+    path: ModInt/Modint32.hpp
+    title: ModInt/Modint32.hpp
   - icon: ':x:'
     path: Polynomial/Ntt.hpp
     title: Polynomial/Ntt.hpp
@@ -28,66 +28,63 @@ data:
     - https://judge.yosupo.jp/problem/inv_of_formal_power_series
   bundledCode: "#line 1 \"Verify/InvofFormalPowerSeries.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/inv_of_formal_power_series\"\n\n#line 2 \"\
-    ModInt/Modint32_change.hpp\"\n\n#line 2 \"Template/Template.hpp\"\n\n#include\
-    \ <bits/stdc++.h>\n\nusing i64 = std::int64_t;\n#line 4 \"ModInt/Modint32_change.hpp\"\
-    \nstruct mintc {\n    int x;\n    using Type = int;\n    static Type mod;\n  \
-    \  mintc() : x(0) {}\n    mintc(int64_t y) : x(y >= 0 ? y % mod : (mod - (-y)\
-    \ % mod) % mod) {}\n    mintc &operator+=(const mintc &p) {\n        if ((x +=\
-    \ p.x) >= mod) x -= mod;\n        return *this;\n    }\n    mintc &operator-=(const\
-    \ mintc &p) {\n        if ((x += mod - p.x) >= mod) x -= mod;\n        return\
-    \ *this;\n    }\n    mintc &operator*=(const mintc &p) {\n        x = (int)(1LL\
-    \ * x * p.x % mod);\n        return *this;\n    }\n    mintc &operator/=(const\
-    \ mintc &p) {\n        *this *= p.inverse();\n        return *this;\n    }\n \
-    \   mintc operator-() const { return mintc(-x); }\n    mintc operator+(const mintc\
-    \ &p) const { return mintc(*this) += p; }\n    mintc operator-(const mintc &p)\
-    \ const { return mintc(*this) -= p; }\n    mintc operator*(const mintc &p) const\
-    \ { return mintc(*this) *= p; }\n    mintc operator/(const mintc &p) const { return\
-    \ mintc(*this) /= p; }\n    bool operator==(const mintc &p) const { return x ==\
-    \ p.x; }\n    bool operator!=(const mintc &p) const { return x != p.x; }\n   \
-    \ mintc inverse() const {\n        int a = x, b = mod, u = 1, v = 0, t;\n    \
-    \    while (b > 0) {\n            t = a / b;\n            std::swap(a -= t * b,\
-    \ b);\n            std::swap(u -= t * v, v);\n        }\n        return mintc(u);\n\
-    \    }\n    friend std::ostream &operator<<(std::ostream &os, const mintc &p)\
-    \ {\n        return os << p.x;\n    }\n    friend std::istream &operator>>(std::istream\
-    \ &is, mintc &a) {\n        int64_t t;\n        is >> t;\n        a = mintc(t);\n\
-    \        return (is);\n    }\n    int get() const { return x; }\n    static int\
-    \ get_mod() { return mod; }\n    static void set_mod(int md) {\n        assert(0\
-    \ < md && md <= (1LL << 30) - 1);\n        mod = md;\n    }\n};\n\ntypename mintc::Type\
-    \ mintc::mod;\n#line 2 \"Polynomial/Poly.hpp\"\n\n#line 2 \"Polynomial/Ntt.hpp\"\
-    \n\n#line 1 \"Template/Power.hpp\"\ntemplate <class T>\nT power(T a, int b) {\n\
-    \    T res = 1;\n    for (; b; b /= 2, a *= a) {\n        if (b % 2) {\n     \
-    \       res *= a;\n        }\n    }\n    return res;\n}\n#line 5 \"Polynomial/Ntt.hpp\"\
-    \ntemplate <class Z>\nstruct NTT {\n    std::vector<int> rev;\n    std::vector<Z>\
-    \ roots{0, 1};\n\n    static constexpr uint32_t getRoot() {\n        auto _mod\
-    \ = Z::get_mod();\n        using u64 = uint64_t;\n        u64 ds[32] = {};\n \
-    \       int idx = 0;\n        u64 m = _mod - 1;\n        for (u64 i = 2; i * i\
-    \ <= m; ++i) {\n            if (m % i == 0) {\n                ds[idx++] = i;\n\
-    \                while (m % i == 0) m /= i;\n            }\n        }\n      \
-    \  if (m != 1) ds[idx++] = m;\n\n        uint32_t _pr = 2;\n        for (;;) {\n\
-    \            int flg = 1;\n            for (int i = 0; i < idx; ++i) {\n     \
-    \           u64 a = _pr, b = (_mod - 1) / ds[i], r = 1;\n                for (;\
-    \ b; a = a * a % _mod, b /= 2) {\n                    if (b % 2 == 1) r = r *\
-    \ a % _mod;\n                }\n                if (r == 1) {\n              \
-    \      flg = 0;\n                    break;\n                }\n            }\n\
-    \            if (flg == 1) break;\n            ++_pr;\n        }\n        return\
-    \ _pr;\n    };\n\n    static constexpr uint32_t mod = Z::get_mod();\n    static\
-    \ constexpr uint32_t rt = getRoot();\n\n    void dft(std::vector<Z> &a) {\n  \
-    \      int n = a.size();\n\n        if (int(rev.size()) != n) {\n            int\
-    \ k = __builtin_ctz(n) - 1;\n            rev.resize(n);\n            for (int\
-    \ i = 0; i < n; i++) {\n                rev[i] = rev[i >> 1] >> 1 | (i & 1) <<\
-    \ k;\n            }\n        }\n\n        for (int i = 0; i < n; i++) {\n    \
-    \        if (rev[i] < i) {\n                std::swap(a[i], a[rev[i]]);\n    \
-    \        }\n        }\n        if (int(roots.size()) < n) {\n            int k\
-    \ = __builtin_ctz(roots.size());\n            roots.resize(n);\n            while\
-    \ ((1 << k) < n) {\n                Z e = power(Z(rt), (mod - 1) >> (k + 1));\n\
-    \                for (int i = 1 << (k - 1); i < (1 << k); i++) {\n           \
-    \         roots[2 * i] = roots[i];\n                    roots[2 * i + 1] = roots[i]\
-    \ * e;\n                }\n                k++;\n            }\n        }\n  \
-    \      for (int k = 1; k < n; k *= 2) {\n            for (int i = 0; i < n; i\
-    \ += 2 * k) {\n                for (int j = 0; j < k; j++) {\n               \
-    \     Z u = a[i + j];\n                    Z v = a[i + j + k] * roots[k + j];\n\
-    \                    a[i + j] = u + v;\n                    a[i + j + k] = u -\
-    \ v;\n                }\n            }\n        }\n    }\n    void idft(std::vector<Z>\
+    ModInt/Modint32.hpp\"\n\n#line 2 \"Template/Template.hpp\"\n\n#include <bits/stdc++.h>\n\
+    \nusing i64 = std::int64_t;\n#line 4 \"ModInt/Modint32.hpp\"\n\ntemplate <int\
+    \ mod>\nstruct mint {\n    int x;\n    mint() : x(0) {}\n    mint(int64_t y) :\
+    \ x(y >= 0 ? y % mod : (mod - (-y) % mod) % mod) {}\n    mint &operator+=(const\
+    \ mint &p) {\n        if ((x += p.x) >= mod) x -= mod;\n        return *this;\n\
+    \    }\n    mint &operator-=(const mint &p) {\n        if ((x += mod - p.x) >=\
+    \ mod) x -= mod;\n        return *this;\n    }\n    mint &operator*=(const mint\
+    \ &p) {\n        x = (int)(1LL * x * p.x % mod);\n        return *this;\n    }\n\
+    \    mint &operator/=(const mint &p) {\n        *this *= p.inverse();\n      \
+    \  return *this;\n    }\n    mint operator-() const { return mint(-x); }\n   \
+    \ mint operator+(const mint &p) const { return mint(*this) += p; }\n    mint operator-(const\
+    \ mint &p) const { return mint(*this) -= p; }\n    mint operator*(const mint &p)\
+    \ const { return mint(*this) *= p; }\n    mint operator/(const mint &p) const\
+    \ { return mint(*this) /= p; }\n    bool operator==(const mint &p) const { return\
+    \ x == p.x; }\n    bool operator!=(const mint &p) const { return x != p.x; }\n\
+    \    mint inverse() const {\n        int a = x, b = mod, u = 1, v = 0, t;\n  \
+    \      while (b > 0) {\n            t = a / b;\n            std::swap(a -= t *\
+    \ b, b);\n            std::swap(u -= t * v, v);\n        }\n        return mint(u);\n\
+    \    }\n    friend std::ostream &operator<<(std::ostream &os, const mint &p) {\n\
+    \        return os << p.x;\n    }\n    friend std::istream &operator>>(std::istream\
+    \ &is, mint &a) {\n        int64_t t;\n        is >> t;\n        a = mint<mod>(t);\n\
+    \        return (is);\n    }\n    int get() const { return x; }\n    static constexpr\
+    \ int get_mod() { return mod; }\n};\n#line 2 \"Polynomial/Poly.hpp\"\n\n#line\
+    \ 2 \"Polynomial/Ntt.hpp\"\n\n#line 1 \"Template/Power.hpp\"\ntemplate <class\
+    \ T>\nT power(T a, int b) {\n    T res = 1;\n    for (; b; b /= 2, a *= a) {\n\
+    \        if (b % 2) {\n            res *= a;\n        }\n    }\n    return res;\n\
+    }\n#line 5 \"Polynomial/Ntt.hpp\"\ntemplate <class Z>\nstruct NTT {\n    std::vector<int>\
+    \ rev;\n    std::vector<Z> roots{0, 1};\n\n    static constexpr uint32_t getRoot()\
+    \ {\n        auto _mod = Z::get_mod();\n        using u64 = uint64_t;\n      \
+    \  u64 ds[32] = {};\n        int idx = 0;\n        u64 m = _mod - 1;\n       \
+    \ for (u64 i = 2; i * i <= m; ++i) {\n            if (m % i == 0) {\n        \
+    \        ds[idx++] = i;\n                while (m % i == 0) m /= i;\n        \
+    \    }\n        }\n        if (m != 1) ds[idx++] = m;\n\n        uint32_t _pr\
+    \ = 2;\n        for (;;) {\n            int flg = 1;\n            for (int i =\
+    \ 0; i < idx; ++i) {\n                u64 a = _pr, b = (_mod - 1) / ds[i], r =\
+    \ 1;\n                for (; b; a = a * a % _mod, b /= 2) {\n                \
+    \    if (b % 2 == 1) r = r * a % _mod;\n                }\n                if\
+    \ (r == 1) {\n                    flg = 0;\n                    break;\n     \
+    \           }\n            }\n            if (flg == 1) break;\n            ++_pr;\n\
+    \        }\n        return _pr;\n    };\n\n    static constexpr uint32_t mod =\
+    \ Z::get_mod();\n    static constexpr uint32_t rt = getRoot();\n\n    void dft(std::vector<Z>\
+    \ &a) {\n        int n = a.size();\n\n        if (int(rev.size()) != n) {\n  \
+    \          int k = __builtin_ctz(n) - 1;\n            rev.resize(n);\n       \
+    \     for (int i = 0; i < n; i++) {\n                rev[i] = rev[i >> 1] >> 1\
+    \ | (i & 1) << k;\n            }\n        }\n\n        for (int i = 0; i < n;\
+    \ i++) {\n            if (rev[i] < i) {\n                std::swap(a[i], a[rev[i]]);\n\
+    \            }\n        }\n        if (int(roots.size()) < n) {\n            int\
+    \ k = __builtin_ctz(roots.size());\n            roots.resize(n);\n           \
+    \ while ((1 << k) < n) {\n                Z e = power(Z(rt), (mod - 1) >> (k +\
+    \ 1));\n                for (int i = 1 << (k - 1); i < (1 << k); i++) {\n    \
+    \                roots[2 * i] = roots[i];\n                    roots[2 * i + 1]\
+    \ = roots[i] * e;\n                }\n                k++;\n            }\n  \
+    \      }\n        for (int k = 1; k < n; k *= 2) {\n            for (int i = 0;\
+    \ i < n; i += 2 * k) {\n                for (int j = 0; j < k; j++) {\n      \
+    \              Z u = a[i + j];\n                    Z v = a[i + j + k] * roots[k\
+    \ + j];\n                    a[i + j] = u + v;\n                    a[i + j +\
+    \ k] = u - v;\n                }\n            }\n        }\n    }\n    void idft(std::vector<Z>\
     \ &a) {\n        int n = a.size();\n        reverse(a.begin() + 1, a.end());\n\
     \        dft(a);\n        Z inv = (1 - mod) / n;\n        for (int i = 0; i <\
     \ n; i++) {\n            a[i] *= inv;\n        }\n    }\n    std::vector<Z> multiply(std::vector<Z>\
@@ -211,21 +208,20 @@ data:
     \    for (int i = 0; i < m; i++) {\n            ret[i] = cur * dh[k + i];\n  \
     \          cur *= T + i + 1;\n            cur *= h[i];\n        }\n        return\
     \ ret;\n    }\n};\n#line 6 \"Verify/InvofFormalPowerSeries.test.cpp\"\n\nint main()\
-    \ {\n    int n, m;\n\n    int mod = 998244353;\n    using Z = mintc;\n    Z::set_mod(mod);\n\
+    \ {\n    int n, m;\n\n    constexpr int mod = 998244353;\n    using Z = mint<mod>;\n\
     \    using poly = Poly<Z>;\n\n    std::cin >> n;\n\n    poly f(n, 0);\n    for\
     \ (int i = 0; i < n; i++) std::cin >> f[i];\n\n    auto ans = f.inv(n);\n    for\
     \ (int i = 0; i < n; i++) std::cout << ans[i] << \" \\n\"[i == n - 1];\n\n   \
     \ return 0;\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inv_of_formal_power_series\"\
-    \n\n#include \"../ModInt/Modint32_change.hpp\"\n#include \"../Polynomial/Poly.hpp\"\
-    \n#include \"../Template/Template.hpp\"\n\nint main() {\n    int n, m;\n\n   \
-    \ int mod = 998244353;\n    using Z = mintc;\n    Z::set_mod(mod);\n    using\
-    \ poly = Poly<Z>;\n\n    std::cin >> n;\n\n    poly f(n, 0);\n    for (int i =\
-    \ 0; i < n; i++) std::cin >> f[i];\n\n    auto ans = f.inv(n);\n    for (int i\
-    \ = 0; i < n; i++) std::cout << ans[i] << \" \\n\"[i == n - 1];\n\n    return\
-    \ 0;\n}"
+    \n\n#include \"../ModInt/Modint32.hpp\"\n#include \"../Polynomial/Poly.hpp\"\n\
+    #include \"../Template/Template.hpp\"\n\nint main() {\n    int n, m;\n\n    constexpr\
+    \ int mod = 998244353;\n    using Z = mint<mod>;\n    using poly = Poly<Z>;\n\n\
+    \    std::cin >> n;\n\n    poly f(n, 0);\n    for (int i = 0; i < n; i++) std::cin\
+    \ >> f[i];\n\n    auto ans = f.inv(n);\n    for (int i = 0; i < n; i++) std::cout\
+    \ << ans[i] << \" \\n\"[i == n - 1];\n\n    return 0;\n}"
   dependsOn:
-  - ModInt/Modint32_change.hpp
+  - ModInt/Modint32.hpp
   - Template/Template.hpp
   - Polynomial/Poly.hpp
   - Polynomial/Ntt.hpp
@@ -233,7 +229,7 @@ data:
   isVerificationFile: true
   path: Verify/InvofFormalPowerSeries.test.cpp
   requiredBy: []
-  timestamp: '2023-04-12 00:19:37+08:00'
+  timestamp: '2023-04-12 00:30:40+08:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Verify/InvofFormalPowerSeries.test.cpp

@@ -42,7 +42,7 @@ data:
     - icon: ':question:'
       path: ModInt/Modint32.hpp
       title: ModInt/Modint32.hpp
-    - icon: ':x:'
+    - icon: ':warning:'
       path: ModInt/Modint32_change.hpp
       title: ModInt/Modint32_change.hpp
   - name: Number_Theory

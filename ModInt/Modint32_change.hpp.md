@@ -5,13 +5,10 @@ data:
     path: Template/Template.hpp
     title: Template/Template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: Verify/InvofFormalPowerSeries.test.cpp
-    title: Verify/InvofFormalPowerSeries.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"ModInt/Modint32_change.hpp\"\n\n#line 2 \"Template/Template.hpp\"\
@@ -70,9 +67,8 @@ data:
   path: ModInt/Modint32_change.hpp
   requiredBy: []
   timestamp: '2023-02-11 22:28:05+08:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - Verify/InvofFormalPowerSeries.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: ModInt/Modint32_change.hpp
 layout: document
 redirect_from:

@@ -7,6 +7,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
+    path: Verify/InvofFormalPowerSeries.test.cpp
+    title: Verify/InvofFormalPowerSeries.test.cpp
+  - icon: ':x:'
     path: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
     title: Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - icon: ':x:'
@@ -85,6 +88,7 @@ data:
   timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - Verify/InvofFormalPowerSeries.test.cpp
   - Verify/SumofTotientFunction2.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
