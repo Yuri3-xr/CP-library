@@ -63,7 +63,7 @@ struct NTT {
             int k = __builtin_ctz(roots.size());
             roots.resize(n);
             while ((1 << k) < n) {
-                Z e = power(Z(rt), (mod - 1) >> (k + 1));
+                Z e = power(Z(rt), (Z::get_mod() - 1) >> (k + 1));
                 for (int i = 1 << (k - 1); i < (1 << k); i++) {
                     roots[2 * i] = roots[i];
                     roots[2 * i + 1] = roots[i] * e;
@@ -86,7 +86,7 @@ struct NTT {
         int n = a.size();
         reverse(a.begin() + 1, a.end());
         dft(a);
-        Z inv = (1 - mod) / n;
+        Z inv = (1 - Z::get_mod()) / n;
         for (int i = 0; i < n; i++) {
             a[i] *= inv;
         }
