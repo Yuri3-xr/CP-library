@@ -3,13 +3,14 @@
 #include "../Template/Template.hpp"
 
 namespace Geometry {
-using T = i64;
-constexpr T eps = 0;
+// using T = i64;
+// constexpr T eps = 0;
 
-// using T = double;
-// constexpr T eps = 1E-10;
+using T = double;
+constexpr T eps = 1E-10;
 
 bool equal(const T &x, const T &y) { return abs(x - y) <= eps; }
+int sgn(T x) { return (x > 0) - (x < 0); }
 inline constexpr int type(T x, T y) {
     if (x == 0 and y == 0) return 0;
     if (y < 0 or (y == 0 and x > 0)) return -1;
@@ -33,13 +34,19 @@ struct Point {
         return x -= p.x, y -= p.y, *this;
     }
     constexpr T operator*(const Point &p) const { return x * p.x + y * p.y; }
+    const Point operator/(T d) const { return Point(x / d, y / d); }
     constexpr Point &operator*=(const T &k) { return x *= k, y *= k, *this; }
     constexpr Point operator*(const T &k) { return Point(x * k, y * k); }
     constexpr bool operator==(const Point &r) const noexcept {
         return r.x == x and r.y == y;
     }
+    constexpr bool operator!=(const Point &r) const noexcept {
+        return !(*this == r);
+    }
     constexpr T cross(const Point &r) const { return x * r.y - y * r.x; }
-
+    constexpr T cross(Point a, Point b) const {
+        return (a - *this).cross(b - *this);
+    }
     constexpr bool operator<(const Point &r) const {
         return std::pair(x, y) < std::pair(r.x, r.y);
     }
@@ -160,6 +167,23 @@ bool intersect(const Segment &s, const Segment &t) {
            ccw(t.a, t.b, s.a) * ccw(t.a, t.b, s.b) <= 0;
 }
 
+std::vector<Point> segInter(const Segment &sa, const Segment &sb) {
+    // if no intersect point return {}
+    // if inf intersect points return two end point
+    auto a = sa.a, b = sa.b;
+    auto c = sb.a, d = sb.b;
+    auto oa = c.cross(d, a), ob = c.cross(d, b), oc = a.cross(b, c),
+         od = a.cross(b, d);
+    if (sgn(oa) * sgn(ob) < 0 && sgn(oc) * sgn(od) < 0)
+        return {(a * ob - b * oa) / (ob - oa)};
+    std::set<Point> s;
+    if (intersect(Segment(c, d), a)) s.insert(a);
+    if (intersect(Segment(c, d), b)) s.insert(b);
+    if (intersect(Segment(a, b), c)) s.insert(c);
+    if (intersect(Segment(a, b), d)) s.insert(d);
+    return {begin(s), end(s)};
+}
+
 bool intersect(const Polygon &ps, const Polygon &qs) {
     int pl = size(ps), ql = size(qs), i = 0, j = 0;
     while ((i < pl or j < ql) and (i < 2 * pl) and (j < 2 * ql)) {
@@ -233,7 +257,6 @@ Points convexHull(Points p) {
     return ch;
 }
 
-// 面積の 2 倍
 T area2(const Points &p) {
     T res = 0;
     for (int i = 0; i < (int)p.size(); i++) {
@@ -306,6 +329,7 @@ int containsHullPointFast(const Polygon &p, const Point &a) {
 }
 
 Points halfplaneIntersection(std::vector<Line> L, const T inf = 1e9) {
+    // left half plane
     Point box[4] = {Point(inf, inf), Point(-inf, inf), Point(-inf, -inf),
                     Point(inf, -inf)};
     for (int i = 0; i < 4; i++) {
@@ -347,4 +371,4 @@ Points halfplaneIntersection(std::vector<Line> L, const T inf = 1e9) {
 
     return ret;
 }
-}  // namespace Geometry
+} 
