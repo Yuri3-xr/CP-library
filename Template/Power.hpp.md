@@ -70,25 +70,25 @@ data:
   path: Template/Power.hpp
   requiredBy:
   - Number_Theory/MultiplicativeFunctionPSumFast.hpp
-  - Polynomial/Poly.hpp
-  - Polynomial/PrefixSumBinomial.hpp
+  - Polynomial/PrefixSumH.hpp
+  - Polynomial/LinearlyRecurrent.hpp
   - Polynomial/CoeffofRationalFunction.hpp
   - Polynomial/Factorial.hpp
-  - Polynomial/LinearlyRecurrent.hpp
+  - Polynomial/Poly.hpp
   - Polynomial/NttLarge.hpp
+  - Polynomial/PrefixSumBinomial.hpp
   - Polynomial/Ntt.hpp
-  - Polynomial/PrefixSumH.hpp
   timestamp: '2022-08-20 01:45:54+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/InvofFormalPowerSeries.test.cpp
-  - Verify/SumofTotientFunction2.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
-  - Verify/convolution.test.cpp
   - Verify/CountingPrimes.test.cpp
-  - Verify/Polynomial_Interpolation.test.cpp
-  - Verify/ConvolutionLarge.test.cpp
+  - Verify/convolution.test.cpp
   - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+  - Verify/InvofFormalPowerSeries.test.cpp
+  - Verify/Polynomial_Interpolation.test.cpp
+  - Verify/SumofTotientFunction2.test.cpp
+  - Verify/ConvolutionLarge.test.cpp
 documentation_of: Template/Power.hpp
 layout: document
 redirect_from:

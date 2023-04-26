@@ -23,6 +23,11 @@ data:
     - icon: ':warning:'
       path: Geometry/GeometryTemplate.hpp
       title: Geometry/GeometryTemplate.hpp
+  - name: Graph
+    pages:
+    - icon: ':warning:'
+      path: Graph/MaxFlow.hpp
+      title: Graph/MaxFlow.hpp
   - name: Matrix
     pages:
     - icon: ':warning:'

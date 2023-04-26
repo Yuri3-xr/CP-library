@@ -53,14 +53,14 @@ data:
   isVerificationFile: false
   path: DataStructure/RMQ.hpp
   requiredBy:
-  - String/SuffixArray.hpp
   - String/SuffixArrayFast.hpp
+  - String/SuffixArray.hpp
   timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/NumberofSubstrings.test.cpp
   - Verify/StaticRMQ.test.cpp
   - Verify/SuffixArray.test.cpp
-  - Verify/NumberofSubstrings.test.cpp
 documentation_of: DataStructure/RMQ.hpp
 layout: document
 redirect_from:
