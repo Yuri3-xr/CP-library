@@ -108,6 +108,7 @@
         "stacktrace": "cpp",
         "stop_token": "cpp",
         "syncstream": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "__verbose_abort": "cpp"
     }
 }
