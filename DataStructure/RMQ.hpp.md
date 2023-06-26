@@ -59,8 +59,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Verify/NumberofSubstrings.test.cpp
-  - Verify/StaticRMQ.test.cpp
   - Verify/SuffixArray.test.cpp
+  - Verify/StaticRMQ.test.cpp
 documentation_of: DataStructure/RMQ.hpp
 layout: document
 redirect_from:

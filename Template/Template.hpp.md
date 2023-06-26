@@ -18,6 +18,9 @@ data:
     path: Geometry/GeometryTemplate.hpp
     title: Geometry/GeometryTemplate.hpp
   - icon: ':warning:'
+    path: Graph/BlockCutTree.hpp
+    title: Graph/BlockCutTree.hpp
+  - icon: ':warning:'
     path: Graph/MaxFlow.hpp
     title: Graph/MaxFlow.hpp
   - icon: ':warning:'
@@ -196,65 +199,66 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy:
-  - Matrix/LinearEquation.hpp
-  - Matrix/AdjugateMatrix.hpp
-  - Matrix/GaussElimination.hpp
-  - Tree/HeavyLightDecomposition.hpp
-  - String/SuffixArrayFast.hpp
-  - String/SuffixArray.hpp
-  - String/ACAutomaton.hpp
-  - String/Trie.hpp
-  - Number_Theory/PNSieve.hpp
-  - Number_Theory/Gauss-Integer.hpp
-  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
-  - Number_Theory/Prime_Sieve.hpp
-  - Number_Theory/OsakDivisorsFast.hpp
-  - Number_Theory/OsakDivisors.hpp
-  - Number_Theory/Binary-Gcd.hpp
   - Number_Theory/SumofFloor.hpp
+  - Number_Theory/Gauss-Integer.hpp
+  - Number_Theory/OsakDivisorsFast.hpp
+  - Number_Theory/Prime_Sieve.hpp
+  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - Number_Theory/Mf_Sieve.hpp
-  - Number_Theory/Factorization.hpp
   - Number_Theory/MinofMod.hpp
+  - Number_Theory/PNSieve.hpp
+  - Number_Theory/OsakDivisors.hpp
+  - Number_Theory/Factorization.hpp
+  - Number_Theory/Binary-Gcd.hpp
+  - Graph/MaxFlow.hpp
+  - Graph/BlockCutTree.hpp
+  - String/Trie.hpp
+  - String/SuffixArrayFast.hpp
+  - String/ACAutomaton.hpp
+  - String/SuffixArray.hpp
+  - ModInt/Modint32.hpp
+  - ModInt/Binomial.hpp
+  - ModInt/Modint32_change.hpp
+  - Tree/HeavyLightDecomposition.hpp
+  - Geometry/GeometryTemplate.hpp
+  - Polynomial/LagrangeInterpolation.hpp
+  - Polynomial/PrefixSumBinomial.hpp
+  - Polynomial/NttLarge.hpp
+  - Polynomial/CoeffofRationalFunction.hpp
+  - Polynomial/Ntt.hpp
+  - Polynomial/LinearlyRecurrent.hpp
+  - Polynomial/Factorial.hpp
+  - Polynomial/PrefixSumH.hpp
+  - Polynomial/Poly.hpp
+  - DataStructure/LazySegmentTree.hpp
   - DataStructure/SegmentTree.hpp
   - DataStructure/RMQ.hpp
   - DataStructure/AndOrSegmentTreeBeats.hpp
-  - DataStructure/LazySegmentTree.hpp
-  - ModInt/Modint32_change.hpp
-  - ModInt/Binomial.hpp
-  - ModInt/Modint32.hpp
-  - Geometry/GeometryTemplate.hpp
-  - Polynomial/PrefixSumH.hpp
-  - Polynomial/LinearlyRecurrent.hpp
-  - Polynomial/CoeffofRationalFunction.hpp
-  - Polynomial/Factorial.hpp
-  - Polynomial/Poly.hpp
-  - Polynomial/LagrangeInterpolation.hpp
-  - Polynomial/NttLarge.hpp
-  - Polynomial/PrefixSumBinomial.hpp
-  - Polynomial/Ntt.hpp
-  - Graph/MaxFlow.hpp
+  - Matrix/LinearEquation.hpp
+  - Matrix/AdjugateMatrix.hpp
+  - Matrix/GaussElimination.hpp
   timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/Multipoint_Evaluation.test.cpp
-  - Verify/CountingPrimes.test.cpp
-  - Verify/convolution.test.cpp
-  - Verify/Factorize.test.cpp
-  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
-  - Verify/NumberofSubstrings.test.cpp
-  - Verify/Sum_of_Totient_Function.test.cpp
-  - Verify/VertexAddPathSum.test.cpp
-  - Verify/ACAutomaton.test.cpp
-  - Verify/PointAddRangeSum.test.cpp
-  - Verify/StaticRMQ.test.cpp
-  - Verify/InvofFormalPowerSeries.test.cpp
-  - Verify/Polynomial_Interpolation.test.cpp
-  - Verify/SuffixArray.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp
-  - Verify/SumofTotientFunction2.test.cpp
-  - Verify/MinofModofLinear.test.cpp
-  - Verify/ConvolutionLarge.test.cpp
+  - Verify/Polynomial_Interpolation.test.cpp
   - Verify/SumofFloorofLinear.test.cpp
+  - Verify/Multipoint_Evaluation.test.cpp
+  - Verify/PointAddRangeSum.test.cpp
+  - Verify/ACAutomaton.test.cpp
+  - Verify/SumofTotientFunction2.test.cpp
+  - Verify/NumberofSubstrings.test.cpp
+  - Verify/InvofFormalPowerSeries.test.cpp
+  - Verify/VertexAddPathSum.test.cpp
+  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+  - Verify/SuffixArray.test.cpp
+  - Verify/StaticRMQ.test.cpp
+  - Verify/MinofModofLinear.test.cpp
+  - Verify/CountingPrimes.test.cpp
+  - Verify/Sum_of_Totient_Function.test.cpp
+  - Verify/ConvolutionLarge.test.cpp
+  - Verify/Factorize.test.cpp
+  - Verify/convolution.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
 redirect_from:
