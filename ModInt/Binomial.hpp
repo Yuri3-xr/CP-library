@@ -7,6 +7,9 @@ struct Binomial {
     std::vector<T> f, g, h;
     Binomial(int MAX = 0) {
         f.resize(1, T{1});
+        g.resize(1, T{1});
+        h.resize(1, T{1});
+
         while (MAX >= (int)f.size()) extend();
     }
 
