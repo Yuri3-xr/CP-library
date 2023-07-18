@@ -44,6 +44,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Binary-Gcd.hpp
     title: Number_Theory/Binary-Gcd.hpp
+  - icon: ':warning:'
+    path: Number_Theory/Crt.hpp
+    title: Number_Theory/Crt.hpp
   - icon: ':heavy_check_mark:'
     path: Number_Theory/Factorization.hpp
     title: Number_Theory/Factorization.hpp
@@ -199,66 +202,67 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy:
-  - Number_Theory/SumofFloor.hpp
-  - Number_Theory/Gauss-Integer.hpp
-  - Number_Theory/OsakDivisorsFast.hpp
-  - Number_Theory/Prime_Sieve.hpp
-  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
-  - Number_Theory/Mf_Sieve.hpp
-  - Number_Theory/MinofMod.hpp
-  - Number_Theory/PNSieve.hpp
-  - Number_Theory/OsakDivisors.hpp
-  - Number_Theory/Factorization.hpp
-  - Number_Theory/Binary-Gcd.hpp
-  - Graph/MaxFlow.hpp
+  - Matrix/LinearEquation.hpp
+  - Matrix/GaussElimination.hpp
+  - Matrix/AdjugateMatrix.hpp
   - Graph/BlockCutTree.hpp
-  - String/Trie.hpp
-  - String/SuffixArrayFast.hpp
-  - String/ACAutomaton.hpp
-  - String/SuffixArray.hpp
-  - ModInt/Modint32.hpp
-  - ModInt/Binomial.hpp
+  - Graph/MaxFlow.hpp
+  - Number_Theory/OsakDivisors.hpp
+  - Number_Theory/Crt.hpp
+  - Number_Theory/PNSieve.hpp
+  - Number_Theory/MinofMod.hpp
+  - Number_Theory/SumofFloor.hpp
+  - Number_Theory/Prime_Sieve.hpp
+  - Number_Theory/Gauss-Integer.hpp
+  - Number_Theory/Factorization.hpp
+  - Number_Theory/Mf_Sieve.hpp
+  - Number_Theory/Binary-Gcd.hpp
+  - Number_Theory/OsakDivisorsFast.hpp
+  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - ModInt/Modint32_change.hpp
-  - Tree/HeavyLightDecomposition.hpp
+  - ModInt/Binomial.hpp
+  - ModInt/Modint32.hpp
+  - String/ACAutomaton.hpp
+  - String/SuffixArrayFast.hpp
+  - String/Trie.hpp
+  - String/SuffixArray.hpp
+  - DataStructure/RMQ.hpp
+  - DataStructure/SegmentTree.hpp
+  - DataStructure/LazySegmentTree.hpp
+  - DataStructure/AndOrSegmentTreeBeats.hpp
   - Geometry/GeometryTemplate.hpp
-  - Polynomial/LagrangeInterpolation.hpp
+  - Polynomial/Poly.hpp
+  - Polynomial/Ntt.hpp
+  - Polynomial/Factorial.hpp
   - Polynomial/PrefixSumBinomial.hpp
+  - Polynomial/LagrangeInterpolation.hpp
+  - Polynomial/LinearlyRecurrent.hpp
+  - Polynomial/PrefixSumH.hpp
   - Polynomial/NttLarge.hpp
   - Polynomial/CoeffofRationalFunction.hpp
-  - Polynomial/Ntt.hpp
-  - Polynomial/LinearlyRecurrent.hpp
-  - Polynomial/Factorial.hpp
-  - Polynomial/PrefixSumH.hpp
-  - Polynomial/Poly.hpp
-  - DataStructure/LazySegmentTree.hpp
-  - DataStructure/SegmentTree.hpp
-  - DataStructure/RMQ.hpp
-  - DataStructure/AndOrSegmentTreeBeats.hpp
-  - Matrix/LinearEquation.hpp
-  - Matrix/AdjugateMatrix.hpp
-  - Matrix/GaussElimination.hpp
+  - Tree/HeavyLightDecomposition.hpp
   timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/RangeAffineRangeSum.test.cpp
+  - Verify/Factorize.test.cpp
+  - Verify/VertexAddPathSum.test.cpp
+  - Verify/CountingPrimes.test.cpp
+  - Verify/StaticRMQ.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
+  - Verify/ConvolutionLarge.test.cpp
+  - Verify/ACAutomaton.test.cpp
+  - Verify/convolution.test.cpp
+  - Verify/RangeAffineRangeSum.test.cpp
+  - Verify/NumberofSubstrings.test.cpp
   - Verify/SumofFloorofLinear.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
-  - Verify/PointAddRangeSum.test.cpp
-  - Verify/ACAutomaton.test.cpp
   - Verify/SumofTotientFunction2.test.cpp
-  - Verify/NumberofSubstrings.test.cpp
-  - Verify/InvofFormalPowerSeries.test.cpp
-  - Verify/VertexAddPathSum.test.cpp
-  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
-  - Verify/SuffixArray.test.cpp
-  - Verify/StaticRMQ.test.cpp
   - Verify/MinofModofLinear.test.cpp
-  - Verify/CountingPrimes.test.cpp
   - Verify/Sum_of_Totient_Function.test.cpp
-  - Verify/ConvolutionLarge.test.cpp
-  - Verify/Factorize.test.cpp
-  - Verify/convolution.test.cpp
+  - Verify/PointAddRangeSum.test.cpp
+  - Verify/SuffixArray.test.cpp
+  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+  - Verify/InvofFormalPowerSeries.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
 redirect_from:
