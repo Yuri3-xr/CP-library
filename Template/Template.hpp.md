@@ -21,6 +21,9 @@ data:
     path: Graph/BlockCutTree.hpp
     title: Graph/BlockCutTree.hpp
   - icon: ':warning:'
+    path: Graph/DominatorTree.hpp
+    title: Graph/DominatorTree.hpp
+  - icon: ':warning:'
     path: Graph/MaxFlow.hpp
     title: Graph/MaxFlow.hpp
   - icon: ':warning:'
@@ -205,6 +208,7 @@ data:
   - Matrix/LinearEquation.hpp
   - Matrix/GaussElimination.hpp
   - Matrix/AdjugateMatrix.hpp
+  - Graph/DominatorTree.hpp
   - Graph/BlockCutTree.hpp
   - Graph/MaxFlow.hpp
   - Number_Theory/OsakDivisors.hpp
