@@ -58,15 +58,15 @@ data:
   path: Number_Theory/Prime_Sieve.hpp
   requiredBy:
   - Number_Theory/OsakDivisors.hpp
+  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   - Number_Theory/PNSieve.hpp
   - Number_Theory/Mf_Sieve.hpp
-  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
   timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/CountingPrimes.test.cpp
-  - Verify/SumofTotientFunction2.test.cpp
   - Verify/Sum_of_Totient_Function.test.cpp
+  - Verify/SumofTotientFunction2.test.cpp
+  - Verify/CountingPrimes.test.cpp
 documentation_of: Number_Theory/Prime_Sieve.hpp
 layout: document
 redirect_from:

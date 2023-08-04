@@ -128,6 +128,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: String/ACAutomaton.hpp
       title: String/ACAutomaton.hpp
+    - icon: ':warning:'
+      path: String/PAM.hpp
+      title: String/PAM.hpp
     - icon: ':heavy_check_mark:'
       path: String/SuffixArray.hpp
       title: String/SuffixArray.hpp

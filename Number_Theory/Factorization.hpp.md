@@ -88,8 +88,8 @@ data:
   isVerificationFile: false
   path: Number_Theory/Factorization.hpp
   requiredBy:
-  - Number_Theory/Gauss-Integer.hpp
   - Number_Theory/OsakDivisorsFast.hpp
+  - Number_Theory/Gauss-Integer.hpp
   timestamp: '2023-04-03 20:03:50+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

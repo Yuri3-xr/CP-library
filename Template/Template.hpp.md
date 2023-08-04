@@ -110,6 +110,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: String/ACAutomaton.hpp
     title: String/ACAutomaton.hpp
+  - icon: ':warning:'
+    path: String/PAM.hpp
+    title: String/PAM.hpp
   - icon: ':heavy_check_mark:'
     path: String/SuffixArray.hpp
     title: String/SuffixArray.hpp
@@ -205,68 +208,69 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy:
-  - Matrix/LinearEquation.hpp
-  - Matrix/GaussElimination.hpp
-  - Matrix/AdjugateMatrix.hpp
-  - Graph/DominatorTree.hpp
-  - Graph/BlockCutTree.hpp
-  - Graph/MaxFlow.hpp
-  - Number_Theory/OsakDivisors.hpp
-  - Number_Theory/Crt.hpp
-  - Number_Theory/PNSieve.hpp
-  - Number_Theory/MinofMod.hpp
-  - Number_Theory/SumofFloor.hpp
-  - Number_Theory/Prime_Sieve.hpp
-  - Number_Theory/Gauss-Integer.hpp
-  - Number_Theory/Factorization.hpp
-  - Number_Theory/Mf_Sieve.hpp
-  - Number_Theory/Binary-Gcd.hpp
-  - Number_Theory/OsakDivisorsFast.hpp
-  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
+  - Tree/HeavyLightDecomposition.hpp
+  - ModInt/Modint32.hpp
   - ModInt/Modint32_change.hpp
   - ModInt/Binomial.hpp
-  - ModInt/Modint32.hpp
-  - String/ACAutomaton.hpp
+  - DataStructure/LazySegmentTree.hpp
+  - DataStructure/SegmentTree.hpp
+  - DataStructure/AndOrSegmentTreeBeats.hpp
+  - DataStructure/RMQ.hpp
   - String/SuffixArrayFast.hpp
   - String/Trie.hpp
+  - String/ACAutomaton.hpp
+  - String/PAM.hpp
   - String/SuffixArray.hpp
-  - DataStructure/RMQ.hpp
-  - DataStructure/SegmentTree.hpp
-  - DataStructure/LazySegmentTree.hpp
-  - DataStructure/AndOrSegmentTreeBeats.hpp
-  - Geometry/GeometryTemplate.hpp
-  - Polynomial/Poly.hpp
-  - Polynomial/Ntt.hpp
-  - Polynomial/Factorial.hpp
-  - Polynomial/PrefixSumBinomial.hpp
-  - Polynomial/LagrangeInterpolation.hpp
-  - Polynomial/LinearlyRecurrent.hpp
-  - Polynomial/PrefixSumH.hpp
+  - Matrix/GaussElimination.hpp
+  - Matrix/AdjugateMatrix.hpp
+  - Matrix/LinearEquation.hpp
+  - Graph/BlockCutTree.hpp
+  - Graph/MaxFlow.hpp
+  - Graph/DominatorTree.hpp
   - Polynomial/NttLarge.hpp
   - Polynomial/CoeffofRationalFunction.hpp
-  - Tree/HeavyLightDecomposition.hpp
+  - Polynomial/PrefixSumH.hpp
+  - Polynomial/LagrangeInterpolation.hpp
+  - Polynomial/Poly.hpp
+  - Polynomial/PrefixSumBinomial.hpp
+  - Polynomial/Factorial.hpp
+  - Polynomial/Ntt.hpp
+  - Polynomial/LinearlyRecurrent.hpp
+  - Number_Theory/MinofMod.hpp
+  - Number_Theory/OsakDivisors.hpp
+  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
+  - Number_Theory/Factorization.hpp
+  - Number_Theory/SumofFloor.hpp
+  - Number_Theory/OsakDivisorsFast.hpp
+  - Number_Theory/Prime_Sieve.hpp
+  - Number_Theory/PNSieve.hpp
+  - Number_Theory/Gauss-Integer.hpp
+  - Number_Theory/Binary-Gcd.hpp
+  - Number_Theory/Crt.hpp
+  - Number_Theory/Mf_Sieve.hpp
+  - Geometry/GeometryTemplate.hpp
   timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Verify/NumberofSubstrings.test.cpp
   - Verify/Factorize.test.cpp
-  - Verify/VertexAddPathSum.test.cpp
-  - Verify/CountingPrimes.test.cpp
-  - Verify/StaticRMQ.test.cpp
+  - Verify/SumofFloorofLinear.test.cpp
+  - Verify/MinofModofLinear.test.cpp
   - Verify/Polynomial_Interpolation.test.cpp
-  - Verify/ConvolutionLarge.test.cpp
-  - Verify/ACAutomaton.test.cpp
+  - Verify/VertexAddPathSum.test.cpp
+  - Verify/Sum_of_Totient_Function.test.cpp
+  - Verify/StaticRMQ.test.cpp
+  - Verify/SuffixArray.test.cpp
   - Verify/convolution.test.cpp
   - Verify/RangeAffineRangeSum.test.cpp
-  - Verify/NumberofSubstrings.test.cpp
-  - Verify/SumofFloorofLinear.test.cpp
-  - Verify/Multipoint_Evaluation.test.cpp
   - Verify/SumofTotientFunction2.test.cpp
-  - Verify/MinofModofLinear.test.cpp
-  - Verify/Sum_of_Totient_Function.test.cpp
-  - Verify/PointAddRangeSum.test.cpp
-  - Verify/SuffixArray.test.cpp
+  - Verify/Multipoint_Evaluation.test.cpp
+  - Verify/ACAutomaton.test.cpp
   - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp
+  - Verify/ConvolutionLarge.test.cpp
+  - Verify/PointAddRangeSum.test.cpp
+  - Verify/CountingPrimes.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
 redirect_from:

@@ -326,11 +326,11 @@ data:
   isVerificationFile: false
   path: Polynomial/Poly.hpp
   requiredBy:
-  - Polynomial/Factorial.hpp
-  - Polynomial/PrefixSumBinomial.hpp
-  - Polynomial/LinearlyRecurrent.hpp
-  - Polynomial/PrefixSumH.hpp
   - Polynomial/CoeffofRationalFunction.hpp
+  - Polynomial/PrefixSumH.hpp
+  - Polynomial/PrefixSumBinomial.hpp
+  - Polynomial/Factorial.hpp
+  - Polynomial/LinearlyRecurrent.hpp
   timestamp: '2023-04-12 00:49:31+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
