@@ -109,6 +109,8 @@
         "stop_token": "cpp",
         "syncstream": "cpp",
         "filesystem": "cpp",
-        "__verbose_abort": "cpp"
+        "__verbose_abort": "cpp",
+        "format": "cpp",
+        "stdfloat": "cpp"
     }
 }
