@@ -326,19 +326,19 @@ data:
   isVerificationFile: false
   path: Polynomial/Poly.hpp
   requiredBy:
-  - Polynomial/CoeffofRationalFunction.hpp
-  - Polynomial/PrefixSumH.hpp
   - Polynomial/PrefixSumBinomial.hpp
-  - Polynomial/Factorial.hpp
+  - Polynomial/PrefixSumH.hpp
   - Polynomial/LinearlyRecurrent.hpp
+  - Polynomial/CoeffofRationalFunction.hpp
+  - Polynomial/Factorial.hpp
   timestamp: '2023-04-12 00:49:31+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/Polynomial_Interpolation.test.cpp
   - Verify/convolution.test.cpp
+  - Verify/InvofFormalPowerSeries.test.cpp
+  - Verify/Polynomial_Interpolation.test.cpp
   - Verify/Multipoint_Evaluation.test.cpp
   - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
-  - Verify/InvofFormalPowerSeries.test.cpp
 documentation_of: Polynomial/Poly.hpp
 layout: document
 redirect_from:

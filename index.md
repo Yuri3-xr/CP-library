@@ -13,6 +13,9 @@ data:
       path: DataStructure/LazySegmentTree.hpp
       title: DataStructure/LazySegmentTree.hpp
     - icon: ':heavy_check_mark:'
+      path: DataStructure/PersistentSegmentTree.hpp
+      title: DataStructure/PersistentSegmentTree.hpp
+    - icon: ':heavy_check_mark:'
       path: DataStructure/RMQ.hpp
       title: DataStructure/RMQ.hpp
     - icon: ':heavy_check_mark:'
@@ -192,6 +195,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Verify/RangeAffineRangeSum.test.cpp
       title: Verify/RangeAffineRangeSum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: Verify/RangeKthSmallest.test.cpp
+      title: Verify/RangeKthSmallest.test.cpp
     - icon: ':heavy_check_mark:'
       path: Verify/StaticRMQ.test.cpp
       title: Verify/StaticRMQ.test.cpp

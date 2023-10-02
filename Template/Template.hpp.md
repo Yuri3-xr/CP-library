@@ -9,6 +9,9 @@ data:
     path: DataStructure/LazySegmentTree.hpp
     title: DataStructure/LazySegmentTree.hpp
   - icon: ':heavy_check_mark:'
+    path: DataStructure/PersistentSegmentTree.hpp
+    title: DataStructure/PersistentSegmentTree.hpp
+  - icon: ':heavy_check_mark:'
     path: DataStructure/RMQ.hpp
     title: DataStructure/RMQ.hpp
   - icon: ':heavy_check_mark:'
@@ -163,6 +166,9 @@ data:
     path: Verify/RangeAffineRangeSum.test.cpp
     title: Verify/RangeAffineRangeSum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: Verify/RangeKthSmallest.test.cpp
+    title: Verify/RangeKthSmallest.test.cpp
+  - icon: ':heavy_check_mark:'
     path: Verify/StaticRMQ.test.cpp
     title: Verify/StaticRMQ.test.cpp
   - icon: ':heavy_check_mark:'
@@ -208,69 +214,71 @@ data:
   isVerificationFile: false
   path: Template/Template.hpp
   requiredBy:
-  - Tree/HeavyLightDecomposition.hpp
-  - ModInt/Modint32.hpp
-  - ModInt/Modint32_change.hpp
-  - ModInt/Binomial.hpp
-  - DataStructure/LazySegmentTree.hpp
-  - DataStructure/SegmentTree.hpp
-  - DataStructure/AndOrSegmentTreeBeats.hpp
-  - DataStructure/RMQ.hpp
-  - String/SuffixArrayFast.hpp
-  - String/Trie.hpp
-  - String/ACAutomaton.hpp
-  - String/PAM.hpp
-  - String/SuffixArray.hpp
-  - Matrix/GaussElimination.hpp
-  - Matrix/AdjugateMatrix.hpp
-  - Matrix/LinearEquation.hpp
   - Graph/BlockCutTree.hpp
   - Graph/MaxFlow.hpp
   - Graph/DominatorTree.hpp
-  - Polynomial/NttLarge.hpp
-  - Polynomial/CoeffofRationalFunction.hpp
-  - Polynomial/PrefixSumH.hpp
-  - Polynomial/LagrangeInterpolation.hpp
-  - Polynomial/Poly.hpp
-  - Polynomial/PrefixSumBinomial.hpp
-  - Polynomial/Factorial.hpp
-  - Polynomial/Ntt.hpp
-  - Polynomial/LinearlyRecurrent.hpp
-  - Number_Theory/MinofMod.hpp
-  - Number_Theory/OsakDivisors.hpp
-  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
-  - Number_Theory/Factorization.hpp
-  - Number_Theory/SumofFloor.hpp
-  - Number_Theory/OsakDivisorsFast.hpp
-  - Number_Theory/Prime_Sieve.hpp
-  - Number_Theory/PNSieve.hpp
-  - Number_Theory/Gauss-Integer.hpp
-  - Number_Theory/Binary-Gcd.hpp
-  - Number_Theory/Crt.hpp
-  - Number_Theory/Mf_Sieve.hpp
   - Geometry/GeometryTemplate.hpp
+  - String/SuffixArray.hpp
+  - String/SuffixArrayFast.hpp
+  - String/PAM.hpp
+  - String/ACAutomaton.hpp
+  - String/Trie.hpp
+  - Tree/HeavyLightDecomposition.hpp
+  - Polynomial/PrefixSumBinomial.hpp
+  - Polynomial/PrefixSumH.hpp
+  - Polynomial/LinearlyRecurrent.hpp
+  - Polynomial/Poly.hpp
+  - Polynomial/CoeffofRationalFunction.hpp
+  - Polynomial/LagrangeInterpolation.hpp
+  - Polynomial/Factorial.hpp
+  - Polynomial/NttLarge.hpp
+  - Polynomial/Ntt.hpp
+  - ModInt/Modint32_change.hpp
+  - ModInt/Binomial.hpp
+  - ModInt/Modint32.hpp
+  - DataStructure/LazySegmentTree.hpp
+  - DataStructure/RMQ.hpp
+  - DataStructure/AndOrSegmentTreeBeats.hpp
+  - DataStructure/PersistentSegmentTree.hpp
+  - DataStructure/SegmentTree.hpp
+  - Matrix/AdjugateMatrix.hpp
+  - Matrix/GaussElimination.hpp
+  - Matrix/LinearEquation.hpp
+  - Number_Theory/Mf_Sieve.hpp
+  - Number_Theory/SumofFloor.hpp
+  - Number_Theory/Factorization.hpp
+  - Number_Theory/Crt.hpp
+  - Number_Theory/PNSieve.hpp
+  - Number_Theory/Binary-Gcd.hpp
+  - Number_Theory/MinofMod.hpp
+  - Number_Theory/MultiplicativeFunctionPSumFast.hpp
+  - Number_Theory/OsakDivisorsFast.hpp
+  - Number_Theory/OsakDivisors.hpp
+  - Number_Theory/Prime_Sieve.hpp
+  - Number_Theory/Gauss-Integer.hpp
   timestamp: '2023-02-11 22:28:05+08:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Verify/NumberofSubstrings.test.cpp
-  - Verify/Factorize.test.cpp
-  - Verify/SumofFloorofLinear.test.cpp
-  - Verify/MinofModofLinear.test.cpp
-  - Verify/Polynomial_Interpolation.test.cpp
-  - Verify/VertexAddPathSum.test.cpp
-  - Verify/Sum_of_Totient_Function.test.cpp
-  - Verify/StaticRMQ.test.cpp
-  - Verify/SuffixArray.test.cpp
   - Verify/convolution.test.cpp
-  - Verify/RangeAffineRangeSum.test.cpp
-  - Verify/SumofTotientFunction2.test.cpp
-  - Verify/Multipoint_Evaluation.test.cpp
   - Verify/ACAutomaton.test.cpp
-  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
   - Verify/InvofFormalPowerSeries.test.cpp
-  - Verify/ConvolutionLarge.test.cpp
-  - Verify/PointAddRangeSum.test.cpp
   - Verify/CountingPrimes.test.cpp
+  - Verify/ConvolutionLarge.test.cpp
+  - Verify/NumberofSubstrings.test.cpp
+  - Verify/VertexAddPathSum.test.cpp
+  - Verify/PointAddRangeSum.test.cpp
+  - Verify/SumofFloorofLinear.test.cpp
+  - Verify/RangeKthSmallest.test.cpp
+  - Verify/Polynomial_Interpolation.test.cpp
+  - Verify/MinofModofLinear.test.cpp
+  - Verify/Multipoint_Evaluation.test.cpp
+  - Verify/Sum_of_Totient_Function.test.cpp
+  - Verify/KthtermofLinearlyRecurrentSequence.test.cpp
+  - Verify/RangeAffineRangeSum.test.cpp
+  - Verify/StaticRMQ.test.cpp
+  - Verify/Factorize.test.cpp
+  - Verify/SuffixArray.test.cpp
+  - Verify/SumofTotientFunction2.test.cpp
 documentation_of: Template/Template.hpp
 layout: document
 redirect_from:
