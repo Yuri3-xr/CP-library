@@ -11,6 +11,7 @@
 "Verify/PointAddRangeSum.test.cpp": "2023-02-11 22:28:05 +0800",
 "Verify/Polynomial_Interpolation.test.cpp": "2023-04-12 00:49:31 +0800",
 "Verify/RangeAffineRangeSum.test.cpp": "2023-02-11 22:28:05 +0800",
+"Verify/RangeKthSmallest.test.cpp": "2023-10-02 22:35:22 +0800",
 "Verify/StaticRMQ.test.cpp": "2023-02-11 22:28:05 +0800",
 "Verify/SuffixArray.test.cpp": "2023-02-11 22:28:05 +0800",
 "Verify/Sum_of_Totient_Function.test.cpp": "2023-02-11 22:28:05 +0800",
